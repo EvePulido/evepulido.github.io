@@ -1,55 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Control MQTT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Remoto MQTT</title>
   <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-  <style>
-    button {
-      padding: 20px;
-      font-size: 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <h2>Control Remoto MQTT</h2>
-  <button id="control">Presionar y Mantener</button>
+  <header>
+    <div class="borde-interno">
+      <h1>CONTROL REMOTO</h1>
+    </div>
+  </header>
+
+  <section class="contenedor-principal">
+    <div class="contenedor-gif">
+      <img src="img/carro.png" class="gif">
+    </div>
+    <div class="contenedor-control">
+      <div class="botones-fila1">
+        <button class="boton diagonal" id="btnAI"><img src="img/diagonal.png" class="icono-diagonal"></button>
+        <button class="boton" id="btnAdelante"><img src="img/flecha.png" class="icono"></button>
+        <button class="boton diagonal" id="btnAD"><img src="img/diagonal.png" class="icono-diagonal derecha"></button>
+      </div>
+      <div class="botones-fila2">
+        <button class="boton" id="btnIzquierda"><img src="img/flecha.png" class="icono izquierda"></button>
+        <button class="boton" id="claxon"><img src="img/claxon.png" class="claxon"></button>
+        <button class="boton" id="btnDerecha"><img src="img/flecha.png" class="icono derecha"></button>
+      </div>
+      <div class="botones-fila3">
+        <button class="boton diagonal" id="btnRI"><img src="img/diagonal.png" class="icono-diagonal izquierda abajo"></button>
+        <button class="boton" id="btnReversa"><img src="img/flecha.png" class="icono abajo"></button>
+        <button class="boton diagonal" id="btnED"><img src="img/diagonal.png" class="icono-diagonal derecha rotacion180"></button>
+      </div>
+      <div class="botones-fila4">
+        <button class="direccional" id="dirIzquierda"><img src="img/apagado.png" class="foco" id="foco1"></button>
+        <button class="boton-inferior" id="preventivas">Luces preventivas</button>
+        <button class="direccional" id="dirDerecha"><img src="img/apagado.png" class="foco" id="foco2"></button>
+      </div>
+    </div>
+  </section>
 
   <script>
-    // Conexión al broker MQTT (ej: broker público)
     const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt");
 
     client.on("connect", () => {
       console.log("Conectado al broker MQTT");
     });
 
-    const button = document.getElementById("control");
+    function send(cmd) {
+      client.publish("esp32/control", cmd);
+      console.log("Enviado:", cmd);
+    }
 
-    button.addEventListener("mousedown", () => {
-      client.publish("esp32/control", "adelante");
-      console.log("Enviado: adelante");
+    function bindButtonEvents(id, command) {
+      const btn = document.getElementById(id);
+      btn.addEventListener("mousedown", () => send(command));
+      btn.addEventListener("mouseup", () => send("stop"));
+      btn.addEventListener("mouseleave", () => send("stop"));
+      btn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        send(command);
+      });
+      btn.addEventListener("touchend", () => send("stop"));
+    }
+
+    // Movimiento direccional
+    bindButtonEvents("btnAdelante", "forward");
+    bindButtonEvents("btnReversa", "reverse");
+    bindButtonEvents("btnIzquierda", "left");
+    bindButtonEvents("btnDerecha", "right");
+    bindButtonEvents("btnAI", "forward_left");
+    bindButtonEvents("btnAD", "forward_right");
+    bindButtonEvents("btnRI", "reverse_left");
+    bindButtonEvents("btnED", "reverse_right");
+
+    // Claxon
+    bindButtonEvents("claxon", "claxon");
+
+    // Luces direccionales y preventivas
+    const foco1 = document.getElementById('foco1');
+    const foco2 = document.getElementById('foco2');
+
+    let encendidoIzquierda = false;
+    let encendidoDerecha = false;
+    let lucesPreventivas = false;
+
+    document.getElementById('dirIzquierda').addEventListener('click', () => {
+      encendidoIzquierda = !encendidoIzquierda;
+      foco1.src = encendidoIzquierda ? 'img/encendido.png' : 'img/apagado.png';
+      send(encendidoIzquierda ? 'light_left_on' : 'light_left_off');
     });
 
-    button.addEventListener("mouseup", () => {
-      client.publish("esp32/control", "parar");
-      console.log("Enviado: parar");
+    document.getElementById('dirDerecha').addEventListener('click', () => {
+      encendidoDerecha = !encendidoDerecha;
+      foco2.src = encendidoDerecha ? 'img/encendido.png' : 'img/apagado.png';
+      send(encendidoDerecha ? 'light_right_on' : 'light_right_off');
     });
 
-    // Para pantallas táctiles
-    button.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      client.publish("esp32/control", "adelante");
-    });
-
-    button.addEventListener("touchend", (e) => {
-      e.preventDefault();
-      client.publish("esp32/control", "parar");
+    document.getElementById('preventivas').addEventListener('click', () => {
+      lucesPreventivas = !lucesPreventivas;
+      foco1.src = lucesPreventivas ? 'img/encendido.png' : 'img/apagado.png';
+      foco2.src = lucesPreventivas ? 'img/encendido.png' : 'img/apagado.png';
+      send(lucesPreventivas ? 'hazard_on' : 'hazard_off');
     });
   </script>
 </body>
+
 </html>
