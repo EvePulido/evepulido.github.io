@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Control MQTT</title>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <style>
+    button {
+      padding: 20px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Control Remoto MQTT</h2>
+  <button id="control">Presionar y Mantener</button>
+
+  <script>
+    // Conexión al broker MQTT (ej: broker público)
+    const client = mqtt.connect("wss://test.mosquitto.org:8081");
+
+    client.on("connect", () => {
+      console.log("Conectado al broker MQTT");
+    });
+
+    const button = document.getElementById("control");
+
+    button.addEventListener("mousedown", () => {
+      client.publish("esp32/control", "adelante");
+      console.log("Enviado: adelante");
+    });
+
+    button.addEventListener("mouseup", () => {
+      client.publish("esp32/control", "parar");
+      console.log("Enviado: parar");
+    });
+
+    // Para pantallas táctiles
+    button.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      client.publish("esp32/control", "adelante");
+    });
+
+    button.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      client.publish("esp32/control", "parar");
+    });
+  </script>
+</body>
+</html>
