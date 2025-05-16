@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    background-color: #850987;
+}
+
+header {
+    position: relative;
+    box-shadow: 4px 4px 20px rgb(0, 0, 0);
+    border: solid 8px rgb(213, 89, 217);
+}
+
+.borde-interno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    border: solid 8px rgb(82, 27, 84);
+    box-shadow: 0 0.2px 8px rgb(247, 0, 255);
+    background-color: #1a1a1a;
+}
+
+
+h1 {
+    margin: 1em 3em 1em 3em;
+    font-family: "Sixtyfour Convergence", sans-serif;
+    text-align: center;
+    font-size: 2.5em;
+    animation: parpadeo-rojo 1.5s infinite alternate;
+    color: #00d9ff;
+    position: relative;
+    background-color: #1a1a1a;
+    z-index: 1;
+}
+
+.botones-fila1,
+.botones-fila2,
+.botones-fila3,
+.botones-fila4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-principal {
+    display: flex;
+    background-color: #1a1a1a;
+    margin: 2em 1.5em;
+    padding: 2em;
+    border: solid 8px rgb(71, 23, 72);
+}
+
+.contenedor-gif {
+    width: 49%;
+    height: 20em;
+    color: #ffffff;
+
+}
+
+.contenedor-gif {
+    margin-top: 1em;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-control {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+}
+
+.boton {
+    margin: 0.5em 0.8em;
+    width: 2.5em;
+    height: 2.5em;
+    background-color: #1a1a1a;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 10px #2200ff;
+    font-size: 24px;
+}
+
+.boton::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: transparent;
+    z-index: -1;
+    box-shadow:
+        0 0 0 2px #2200ff,
+        4px 0 0 0 #2200ff,
+        -4px 0 0 0 #2200ff,
+        0 4px 0 0 #2200ff,
+        0 -4px 0 0 #2200ff;
+}
+
+.boton:hover {
+    transform: scale(1.1);
+}
+
+.icono {
+    width: 1em;
+    transform-origin: center;
+}
+
+.abajo {
+    margin-top: 0.2em;
+    transform: scaleY(-1);
+}
+
+.izquierda {
+    margin-top: 0.1em;
+    transform: rotate(-90deg);
+}
+
+.derecha {
+    margin-top: 0.1em;
+    transform: rotate(90deg);
+}
+
+.claxon {
+    margin-top: 0.2em;
+    width: 1.5em;
+}
+
+.icono-diagonal {
+    opacity: 60%;
+    margin-top: 0.2em;
+    width: 1.2em;
+}
+
+.rotacion180 {
+    transform: rotate(180deg);
+}
+
+.direccional {
+    background-color: #1a1a1a;
+    border: none;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.foco {
+    width: 100%;
+    height: 100%;
+}
+
+.gif {
+    width: 80%;
+}
+
+.boton-inferior {
+    color: white;
+    font-family: "Pixelify Sans", sans-serif;
+    width: 8em;
+    margin: 2em 1em;
+    background-color: #1a1a1a;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 10px #f6ff00;
+    font-size: 1.15em;
+}
+
+.boton-inferior::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: transparent;
+    z-index: -1;
+    box-shadow:
+        0 0 0 2px #f6ff00,
+        4px 0 0 0 #f6ff00,
+        -4px 0 0 0 #f6ff00,
+        0 4px 0 0 #f6ff00,
+        0 -4px 0 0 #f6ff00;
+}
+
+.boton-inferior:hover {
+    transform: scale(1.1);
+}
+
+@keyframes parpadeo-rojo {
+    from {
+        text-shadow: 0 0 5px #af0000, 0 0 10px #af0000;
+    }
+
+    to {
+        text-shadow: 0 0 15px #131313, 0 0 25px #131313;
+    }
+}
+
+@media (max-width: 600px) {
+    .borde-interno {
+        margin: 0.5em 1em;
+        height: 7em;
+    }
+
+    .contenedor-principal {
+        display: block;
+        padding: 0.5em;
+    }
+
+    .contenedor-gif {
+        width: 100%;
+        height: 14em;
+        margin: 0em;
+
+    }
+
+    .gif {
+        margin-top: 0em;
+        width: 100%;
+        border-style: none;
+    }
+
+    .contenedor-control {
+        width: 100%;
+    }
+
+    .arte {
+        font-size: 0.1em;
+    }
+}
