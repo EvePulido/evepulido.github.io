@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Sixtyfour+Convergence&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
         <button class="boton diagonal" id="btnRI"><img src="img/diagonal.png"
             class="icono-diagonal izquierda abajo"></button>
         <button class="boton" id="btnReversa"><img src="img/flecha.png" class="icono abajo"></button>
-        <button class="boton diagonal" id="btnED"><img src="img/diagonal.png"
+        <button class="boton diagonal" id="btnRD"><img src="img/diagonal.png"
             class="icono-diagonal derecha rotacion180"></button>
       </div>
       <div class="botones-fila4">
@@ -56,7 +56,7 @@
     const client = new WebSocket("ws://" + window.location.hostname + ":3000");
 
     client.addEventListener("open", () => {
-      console.log("Conectado al servidor WebSocket"); // Confirmación de conexión
+      console.log("Conectado al servidor WebSocket");
     });
 
     function send(cmd) {
@@ -71,26 +71,26 @@
     function bindButtonEvents(id, command) {
       const btn = document.getElementById(id);
       btn.addEventListener("mousedown", () => send(command));
-      btn.addEventListener("mouseup", () => send("stop"));
+      btn.addEventListener("mouseup", () => send(6)); // 4 = stop
       btn.addEventListener("touchstart", (e) => {
         e.preventDefault();
         send(command);
       });
-      btn.addEventListener("touchend", () => send("stop"));
+      btn.addEventListener("touchend", () => send(6)); // 4 = stop
     }
 
     // Movimiento direccional
-    bindButtonEvents("btnAdelante", "forward");
-    bindButtonEvents("btnReversa", "reverse");
-    bindButtonEvents("btnIzquierda", "left");
-    bindButtonEvents("btnDerecha", "right");
-    bindButtonEvents("btnAI", "forward_left");
-    bindButtonEvents("btnAD", "forward_right");
-    bindButtonEvents("btnRI", "reverse_left");
-    bindButtonEvents("btnED", "reverse_right");
+    bindButtonEvents("btnAdelante", 2);   // forward
+    bindButtonEvents("btnReversa", 3);    // reverse
+    bindButtonEvents("btnIzquierda", 4);  // left
+    bindButtonEvents("btnDerecha", 5);    // right
+    bindButtonEvents("btnAI", 7);         // forward_left
+    bindButtonEvents("btnAD", 8);         // forward_right
+    bindButtonEvents("btnRI", 9);        // reverse_left
+    bindButtonEvents("btnRD", 10);        // reverse_right
 
     // Claxon
-    bindButtonEvents("claxon", "claxon");
+    bindButtonEvents("claxon", 11);        // claxon
 
     // Luces direccionales y preventivas
     const foco1 = document.getElementById('foco1');
@@ -103,20 +103,20 @@
     document.getElementById('dirIzquierda').addEventListener('click', () => {
       encendidoIzquierda = !encendidoIzquierda;
       foco1.src = encendidoIzquierda ? 'img/encendido.png' : 'img/apagado.png';
-      send(encendidoIzquierda ? 'light_left_on' : 'light_left_off');
+      send(12); // light_left_on / light_left_off
     });
 
     document.getElementById('dirDerecha').addEventListener('click', () => {
       encendidoDerecha = !encendidoDerecha;
       foco2.src = encendidoDerecha ? 'img/encendido.png' : 'img/apagado.png';
-      send(encendidoDerecha ? 'light_right_on' : 'light_right_off');
+      send(13); // light_right_on / light_right_off
     });
 
     document.getElementById('preventivas').addEventListener('click', () => {
       lucesPreventivas = !lucesPreventivas;
       foco1.src = lucesPreventivas ? 'img/encendido.png' : 'img/apagado.png';
       foco2.src = lucesPreventivas ? 'img/encendido.png' : 'img/apagado.png';
-      send(lucesPreventivas ? 'preventivas_on' : 'preventivas_off');
+      send(14); // preventivas_on / preventivas_off
     });
   </script>
 
