@@ -5,6 +5,11 @@ const archivos = [
     '/index.html',
     '/style.css',
     '/manifest.json',
+    '/app.js',
+    '/icons/icon192.png',
+    '/icons/icon512.png',
+    '/screenshots/screenshot-desktop.png',
+    '/screenshots/screenshot-mobile.jpg'
 ];
 
 self.addEventListener('install', event => { //Al instalarse
