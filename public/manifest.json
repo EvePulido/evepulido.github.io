@@ -1,0 +1,34 @@
+{
+  "name": "To-Do List App",
+  "short_name": "To-Do",
+  "description": "Aplicacion para gestionar tareas diarias.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "icons": [
+    {
+      "src": "icons/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-desktop.png",
+      "sizes": "1918x1018",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/screenshot-mobile.jpg",
+      "sizes": "610x1356",
+      "type": "image/png"
+    }
+  ]
+}
