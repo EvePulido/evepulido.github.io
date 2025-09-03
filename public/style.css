@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,7 +11,8 @@ body {
 
 main {
     padding: 2em;
-    max-width: 80%;
+    max-width: 900px;
+    margin: auto;
     display: block;
 }
 
@@ -19,26 +21,68 @@ header {
     color: white;
     padding: 1em;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-label, h4 {
+.card {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 12px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#toDoForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    align-items: center;
+}
+
+label {
     font-weight: bold;
-    margin-bottom: 0.8em;
-    margin-top: 1em;
-    display: block;
+    width: 100%;
 }
 
 #txtTarea {
-    width: 80%;
-    padding: 0.5em;
+    flex: 1;
+    min-width: 200px;
+    padding: 0.7em;
     border: 1px solid #ccc;
     border-radius: 0.5em;
-    margin-right: 1em;
+}
+
+#txtTarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    outline: none;
+}
+
+#btnAgregar {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 0.7em 1.2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+#btnAgregar:hover {
+    opacity: 0.9;
+}
+
+h4 {
+    font-weight: bold;
+    margin-bottom: 0.8em;
 }
 
 ul {
     margin-top: 1em;
     padding: 0;
+    list-style: none;
 }
 
 li {
@@ -49,18 +93,71 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
 }
 
 button {
-    background-color: #0d6efd;
-    color: white;
     font-weight: bold;
     border: none;
-    padding: 0.5em 1em;
     border-radius: 0.5em;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .btnEliminar {
     background-color: #dc3545;
+    color: white;
+    padding: 0.5em 1em;
+}
+
+.btnEliminar:hover {
+    opacity: 0.85;
+}
+
+/*Responsividad  */
+@media (max-width: 768px) {
+    main {
+        padding: 1em;
+    }
+
+    #toDoForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #txtTarea, 
+    #btnAgregar {
+        width: 100%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2em;
+        padding: 0.8em;
+    }
+
+    #txtTarea {
+        font-size: 0.9em;
+    }
+
+    #btnAgregar, 
+    .btnEliminar {
+        padding: 0.6em;
+        font-size: 0.9em;
+    }
+
+    li {
+        font-size: 0.9em;
+    }
 }
