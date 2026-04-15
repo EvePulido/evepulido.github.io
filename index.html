@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museo Universitario Alejandro Rangel Hidalgo</title>
+  <link rel="icon" type="image/x-icon" href="images/museo.ico" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header id="inicio">
+    <div class="header-bg"></div>
+
+    <div class="top-bar">
+      <div class="logo-group">
+        <span class="logo-abbr">MUARH</span>
+        <span class="logo-sub">Museo Universitario Alejandro Rangel Hidalgo</span>
+      </div>
+      <button onclick="window.location.href='#visita'" class="header-cta">Planifica tu visita</button>
+    </div>
+
+    <div class="hero">
+      <h1>Arte, memoria y<br><em>raíz prehispánica</em></h1>
+      <p>
+        En la ex Hacienda de Nogueras, construida a finales del siglo XVII,
+        resguardamos la colección arqueológica y artística reunida por el diseñador
+        e ilustrador colimense Alejandro Rangel Hidalgo a lo largo de su vida.
+      </p>
+      <div class="hero-btns">
+        <button onclick="window.location.href='#colecciones'" class="btn-primary">Explorar Colecciones</button>
+        <button onclick="window.location.href='#exhibiciones'" class="btn-outline">Salas del Museo</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="#colecciones">Colecciones</a></li>
+      <li><a href="#exhibiciones">Salas</a></li>
+      <li><a href="#visita">Planifica tu visita</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── COLECCIONES ── -->
+    <div id="colecciones">
+      <div class="collections-intro">
+        <p class="div-label">Nuestras Colecciones</p>
+        <h2 class="div-title">Cuatro salas que narran<br>una vida dedicada al arte</h2>
+        <div class="divider"></div>
+        <p>
+          El maestro Alejandro Rangel Hidalgo reunió durante décadas cerámica prehispánica
+          rescatada de las tumbas de tiro de la región de Comala, pinturas, muebles y piezas
+          de herrería de su autoría. Pasa el cursor sobre cada sala para descubrir más.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="artwork-card" onclick="openModal('obra1')" tabindex="0" role="button"
+          aria-label="Ver detalles: Sala Cerámica Prehispánica">
+          <div class="artwork-img-wrap">
+            <img
+              src="https://programadestinosmexico.com/wp-content/uploads/2023/10/Museo-Universitario-Alejandro-Rangel.jpg" alt=""
+              loading="lazy" />
+          </div>
+          <div class="artwork-info">
+            <p class="artwork-artist">Colección Arqueológica</p>
+            <p class="artwork-title">Sala Cerámica Prehispánica</p>
+            <p class="artwork-year">c. 600 a.C. – 500 a.C.</p>
+          </div>
+        </div>
+
+        <div class="artwork-card" onclick="openModal('obra2')" tabindex="0" role="button"
+          aria-label="Ver detalles: Sala Artesanías Comala">
+          <div class="artwork-img-wrap">
+            <img src="https://www.101museos.com/cms101/assets/galerias/-ala-de-pinturas-y-disen-o-de-mueble.jpg" loading="lazy" alt="" />
+          </div>
+          <div class="artwork-info">
+            <p class="artwork-artist">Diseño y Artesanía</p>
+            <p class="artwork-title">Sala Artesanías Comala</p>
+            <p class="artwork-year">Década de 1970</p>
+          </div>
+        </div>
+
+        <div class="artwork-card" onclick="openModal('obra3')" tabindex="0" role="button">
+          <div class="artwork-img-wrap">
+            <img src="https://www.101museos.com/cms101/assets/galerias/-epresentacio-n-de-cosina-rural-mexicana.jpg" loading="lazy" alt="" />
+          </div>
+          <div class="artwork-info">
+            <p class="artwork-artist">Recreación Museográfica</p>
+            <p class="artwork-title">Cocina Mexicana</p>
+            <p class="artwork-year">Utensilios prehispánicos y coloniales</p>
+          </div>
+        </div>
+
+        <div class="artwork-card" onclick="openModal('obra4')" tabindex="0" role="button"
+          aria-label="Ver detalles: Estudio del Maestro">
+          <div class="artwork-img-wrap">
+            <img src="https://sic.cultura.gob.mx/galeria_imagen/4f9825b129d7205_ok.jpg" alt=""loading="lazy" />
+          </div>
+          <div class="artwork-info">
+            <p class="artwork-artist">Espacio Personal</p>
+            <p class="artwork-title">Estudio del Maestro</p>
+            <p class="artwork-year">Objetos, fotografías y diseños</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── EXHIBICIONES ── -->
+    <div id="exhibiciones">
+      <p class="div-label">Recorrido por el museo</p>
+      <h2 class="div-title">Las cuatro salas permanentes</h2>
+      <div class="divider"></div>
+      <p style="font-size:1rem;line-height:1.9;color:var(--umber);max-width:580px;margin-bottom:2rem;">
+        El museo cuenta con una exhibición permanente distribuida en cuatro salas.
+        Las entradas se adquieren directamente en taquilla. Grupos escolares y
+        visitas guiadas con cupo máximo de 60 personas.
+      </p>
+      
+      <div class="table-wrap">
+        <table>
+          <caption>Información y costos de las salas de exhibición del museo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Sala</th>
+              <th scope="col">Contenido</th>
+              <th scope="col">Tipo de público</th>
+              <th scope="col">Admisión</th>
+              <th scope="col">Visita guiada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sala Cerámica Prehispánica</td>
+              <td>Más de 40 figuras animales de tumbas de tiro de los años 600 al 500 a.C.</td>
+              <td>Todo público</td>
+              <td>$20 MXN</td>
+              <td>Disponible</td>
+            </tr>
+            <tr>
+              <th scope="row">Sala Artesanías Comala</td>
+              <td>Diseños de Rangel Hidalgo para "Artesanías Comala", años 70</td>
+              <td>Todo público</td>
+              <td>$20 MXN</td>
+              <td>Disponible</td>
+            </tr>
+            <tr>
+              <th scope="row">Cocina Mexicana</td>
+              <td>Recreación museográfica con utensilios prehispánicos y coloniales</td>
+              <td>Todo público</td>
+              <td>$20 MXN</td>
+              <td>Disponible</td>
+            </tr>
+            <tr>
+              <th scope="row">Estudio del Maestro</td>
+              <td>Objetos personales, diseños y fotografías de la familia Rangel</td>
+              <td>Todo público</td>
+              <td>$20 MXN</td>
+              <td>Disponible</td>
+            </tr>
+            <tr>
+              <th scope="row">Visita Completa (4 salas)</td>
+              <td>Recorrido integral con guía especializado</td>
+              <td>Estudiantes / INAPAM</td>
+              <td>$10 MXN</td>
+              <td>Incluida</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ── VISITA + FORM ── -->
+    <div id="visita">
+      <div class="visita-inner">
+
+        <!-- Info -->
+        <div class="visita-info">
+          <p class="div-label">Planifica tu visita</p>
+          <h2 class="div-title" style="color:var(--ivory)">¿Cómo llegar y cuándo venir?</h2>
+          <div class="divider"></div>
+
+          <div class="info-block">
+            <h3>Horarios</h3>
+            <p>
+              Martes a domingo: 10:00 a 18:00 horas.<br>
+              Lunes: Cerrado.<br>
+              Lunes de puente o día festivo: 10:00 a 14:00 horas.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Dirección</h3>
+            <p>
+              Ex Hacienda de Nogueras s/n<br>
+              Nogueras, C.P. 28454<br>
+              Comala, Colima, México
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Contacto</h3>
+            <p>
+              Teléfono: (312) 315 6028<br>
+              Correo electrónico: alejandro_rangel@ucol.mx<br>
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Servicios</h3>
+            <p>
+              Visitas guiadas (máx. 60 personas).<br>
+              Información turística.<br>
+              Consulta de archivo bibliográfico.
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="form-card">
+          <h3>Reserva tu visita</h3>
+
+          <div class="form-row">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Ej. María López Hernández" />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="correo@ejemplo.com" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="fecha">Fecha de visita</label>
+              <input type="date" id="fecha"/>
+            </div>
+            <div class="form-row">
+              <label for="personas">N.° de personas</label>
+              <input type="number" id="personas" min="1" max="60" placeholder="1" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="exhibicion">Tipo de visitante</label>
+            <select id="exhibicion">
+              <option value="">— Selecciona una opción —</option>
+              <option>Público general ($20 MXN)</option>
+              <option>Estudiante / Maestro / INAPAM ($10 MXN)</option>
+              <option>Turista extranjero ($30 MXN)</option>
+              <option>Grupo escolar con visita guiada</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="notas">Notas adicionales</label>
+            <textarea id="notas"
+              placeholder="Requerimientos especiales, grupos escolares, visita guiada solicitada…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" onclick="submitForm()">Confirmar Reserva</button>
+          <div id="form-msg">✓ Tu reserva ha sido enviada con éxito. ¡Te esperamos en Nogueras!</div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <div class="logo-group">
+            <span class="logo-abbr">MUARH</span>
+            <span class="logo-sub" style="color:#978978;">Museo Universitario Alejandro Rangel Hidalgo</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Institución</h3>
+          <ul>
+            <li><a href="https://portal.ucol.mx/dgpc/Rangel-Hidalgo-es.htm" target="_blank" rel="noopener">Universidad
+                de Colima</a></li>
+            <li><a href="https://sic.cultura.gob.mx/ficha.php?table=museo&table_id=1067" target="_blank"
+                rel="noopener">Sistema de Información Cultural (SIC) – Cultura</a></li>
+          </ul>
+        </div>
+
+      </div>
+  </footer>
+
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOverlay(event)">
+    <div class="modal" id="modal-box">
+      <button class="modal-close" onclick="closeModal()" type="button">Cerrar</button>
+      <p class="modal-artist" id="modal-artist"></p>
+      <h1 id="modal-title">Título</h1>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
