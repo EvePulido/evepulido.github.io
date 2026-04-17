@@ -4,7 +4,7 @@ Este proyecto es una página web de una sola página para el **Museo Universitar
 
 El objetivo principal fue crear una interfaz visualmente atractiva, moderna y, sobre todo, accesible, que permita a todos los usuarios, incluyendo aquellos que utilizan tecnologías de asistencia, explorar las colecciones y planificar su visita al museo.
 
-![imagenes/pagina.png](Pantalla principal)
+![Pantalla principal](images/pagina.png)
 
 ---
 
