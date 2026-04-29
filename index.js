@@ -16,6 +16,8 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(s => observer.observe(s));
 
 /* ── Artwork modals ── */
+let lastFocusedElement;
+
 const obras = {
     obra1: {
         artist: 'Colección Arqueológica',
@@ -44,6 +46,7 @@ const obras = {
 };
 
 function openModal(id) {
+    lastFocusedElement = document.activeElement;
     const o = obras[id];
     document.getElementById('modal-artist').textContent = o.artist;
     document.getElementById('modal-title').textContent = o.title;
@@ -52,11 +55,20 @@ function openModal(id) {
     document.getElementById('modal-desc').textContent = o.desc;
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Mover foco al botón cerrar para permitir uso del Enter
+    setTimeout(() => {
+        document.querySelector('.modal-close').focus();
+    }, 50);
 }
 
 function closeModal() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
 }
 
 function closeModalOverlay(e) {
