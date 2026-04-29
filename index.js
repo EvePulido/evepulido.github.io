@@ -73,7 +73,9 @@ function submitForm() {
     const email = document.getElementById('email');
     const fecha = document.getElementById('fecha');
     const personas = document.getElementById('personas');
-    const exhibicion = document.getElementById('exhibicion');
+    const tipoVisitante = document.getElementById('tipo-visitante');
+    const guiada = document.getElementById('guiada');
+    const salas = document.querySelectorAll('input[name="salas"]');
 
     let valid = true;
 
@@ -100,8 +102,20 @@ function submitForm() {
         valid = false;
     }
 
-    if (!exhibicion.value) {
-        showError(exhibicion, 'Selecciona el tipo de visitante.');
+    if (!tipoVisitante.value) {
+        showError(tipoVisitante, 'Selecciona el tipo de visitante.');
+        valid = false;
+    }
+
+    const salasSeleccionadas = [...salas].filter(s => s.checked);
+    if (salasSeleccionadas.length === 0) {
+        const fieldset = document.getElementById('salas-fieldset');
+        showFieldsetError(fieldset, 'Selecciona al menos una sala de interés.');
+        valid = false;
+    }
+
+    if (!guiada.value) {
+        showError(guiada, 'Indica si deseas visita guiada.');
         valid = false;
     }
 
@@ -110,10 +124,13 @@ function submitForm() {
     const msg = document.getElementById('form-msg');
     msg.style.display = 'block';
 
-    ['nombre', 'email', 'fecha', 'personas', 'exhibicion', 'notas'].forEach(id => {
+    /* limpiar campos de texto */
+    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante', 'guiada', 'notas'].forEach(id => {
         const el = document.getElementById(id);
-        el.value = '';
+        if (el) el.value = el.tagName === 'SELECT' ? '' : '';
     });
+    /* desmarcar checkboxes */
+    salas.forEach(s => s.checked = false);
 
     msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -122,15 +139,29 @@ function showError(input, message) {
     input.style.borderColor = '#D99678';
     const err = document.createElement('span');
     err.className = 'field-error';
-    err.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${message}`;
+    err.setAttribute('role', 'alert');
+    err.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${message}`;
     input.parentNode.appendChild(err);
+}
+
+function showFieldsetError(fieldset, message) {
+    /* marca visualmente el borde del fieldset */
+    fieldset.classList.add('fieldset-error');
+    const err = document.createElement('span');
+    err.className = 'field-error';
+    err.setAttribute('role', 'alert');
+    err.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${message}`;
+    fieldset.appendChild(err);
 }
 
 function clearErrors() {
     document.querySelectorAll('.field-error').forEach(e => e.remove());
-    ['nombre', 'email', 'fecha', 'personas', 'exhibicion'].forEach(id => {
-        document.getElementById(id).style.borderColor = '';
+    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante', 'guiada'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.borderColor = '';
     });
+    const fieldset = document.getElementById('salas-fieldset');
+    if (fieldset) fieldset.classList.remove('fieldset-error');
     document.getElementById('form-msg').style.display = 'none';
 }
 

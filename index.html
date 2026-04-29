@@ -231,52 +231,99 @@
         </div>
 
         <!-- Form -->
-        <form class="form-card">
-          <h3>Reserva tu visita</h3>
+        <form class="form-card" aria-labelledby="titulo-form">
+          <h3 id="titulo-form">Reserva tu visita</h3>
 
+          <!-- Nombre -->
           <div class="form-row">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" placeholder="Ej. María López Hernández" />
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej. María López Hernández" />
           </div>
 
+          <!-- Email -->
           <div class="form-row">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="correo@ejemplo.com" />
+            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
           </div>
 
+          <!-- Fecha + personas -->
           <div class="form-grid">
             <div class="form-row">
               <label for="fecha">Fecha de visita</label>
-              <input type="date" id="fecha" />
+              <input type="date" id="fecha" name="fecha" required />
             </div>
+
             <div class="form-row">
               <label for="personas">N.° de personas</label>
-              <input type="number" id="personas" min="1" max="60" placeholder="1" />
+              <input type="number" id="personas" name="personas" min="1" max="60" required placeholder="1" />
             </div>
           </div>
 
+          <!-- Tipo de visitante -->
           <div class="form-row">
             <label for="exhibicion">Tipo de visitante</label>
-            <select id="exhibicion">
+            <select id="exhibicion" name="visitante" required>
               <option value="">— Selecciona una opción —</option>
-              <option>Público general ($20 MXN)</option>
-              <option>Estudiante / Maestro / INAPAM ($10 MXN)</option>
-              <option>Turista extranjero ($30 MXN)</option>
-              <option>Grupo escolar con visita guiada</option>
+              <option value="general">Público general</option>
+              <option value="estudiante">Estudiante, Maestro o INAPAM</option>
+              <option value="extranjero">Turista extranjero</option>
             </select>
           </div>
 
+          <!-- SALAS -->
+          <fieldset class="form-row">
+            <legend>Salas de interés</legend>
+
+            <label>
+              <input type="checkbox" name="salas" value="ceramica">
+              Cerámica prehispánica
+            </label>
+
+            <label>
+              <input type="checkbox" name="salas" value="artesanias">
+              Artesanías Comala
+            </label>
+
+            <label>
+              <input type="checkbox" name="salas" value="cocina">
+              Cocina mexicana
+            </label>
+
+            <label>
+              <input type="checkbox" name="salas" value="estudio">
+              Estudio del maestro
+            </label>
+          </fieldset>
+
+          <!-- VISITA GUIADA -->
           <div class="form-row">
-            <label for="notas">Notas adicionales</label>
-            <textarea id="notas"
-              placeholder="Requerimientos especiales, grupos escolares, visita guiada solicitada…"></textarea>
+            <label for="guiada">¿Requieres visita guiada?</label>
+            <select id="guiada" name="guiada" required>
+              <option value="">— Selecciona una opción —</option>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select>
           </div>
 
-          <button type="submit" class="form-submit" onclick="submitForm()">Confirmar Reserva</button>
-          <div id="form-msg">✓ Tu reserva ha sido enviada con éxito. ¡Te esperamos en Nogueras!</div>
-      </div>
+          <!-- Notas -->
+          <div class="form-row">
+            <label for="notas">Notas adicionales</label>
+            <textarea id="notas" name="notas"
+              placeholder="Requerimientos especiales, accesibilidad, idioma preferido…"></textarea>
+          </div>
 
-    </div>
+          <!-- Botón -->
+          <button type="submit" class="form-submit">
+            Confirmar Reserva
+          </button>
+
+          <!-- Mensaje accesible -->
+          <div id="form-msg" role="status" aria-live="polite">
+            ✓ Tu reserva ha sido enviada con éxito. ¡Te esperamos en Nogueras!
+          </div>
+
+        </form>
+      </div>
     </div>
 
   </main>
