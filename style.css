@@ -346,6 +346,11 @@ main {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
 }
 
 .artwork-card:focus {
@@ -607,18 +612,26 @@ tbody td {
     gap: 1rem;
 }
 
-/* ── CHECKBOXES (SALAS DE INTERÉS) ── */
+/* ── CHECKBOXES Y RADIOS ── */
 fieldset.form-row {
     border: none;
     padding: 0;
     margin-bottom: 1.3rem;
+}
+
+#salas-fieldset {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.8rem 1rem;
 }
 
+.radio-group {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
 fieldset.form-row legend {
-    grid-column: 1 / -1;
     font-size: .8rem;
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -629,51 +642,89 @@ fieldset.form-row legend {
 fieldset.form-row label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: .9rem;
-    text-transform: none; /* Letra normal (no mayúsculas) */
+    text-transform: none;
     letter-spacing: normal;
-    color: var(--stone); /* Mismo color que los labels */
+    color: var(--stone);
     cursor: pointer;
-    margin-bottom: 0; /* Anula el margin inferior de los otros labels */
+    margin-bottom: 0;
 }
 
-fieldset.form-row input[type="checkbox"] {
+/* Estilo base para checkbox y radio */
+fieldset.form-row input[type="checkbox"],
+fieldset.form-row input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    border: 2px solid rgba(184, 154, 90, .25); /* Mismo borde que los inputs */
-    background: var(--ivory); /* Mismo fondo que los inputs */
-    border-radius: 0; /* Completamente cuadrados */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(184, 154, 90, .4);
+    background: var(--ivory);
     cursor: pointer;
     position: relative;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s;
 }
 
-fieldset.form-row input[type="checkbox"]:focus {
+/* Reset de ancho para que no ocupen el 100% */
+.form-row input[type="checkbox"],
+.form-row input[type="radio"] {
+    width: 22px;
+}
+
+/* Forma circular para Radios */
+fieldset.form-row input[type="radio"] {
+    border-radius: 50%;
+}
+
+/* Checkbox (Cuadrado) */
+fieldset.form-row input[type="checkbox"] {
+    border-radius: 0;
+}
+
+/* Foco */
+fieldset.form-row input[type="checkbox"]:focus,
+fieldset.form-row input[type="radio"]:focus {
     outline: 2px solid var(--gold);
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
+/* El "Check" del Checkbox */
 fieldset.form-row input[type="checkbox"]::after {
     content: "";
     position: absolute;
     display: none;
-    width: 4px;
+    width: 5px;
     height: 10px;
-    border: solid var(--espresso); /* Color de la palomita */
+    border: solid var(--espresso);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
-    margin-bottom: 2px; /* Centrado visual */
+    margin-bottom: 2px;
 }
 
-fieldset.form-row input[type="checkbox"]:checked::after {
+/* El "Punto" del Radio */
+fieldset.form-row input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    display: none;
+    width: 10px;
+    height: 10px;
+    background: var(--espresso);
+    border-radius: 50%;
+}
+
+fieldset.form-row input[type="checkbox"]:checked::after,
+fieldset.form-row input[type="radio"]:checked::after {
     display: block;
+}
+
+fieldset.form-row input[type="checkbox"]:checked,
+fieldset.form-row input[type="radio"]:checked {
+    border-color: var(--gold);
 }
 /* ─────────────────────────────────── */
 

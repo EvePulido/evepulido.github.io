@@ -26,7 +26,7 @@
     </div>
 
     <div class="hero">
-      <h1>Arte, memoria y<br><em>raíz prehispánica</em></h1>
+      <h1>Arte, memoria y <br><em>raíz prehispánica</em></h1>
       <p>
         En la ex Hacienda de Nogueras, construida a finales del siglo XVII,
         resguardamos la colección arqueológica y artística reunida por el diseñador
@@ -34,7 +34,7 @@
       </p>
       <div class="hero-btns">
         <button onclick="window.location.href='#colecciones'" class="btn-primary">Explorar Colecciones</button>
-        <button onclick="window.location.href='#exhibiciones'" class="btn-outline">Salas del Museo</button>
+        <button onclick="window.location.href='#exhibiciones'" class="btn-outline">Recorridos del Museo</button>
       </div>
     </div>
   </header>
@@ -43,7 +43,7 @@
     <ul class="nav-links">
       <li><a href="#inicio" class="active">Inicio</a></li>
       <li><a href="#colecciones">Colecciones</a></li>
-      <li><a href="#exhibiciones">Salas</a></li>
+      <li><a href="#exhibiciones">Recorridos</a></li>
       <li><a href="#visita">Planifica tu visita</a></li>
     </ul>
   </nav>
@@ -65,8 +65,7 @@
 
       <div class="gallery-grid">
 
-        <div class="artwork-card" onclick="openModal('obra1')" tabindex="0" role="button"
-          aria-label="Ver detalles: Sala Cerámica Prehispánica">
+        <button class="artwork-card" onclick="openModal('obra1')" aria-label="Ver detalles: Sala Cerámica Prehispánica">
           <div class="artwork-img-wrap">
             <img
               src="https://programadestinosmexico.com/wp-content/uploads/2023/10/Museo-Universitario-Alejandro-Rangel.jpg"
@@ -75,12 +74,11 @@
           <div class="artwork-info">
             <p class="artwork-artist">Colección Arqueológica</p>
             <p class="artwork-title">Sala Cerámica Prehispánica</p>
-            <p class="artwork-year">c. 600 a.C. – 500 a.C.</p>
+            <p class="artwork-year">Años 600 a.C. a 500 a.C.</p>
           </div>
-        </div>
+        </button>
 
-        <div class="artwork-card" onclick="openModal('obra2')" tabindex="0" role="button"
-          aria-label="Ver detalles: Sala Artesanías Comala">
+        <button class="artwork-card" onclick="openModal('obra2')" aria-label="Ver detalles: Sala Artesanías Comala">
           <div class="artwork-img-wrap">
             <img src="https://www.101museos.com/cms101/assets/galerias/-ala-de-pinturas-y-disen-o-de-mueble.jpg"
               loading="lazy" alt="" />
@@ -90,10 +88,9 @@
             <p class="artwork-title">Sala Artesanías Comala</p>
             <p class="artwork-year">Década de 1970</p>
           </div>
-        </div>
+        </button>
 
-        <div class="artwork-card" onclick="openModal('obra3')" tabindex="0" role="button"
-          aria-label="Ver detalles: Sala de Cocina mexicana">
+        <button class="artwork-card" onclick="openModal('obra3')" aria-label="Ver detalles: Sala de Cocina mexicana">
           <div class="artwork-img-wrap">
             <img src="https://www.101museos.com/cms101/assets/galerias/-epresentacio-n-de-cosina-rural-mexicana.jpg"
               loading="lazy" alt="" />
@@ -103,10 +100,9 @@
             <p class="artwork-title">Cocina Mexicana</p>
             <p class="artwork-year">Utensilios prehispánicos y coloniales</p>
           </div>
-        </div>
+        </button>
 
-        <div class="artwork-card" onclick="openModal('obra4')" tabindex="0" role="button"
-          aria-label="Ver detalles: Estudio del Maestro">
+        <button class="artwork-card" onclick="openModal('obra4')" aria-label="Ver detalles: Estudio del Maestro">
           <div class="artwork-img-wrap">
             <img src="https://sic.cultura.gob.mx/galeria_imagen/4f9825b129d7205_ok.jpg" alt="" loading="lazy" />
           </div>
@@ -115,7 +111,7 @@
             <p class="artwork-title">Estudio del Maestro</p>
             <p class="artwork-year">Objetos, fotografías y diseños</p>
           </div>
-        </div>
+        </button>
 
       </div>
     </div>
@@ -147,35 +143,35 @@
             <tr>
               <th scope="row">Sala Cerámica Prehispánica</td>
               <td>Más de 40 figuras animales de tumbas de tiro de los años 600 al 500 a.C.</td>
-              <td>Todo público</td>
+              <td>Público general</td>
               <td>$20 MXN</td>
               <td>Disponible</td>
             </tr>
             <tr>
               <th scope="row">Sala Artesanías Comala</td>
               <td>Diseños de Rangel Hidalgo para "Artesanías Comala", años 70</td>
-              <td>Todo público</td>
+              <td>Público general</td>
               <td>$20 MXN</td>
               <td>Disponible</td>
             </tr>
             <tr>
               <th scope="row">Cocina Mexicana</td>
               <td>Recreación museográfica con utensilios prehispánicos y coloniales</td>
-              <td>Todo público</td>
+              <td>Público general</td>
               <td>$20 MXN</td>
               <td>Disponible</td>
             </tr>
             <tr>
               <th scope="row">Estudio del Maestro</td>
               <td>Objetos personales, diseños y fotografías de la familia Rangel</td>
-              <td>Todo público</td>
+              <td>Público general</td>
               <td>$20 MXN</td>
               <td>Disponible</td>
             </tr>
             <tr>
               <th scope="row">Visita Completa (4 salas)</td>
               <td>Recorrido integral con guía especializado</td>
-              <td>Estudiantes / INAPAM</td>
+              <td>Estudiantes, maestros e INAPAM</td>
               <td>$10 MXN</td>
               <td>Incluida</td>
             </tr>
@@ -223,7 +219,7 @@
           <div class="info-block">
             <h3>Servicios</h3>
             <p>
-              Visitas guiadas (máx. 60 personas).<br>
+              Visitas guiadas (máximo 60 personas).<br>
               Información turística.<br>
               Consulta de archivo bibliográfico.
             </p>
@@ -231,48 +227,48 @@
         </div>
 
         <!-- Form -->
-        <form class="form-card" aria-labelledby="titulo-form">
+        <form id="reserva-form" class="form-card" aria-labelledby="titulo-form">
           <h3 id="titulo-form">Reserva tu visita</h3>
 
           <!-- Nombre -->
           <div class="form-row">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="Ej. María López Hernández" />
+            <label for="nombre">Nombre completo <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></label>
+            <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Ej. María López Hernández" />
           </div>
 
           <!-- Email -->
           <div class="form-row">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
+            <label for="email">Correo electrónico <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></label>
+            <input type="email" id="email" name="email" required aria-required="true" placeholder="correo@ejemplo.com" />
           </div>
 
           <!-- Fecha + personas -->
           <div class="form-grid">
             <div class="form-row">
-              <label for="fecha">Fecha de visita</label>
-              <input type="date" id="fecha" name="fecha" required />
+              <label for="fecha">Fecha de visita <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></label>
+              <input type="date" id="fecha" name="fecha" required aria-required="true" />
             </div>
 
             <div class="form-row">
-              <label for="personas">N.° de personas</label>
-              <input type="number" id="personas" name="personas" min="1" max="60" required placeholder="1" />
+              <label for="personas">Número de personas <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></label>
+              <input type="number" id="personas" name="personas" min="1" max="60" required aria-required="true" placeholder="1" />
             </div>
           </div>
 
           <!-- Tipo de visitante -->
           <div class="form-row">
-            <label for="exhibicion">Tipo de visitante</label>
-            <select id="exhibicion" name="visitante" required>
+            <label for="tipo-visitante">Tipo de visitante <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></label>
+            <select id="tipo-visitante" name="visitante" required aria-required="true">
               <option value="">— Selecciona una opción —</option>
               <option value="general">Público general</option>
-              <option value="estudiante">Estudiante, Maestro o INAPAM</option>
+              <option value="estudiante">Estudiante, maestro o INAPAM</option>
               <option value="extranjero">Turista extranjero</option>
             </select>
           </div>
 
           <!-- SALAS -->
-          <fieldset class="form-row">
-            <legend>Salas de interés</legend>
+          <fieldset id="salas-fieldset" class="form-row">
+            <legend>Salas de interés <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></legend>
 
             <label>
               <input type="checkbox" name="salas" value="ceramica">
@@ -296,14 +292,21 @@
           </fieldset>
 
           <!-- VISITA GUIADA -->
-          <div class="form-row">
-            <label for="guiada">¿Requieres visita guiada?</label>
-            <select id="guiada" name="guiada" required>
-              <option value="">— Selecciona una opción —</option>
-              <option value="si">Sí</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+          <fieldset id="guiada-fieldset" class="form-row">
+            <legend>¿Requieres visita guiada? <span aria-hidden="true">*</span><span class="visually-hidden"> (obligatorio)</span></legend>
+            
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="guiada" value="si" required>
+                Sí
+              </label>
+
+              <label>
+                <input type="radio" name="guiada" value="no" required>
+                No
+              </label>
+            </div>
+          </fieldset>
 
           <!-- Notas -->
           <div class="form-row">
@@ -318,7 +321,7 @@
           </button>
 
           <!-- Mensaje accesible -->
-          <div id="form-msg" role="status" aria-live="polite">
+          <div id="form-msg" role="status" aria-live="polite" tabindex="-1">
             ✓ Tu reserva ha sido enviada con éxito. ¡Te esperamos en Nogueras!
           </div>
 

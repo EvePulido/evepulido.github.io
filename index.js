@@ -48,7 +48,7 @@ function openModal(id) {
     document.getElementById('modal-artist').textContent = o.artist;
     document.getElementById('modal-title').textContent = o.title;
     document.getElementById('modal-img').src = o.img;
-    document.getElementById('modal-img').alt = o.title;
+    document.getElementById('modal-img').alt = "";
     document.getElementById('modal-desc').textContent = o.desc;
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -66,7 +66,13 @@ function closeModalOverlay(e) {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 /* ── Form submission ── */
-function submitForm() {
+const reservaForm = document.getElementById('reserva-form');
+if (reservaForm) {
+    reservaForm.addEventListener('submit', submitForm);
+}
+
+function submitForm(event) {
+    if (event) event.preventDefault();
     clearErrors();
 
     const nombre = document.getElementById('nombre');
@@ -74,7 +80,7 @@ function submitForm() {
     const fecha = document.getElementById('fecha');
     const personas = document.getElementById('personas');
     const tipoVisitante = document.getElementById('tipo-visitante');
-    const guiada = document.getElementById('guiada');
+    const guiadaOptions = document.querySelectorAll('input[name="guiada"]');
     const salas = document.querySelectorAll('input[name="salas"]');
 
     let valid = true;
@@ -114,8 +120,10 @@ function submitForm() {
         valid = false;
     }
 
-    if (!guiada.value) {
-        showError(guiada, 'Indica si deseas visita guiada.');
+    const guiadaSeleccionada = [...guiadaOptions].find(r => r.checked);
+    if (!guiadaSeleccionada) {
+        const fieldset = document.getElementById('guiada-fieldset');
+        showFieldsetError(fieldset, 'Indica si deseas visita guiada.');
         valid = false;
     }
 
@@ -123,32 +131,43 @@ function submitForm() {
 
     const msg = document.getElementById('form-msg');
     msg.style.display = 'block';
+    msg.focus();
 
     /* limpiar campos de texto */
-    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante', 'guiada', 'notas'].forEach(id => {
+    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante', 'notas'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = el.tagName === 'SELECT' ? '' : '';
     });
-    /* desmarcar checkboxes */
+    /* desmarcar checkboxes y radios */
     salas.forEach(s => s.checked = false);
+    guiadaOptions.forEach(r => r.checked = false);
 
     msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function showError(input, message) {
+    const errorId = `error-${input.id}`;
     input.style.borderColor = '#D99678';
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', errorId);
+
     const err = document.createElement('span');
     err.className = 'field-error';
+    err.id = errorId;
     err.setAttribute('role', 'alert');
     err.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${message}`;
     input.parentNode.appendChild(err);
 }
 
 function showFieldsetError(fieldset, message) {
-    /* marca visualmente el borde del fieldset */
+    const errorId = `error-${fieldset.id}`;
     fieldset.classList.add('fieldset-error');
+    fieldset.setAttribute('aria-invalid', 'true');
+    fieldset.setAttribute('aria-describedby', errorId);
+
     const err = document.createElement('span');
     err.className = 'field-error';
+    err.id = errorId;
     err.setAttribute('role', 'alert');
     err.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${message}`;
     fieldset.appendChild(err);
@@ -156,20 +175,21 @@ function showFieldsetError(fieldset, message) {
 
 function clearErrors() {
     document.querySelectorAll('.field-error').forEach(e => e.remove());
-    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante', 'guiada'].forEach(id => {
+    ['nombre', 'email', 'fecha', 'personas', 'tipo-visitante'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.style.borderColor = '';
-    });
-    const fieldset = document.getElementById('salas-fieldset');
-    if (fieldset) fieldset.classList.remove('fieldset-error');
-    document.getElementById('form-msg').style.display = 'none';
-}
-
-document.querySelectorAll('.artwork-card').forEach(card => {
-    card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            card.click();
+        if (el) {
+            el.style.borderColor = '';
+            el.removeAttribute('aria-invalid');
+            el.removeAttribute('aria-describedby');
         }
     });
-});
+    ['salas-fieldset', 'guiada-fieldset'].forEach(id => {
+        const fieldset = document.getElementById(id);
+        if (fieldset) {
+            fieldset.classList.remove('fieldset-error');
+            fieldset.removeAttribute('aria-invalid');
+            fieldset.removeAttribute('aria-describedby');
+        }
+    });
+    document.getElementById('form-msg').style.display = 'none';
+}
