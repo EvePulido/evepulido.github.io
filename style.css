@@ -1,25 +1,24 @@
 /* Global theme */
 :root {
+    /* Colores base */
     --color-bg: #F0F5F6;
-    --color-surface: #ffffff;
     --color-text: #1E1E1E; /* Textos oscuros oficiales */
     --color-muted: #6B6B6B; /* Gris oficial */
-    --color-border: rgba(30, 30, 30, 0.1);
+
+    /* Colores primarios */
     --color-primary: #558BC0; /* Azul oficial */
-    --color-primary-dark: #3f6e9b;
-    --color-primary-soft: #eef4f9;
     --color-primary-light: #A7C9E9; /* Azul claro oficial */
+
+    /* Acentos */
     --color-accent: #AA743F; /* Café oficial para botones */
     --color-accent-hover: #8f6032;
-    --color-hero-bg: #F0F5F6; /* Fondo oficial */
-    --color-hero-photo-bg: #A7C9E9;
-    --color-surface-soft: #F0F5F6;
-    --color-footer-start: #1E1E1E; /* Para fondos oscuros, contrastando con el texto claro F0F5F6 */
+
+    /* Elementos inversos (fondos oscuros) */
     --color-text-inverse-muted: rgba(240, 245, 246, 0.75);
     --color-surface-transparent: rgba(255, 255, 255, 0.08);
     --color-border-inverse: rgba(240, 245, 246, 0.16);
-    --radius-sm: 0.75rem;
-    --radius-lg: 2rem;
+    
+    /* Variables estructurales */
     --radius-full: 999px;
     --shadow-lg: 0 40px 80px rgba(30, 30, 30, 0.08);
     --shadow-md: 0 24px 56px rgba(30, 30, 30, 0.08);
@@ -78,7 +77,7 @@ svg {
     position: relative;
     padding: 0 0 9rem; /* Top padding removed so banner touches top */
     overflow: hidden;
-    background-color: var(--color-hero-bg);
+    background-color: var(--color-bg);
 }
 
 .hero-bg {
@@ -119,18 +118,15 @@ svg {
     z-index: 10;
 }
 
-.hero-brand {
+.logo-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-width: 96px;
-    padding: 0.75rem 1rem;
-    border-radius: 1rem;
-    background: var(--color-surface);
-    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
-    color: var(--color-text);
-    font-weight: 700;
-    letter-spacing: 0.06em;
+}
+
+.logo-img {
+    height: 40px; /* Altura sugerida para el SVG */
+    width: auto;
+    display: block;
 }
 
 .hero-title {
@@ -189,7 +185,7 @@ svg {
 }
 
 .btn--primary {
-    background-color: var(--color-surface);
+    background-color: var(--color-bg);
     color: var(--color-text);
 }
 
@@ -233,7 +229,7 @@ svg {
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    background: var(--color-hero-photo-bg);
+    background: var(--color-primary-light);
     box-shadow: var(--shadow-lg);
 }
 
@@ -316,11 +312,11 @@ svg {
 
 .project-card--accent {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    color: var(--color-surface);
+    color: var(--color-bg);
 }
 
 .project-card--soft {
-    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
+    background: var(--color-bg);
     color: var(--color-text);
     border: 1px solid rgba(15, 23, 42, 0.08);
     box-shadow: var(--shadow-soft);
@@ -367,7 +363,7 @@ svg {
 }
 
 .stack-card {
-    background: var(--color-surface);
+    background: var(--color-bg);
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 1.5rem;
     min-height: 180px;
@@ -387,8 +383,8 @@ svg {
 
 /* Contact */
 .contact {
-    background: linear-gradient(180deg, var(--color-footer-start) 0%, var(--color-text) 100%);
-    color: var(--color-surface);
+    background: var(--color-text);
+    color: var(--color-bg);
 }
 
 .contact-grid {
@@ -404,7 +400,7 @@ svg {
 }
 
 .section-title--light {
-    color: var(--color-surface);
+    color: var(--color-bg);
 }
 
 .section-subtitle--light {
@@ -416,7 +412,7 @@ svg {
     margin-top: 1.25rem;
     font-size: 1rem;
     font-weight: 700;
-    color: var(--color-surface);
+    color: var(--color-bg);
 }
 
 .contact-card {
