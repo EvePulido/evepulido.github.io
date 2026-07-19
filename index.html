@@ -5,188 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de Evelyn Pulido">
     <title>Evelyn Pulido | Portafolio</title>
-    <!-- Iconos -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Encabezado y Navegación -->
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">EP</div>
-            <div class="theme-selector">
-                <button class="btn-theme" id="themeToggle" aria-haspopup="true" aria-expanded="false">
-                    <span class="material-icons" id="themeIcon">light_mode</span> 
-                    <span id="themeText">Claro</span> 
-                    <span class="material-icons arrow">expand_more</span>
-                </button>
-                <ul class="theme-dropdown" id="themeDropdown">
-                    <li>
-                        <button class="theme-option active" data-theme="light" data-label="Claro">
-                            <span class="material-icons">light_mode</span> Claro
-                        </button>
-                    </li>
-                    <li>
-                        <button class="theme-option" data-theme="dark" data-label="Oscuro">
-                            <span class="material-icons">dark_mode</span> Oscuro
-                        </button>
-                    </li>
-                    <li>
-                        <button class="theme-option" data-theme="contrast" data-label="Alto Contraste">
-                            <span class="material-icons">contrast</span> Alto Contraste
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <!-- Sección Hero -->
-        <section id="hero" class="hero">
-            <div class="hero-bg"></div> <!-- Aquí aplicaremos el hero.svg en CSS -->
-            <div class="container hero-container">
-                <div class="hero-content">
+        <header class="top-nav">
+            <div class="container">
+                <div class="hero-brand">logo</div>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container hero-grid">
+                <div class="hero-copy">
                     <h1 class="hero-title">Evelyn Pulido</h1>
-                    <h2 class="hero-subtitle">Estudiante de Ingeniería en Software</h2>
-                    <p class="hero-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. 
-                        Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, 
-                        mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. 
-                        Nullam quis imperdiet augue.
+                    <p class="hero-subtitle">INGENIERA EN SOFTWARE · UX / UI DESIGNER</p>
+                    <p class="hero-text">
+                        Estudiante de Ingeniería en Software con enfoque en soluciones accesibles y diseños limpios. Creo experiencias digitales modernas que equilibran estética, claridad y usabilidad.
                     </p>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-btn" aria-label="Perfil de LinkedIn">
-                            <i class="fi fi-brands-linkedin"></i> LinkedIn
+
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn--accent btn--social">
+                            <img src="assets/images/linkedin.svg" alt="LinkedIn icon">
+                            LinkedIn
                         </a>
-                        <a href="#" class="social-btn" aria-label="Perfil de GitHub">
-                            <i class="fi fi-brands-github"></i> GitHub
+                        <a href="#" class="btn btn--accent btn--social">
+                            <img src="assets/images/github.svg" alt="GitHub icon">
+                            GitHub
                         </a>
-                        <a href="#" class="social-btn" aria-label="Perfil de Figma">
-                            <i class="fi fi-brands-figma"></i> Figma
-                        </a>
+                        <a href="#" class="btn btn--accent btn--social">Kaggle</a>
                     </div>
                 </div>
-                
-                <div class="hero-photo">
-                    <div class="photo-placeholder">photo</div>
+
+                <div class="hero-visual">
+                    <div class="hero-photo"></div>
                 </div>
             </div>
-            
-            <a href="#proyectos" class="scroll-down" aria-label="Desplazarse a proyectos">
-                &darr;
-            </a>
+            <div class="container">
+                <div class="hero-scroll">↓ SCROLL</div>
+            </div>
         </section>
 
-        <!-- Sección Proyectos -->
         <section id="proyectos" class="projects">
             <div class="container">
-                <h2 class="section-title">Proyectos</h2>
+                <div class="section-header">
+                    <span class="section-subtitle">SELECCIÓN DE TRABAJO</span>
+                    <h2 class="section-title">Proyectos</h2>
+                </div>
+
                 <div class="projects-grid">
-                    <!-- Proyecto 1 (Largo) -->
-                    <article class="project-card project-large">
-                        <img src="assets/images/Portafolio%20image.png" alt="Imagen del proyecto 1" class="project-img">
-                        <h3 class="project-caption">Título del Proyecto 1</h3>
+                    <article class="project-card project-card--accent project-card--large">
+                        <span class="project-category">EDUCACIÓN</span>
+                        <h3 class="project-name">LearnCode</h3>
                     </article>
-                    
-                    <!-- Proyecto 2 (Normal) -->
-                    <article class="project-card">
-                        <img src="assets/images/Portafolio%20image.png" alt="Imagen del proyecto 2" class="project-img">
-                        <h3 class="project-caption">Título del Proyecto 2</h3>
+
+                    <article class="project-card project-card--soft project-card--small">
+                        <span class="project-category">PÁGINA WEB ACCESIBLE</span>
+                        <h3 class="project-name">MUARH</h3>
                     </article>
-                    
-                    <!-- Proyecto 3 (Normal) -->
-                    <article class="project-card">
-                        <img src="assets/images/Portafolio%20image.png" alt="Imagen del proyecto 3" class="project-img">
-                        <h3 class="project-caption">Título del Proyecto 3</h3>
+
+                    <article class="project-card project-card--soft project-card--small">
+                        <span class="project-category">PÁGINA WEB ACCESIBLE</span>
+                        <h3 class="project-name">MUARH</h3>
                     </article>
-                    
-                    <!-- Proyecto 4 (Largo) -->
-                    <article class="project-card project-large">
-                        <img src="assets/images/Portafolio%20image.png" alt="Imagen del proyecto 4" class="project-img">
-                        <h3 class="project-caption">Título del Proyecto 4</h3>
+
+                    <article class="project-card project-card--accent project-card--large">
+                        <span class="project-category">EDUCACIÓN</span>
+                        <h3 class="project-name">LearnCode</h3>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Stack Tecnológico -->
         <section id="stack" class="stack">
             <div class="container">
-                <h2 class="section-title">Stack tecnológico</h2>
-                <ul class="stack-grid">
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                    <li class="stack-item">
-                        <span class="stack-icon"></span>
-                        <span class="stack-name">Lorem ipsum</span>
-                    </li>
-                </ul>
+                <div class="section-header">
+                    <span class="section-subtitle">HERRAMIENTAS Y TECNOLOGÍAS</span>
+                    <h2 class="section-title">Stack tecnológico</h2>
+                </div>
+
+                <div class="stack-grid">
+                    <article class="stack-card">
+                        <span class="stack-label">FRONTEND</span>
+                    </article>
+                    <article class="stack-card">
+                        <span class="stack-label">BACKEND</span>
+                    </article>
+                    <article class="stack-card">
+                        <span class="stack-label">DISEÑO</span>
+                    </article>
+                    <article class="stack-card">
+                        <span class="stack-label">HERRAMIENTAS</span>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <!-- Sección Call To Action -->
-        <section id="cta" class="cta">
-            <div class="container">
-                <div class="cta-box">
-                    <h2 class="cta-title">¿Lorem ipsum dolor sit amet?</h2>
-                    <div class="cta-actions">
-                        <a href="#" class="btn btn-primary">Contáctame</a>
-                        <a href="#" class="btn btn-secondary">Descargar CV</a>
+        <section class="contact">
+            <div class="container contact-grid">
+                <div class="contact-copy">
+                    <span class="section-subtitle section-subtitle--light">Contacto</span>
+                    <h2 class="section-title section-title--light">¿Tienes un proyecto en mente o quieres colaborar?</h2>
+                    <a href="mailto:evelyn@correo.com" class="contact-email">evelyn@correo.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div>
+                        <h3>Descarga mi CV</h3>
+                        <p>Ingeniera en Software · UX / UI Designer · Disponible en español</p>
                     </div>
+                    <a href="#" class="btn btn--primary btn--download">
+                        <span class="material-icons">download</span> Descargar CV
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Pie de página -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="logo-placeholder"></div>
-            <div class="footer-socials">
-                <div class="social-icon-placeholder"></div>
-                <div class="social-icon-placeholder"></div>
-                <div class="social-icon-placeholder"></div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
