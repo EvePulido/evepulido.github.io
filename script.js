@@ -3,21 +3,23 @@ const btnTheme = document.getElementById('themeToggle');
 const themeOptions = document.querySelectorAll('.theme-option');
 const body = document.body;
 
-// Abrir/cerrar menú
-btnTheme.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isActive = themeSelector.classList.contains('active');
-    themeSelector.classList.toggle('active');
-    btnTheme.setAttribute('aria-expanded', !isActive);
-});
+// Abrir/cerrar menú (Solo si existen los elementos en el HTML)
+if (btnTheme && themeSelector) {
+    btnTheme.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = themeSelector.classList.contains('active');
+        themeSelector.classList.toggle('active');
+        btnTheme.setAttribute('aria-expanded', !isActive);
+    });
 
-// Cerrar al hacer click afuera
-document.addEventListener('click', (e) => {
-    if (!themeSelector.contains(e.target)) {
-        themeSelector.classList.remove('active');
-        btnTheme.setAttribute('aria-expanded', 'false');
-    }
-});
+    // Cerrar al hacer click afuera
+    document.addEventListener('click', (e) => {
+        if (!themeSelector.contains(e.target)) {
+            themeSelector.classList.remove('active');
+            btnTheme.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
 // Seleccionar tema
 themeOptions.forEach(option => {
@@ -50,4 +52,15 @@ themeOptions.forEach(option => {
         themeSelector.classList.remove('active');
         btnTheme.setAttribute('aria-expanded', 'false');
     });
+});
+
+// Efecto sticky en barra de navegación al hacer scroll
+const topNav = document.querySelector('.top-nav');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        topNav.classList.add('scrolled');
+    } else {
+        topNav.classList.remove('scrolled');
+    }
 });
