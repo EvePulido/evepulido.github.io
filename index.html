@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -31,15 +32,15 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#" class="btn btn--accent btn--social">
-                            <img src="assets/images/linkedin.svg" alt="LinkedIn icon">
+                        <a href="https://www.linkedin.com/in/evepulido/" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--social" aria-label="Perfil de LinkedIn (abre en una nueva pestaña)">
+                            <img src="assets/images/linkedin.svg" alt="" aria-hidden="true">
                             LinkedIn
                         </a>
-                        <a href="#" class="btn btn--accent btn--social">
-                            <img src="assets/images/github.svg" alt="GitHub icon">
+                        <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--social" aria-label="Perfil de GitHub (abre en una nueva pestaña)">
+                            <img src="assets/images/github.svg" alt="" aria-hidden="true">
                             GitHub
                         </a>
-                        <a href="#" class="btn btn--accent btn--social">Kaggle</a>
+                        <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--social" aria-label="Perfil de Kaggle (abre en una nueva pestaña)">Kaggle</a>
                     </div>
                 </div>
 
@@ -48,34 +49,34 @@
                 </div>
             </div>
             <div class="container">
-                <div class="hero-scroll">↓ SCROLL</div>
+                <div class="hero-scroll" id="heroScroll">↓ SCROLL</div>
             </div>
         </section>
 
         <section id="proyectos" class="projects">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
                     <span class="section-subtitle">SELECCIÓN DE TRABAJO</span>
                     <h2 class="section-title">Proyectos</h2>
                 </div>
 
                 <div class="projects-grid">
-                    <article class="project-card project-card--accent project-card--large">
+                    <article class="project-card project-card--accent project-card--large" data-aos="fade-up">
                         <span class="project-category">EDUCACIÓN</span>
                         <h3 class="project-name">LearnCode</h3>
                     </article>
 
-                    <article class="project-card project-card--soft project-card--small">
+                    <article class="project-card project-card--soft project-card--small" data-aos="fade-up" data-aos-delay="100">
                         <span class="project-category">PÁGINA WEB ACCESIBLE</span>
                         <h3 class="project-name">MUARH</h3>
                     </article>
 
-                    <article class="project-card project-card--soft project-card--small">
+                    <article class="project-card project-card--soft project-card--small" data-aos="fade-up">
                         <span class="project-category">PÁGINA WEB ACCESIBLE</span>
                         <h3 class="project-name">MUARH</h3>
                     </article>
 
-                    <article class="project-card project-card--accent project-card--large">
+                    <article class="project-card project-card--accent project-card--large" data-aos="fade-up" data-aos-delay="100">
                         <span class="project-category">EDUCACIÓN</span>
                         <h3 class="project-name">LearnCode</h3>
                     </article>
@@ -85,22 +86,22 @@
 
         <section id="stack" class="stack">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
                     <span class="section-subtitle">HERRAMIENTAS Y TECNOLOGÍAS</span>
                     <h2 class="section-title">Stack tecnológico</h2>
                 </div>
 
                 <div class="stack-grid">
-                    <article class="stack-card">
+                    <article class="stack-card" data-aos="fade-up" data-aos-delay="0">
                         <span class="stack-label">FRONTEND</span>
                     </article>
-                    <article class="stack-card">
+                    <article class="stack-card" data-aos="fade-up" data-aos-delay="100">
                         <span class="stack-label">BACKEND</span>
                     </article>
-                    <article class="stack-card">
+                    <article class="stack-card" data-aos="fade-up" data-aos-delay="200">
                         <span class="stack-label">DISEÑO</span>
                     </article>
-                    <article class="stack-card">
+                    <article class="stack-card" data-aos="fade-up" data-aos-delay="300">
                         <span class="stack-label">HERRAMIENTAS</span>
                     </article>
                 </div>
@@ -109,24 +110,25 @@
 
         <section class="contact">
             <div class="container contact-grid">
-                <div class="contact-copy">
+                <div class="contact-copy" data-aos="fade-right">
                     <span class="section-subtitle section-subtitle--light">Contacto</span>
                     <h2 class="section-title section-title--light">¿Tienes un proyecto en mente o quieres colaborar?</h2>
                     <a href="mailto:evelyn@correo.com" class="contact-email">evelyn@correo.com</a>
                 </div>
 
-                <div class="contact-card">
+                <div class="contact-card" data-aos="fade-left">
                     <div>
                         <h3>Descarga mi CV</h3>
                         <p>Ingeniera en Software · UX / UI Designer · Disponible en español</p>
                     </div>
-                    <a href="#" class="btn btn--primary btn--download">
-                        <span class="material-icons">download</span> Descargar CV
+                    <a href="#" class="btn btn--primary btn--download" aria-label="Descargar currículum vitae">
+                        <span class="material-icons" aria-hidden="true">download</span> Descargar CV
                     </a>
                 </div>
             </div>
         </section>
     </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

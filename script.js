@@ -54,8 +54,9 @@ themeOptions.forEach(option => {
     });
 });
 
-// Efecto sticky en barra de navegación al hacer scroll
+// Efecto sticky en barra de navegación al hacer scroll y desvanecer indicador
 const topNav = document.querySelector('.top-nav');
+const heroScroll = document.getElementById('heroScroll');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 80) {
@@ -63,4 +64,24 @@ window.addEventListener('scroll', () => {
     } else {
         topNav.classList.remove('scrolled');
     }
+    
+    // Desvanecer el indicador de scroll
+    if (heroScroll) {
+        if (window.scrollY > 50) {
+            heroScroll.style.opacity = '0';
+            heroScroll.style.pointerEvents = 'none';
+        } else {
+            heroScroll.style.opacity = '1';
+            heroScroll.style.pointerEvents = 'auto';
+        }
+    }
 });
+
+// Inicializar AOS
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+}

@@ -1,6 +1,7 @@
 /* Global theme */
 :root {
     /* Colores base */
+    --color-svg: #ebf1f7;
     --color-bg: #F0F5F6;
     --color-text: #1E1E1E; /* Textos oscuros oficiales */
     --color-muted: #6B6B6B; /* Gris oficial */
@@ -75,13 +76,14 @@ svg {
 /* Hero */
 .hero {
     position: relative;
-    padding: 0 0 9rem; /* Top padding removed so banner touches top */
+    padding: 0 0 1rem; /* Top padding removed so banner touches top */
     overflow: hidden;
     background-color: var(--color-bg);
 }
 
 .hero-bg {
     width: 100%;
+    background-color: var(--color-svg);
     height: clamp(160px, 40vw, 280px); /* El alto ahora responde al tamaño de la pantalla */
     background-image: url('assets/hero.svg');
     background-repeat: no-repeat;
@@ -281,6 +283,7 @@ svg {
     text-transform: uppercase;
     color: var(--color-muted);
     animation: bounceHint 1.8s ease-in-out 1s 1; /* 1 segundo de retraso, corre 1 sola vez */
+    transition: opacity 0.4s ease;
 }
 
 /* Sections */
