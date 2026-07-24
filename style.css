@@ -1,7 +1,7 @@
 /* Global theme */
 :root {
     /* Colores base */
-    --color-svg: #ebf1f7;
+    --color-svg: #DEEAED;
     --color-bg: #F0F5F6;
     --color-text: #1E1E1E; /* Textos oscuros oficiales */
     --color-muted: #6B6B6B; /* Gris oficial */
@@ -78,18 +78,17 @@ svg {
     position: relative;
     padding: 0 0 1rem; /* Top padding removed so banner touches top */
     overflow: hidden;
-    background-color: var(--color-bg);
 }
 
 .hero-bg {
     width: 100%;
-    background-color: var(--color-svg);
     height: clamp(160px, 40vw, 280px); /* El alto ahora responde al tamaño de la pantalla */
     background-image: url('assets/hero.svg');
     background-repeat: no-repeat;
     background-position: center; /* Centrarlo evita espacios en blanco arriba/abajo al escalar */
     background-size: cover;
     margin-bottom: 1rem; /* Adds space between banner and text */
+    border-bottom: 2px #e0e3e6 solid;
 }
 
 .hero-grid {
