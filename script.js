@@ -84,4 +84,9 @@ if (typeof AOS !== 'undefined') {
         once: true,
         offset: 100
     });
+    
+    // Recalcular posiciones cuando la ventana termine de cargar (fuentes e imágenes)
+    window.addEventListener('load', () => {
+        AOS.refresh();
+    });
 }

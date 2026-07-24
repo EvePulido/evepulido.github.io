@@ -44,6 +44,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 button,
@@ -51,14 +52,15 @@ a {
     font: inherit;
 }
 
+/* Container - Material Design Responsive Grid */
 .container {
-    width: min(1140px, calc(100% - 32px));
+    width: min(1140px, calc(100% - 32px)); /* Mobile: 16px margins */
     margin: 0 auto;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 600px) {
     .container {
-        width: min(1140px, calc(100% - 80px));
+        width: min(1140px, calc(100% - 48px)); /* Tablet/Desktop: 24px margins */
     }
 }
 
@@ -94,15 +96,37 @@ svg {
 .hero-grid {
     position: relative;
     display: grid;
-    gap: 2rem;
-    align-items: stretch; /* Permite que ambos lados del grid tengan la misma altura */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Material Mobile Gutter: 16px */
+    align-items: stretch;
     z-index: 1;
-    padding: 2rem 0rem 2rem 0rem;
+    padding: 2rem 0;
 }
 
-@media (min-width: 860px) {
+.hero-copy, .hero-visual {
+    grid-column: span 4;
+}
+
+@media (min-width: 600px) {
     .hero-grid {
-        grid-template-columns: 7fr 3fr; /* Proporción 70% para texto, 30% para foto */
+        grid-template-columns: repeat(8, 1fr);
+        gap: 24px; /* Material Tablet Gutter: 24px */
+    }
+    .hero-copy, .hero-visual {
+        grid-column: span 8;
+    }
+}
+
+@media (min-width: 840px) {
+    .hero-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px; /* Material Desktop Gutter: 24px */
+    }
+    .hero-copy {
+        grid-column: span 8;
+    }
+    .hero-visual {
+        grid-column: span 4;
     }
 }
 
@@ -188,7 +212,13 @@ svg {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px; /* Separación exacta del gutter del grid */
+    gap: 16px; /* Material Mobile Gutter */
+}
+
+@media (min-width: 600px) {
+    .hero-actions {
+        gap: 24px; /* Material Tablet/Desktop Gutter */
+    }
 }
 
 .btn {
@@ -250,13 +280,12 @@ svg {
 .hero-visual {
     display: flex;
     justify-content: flex-end;
-    align-items: stretch; /* Permite que el círculo crezca hasta el tope */
+    align-items: center; /* Alineación centrada para no forzar altura */
 }
 
 .hero-photo {
-    height: 100%;
-    width: auto;
-    max-width: 100%; /* Evita que se desborde del layout en pantallas pequeñas */
+    width: 100%;
+    max-width: 320px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: 1px solid rgba(15, 23, 42, 0.08);
@@ -321,17 +350,12 @@ svg {
 /* Projects */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-}
-
-@media (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Material Mobile Gutter */
 }
 
 .project-card {
+    grid-column: span 4;
     position: relative;
     padding: 2rem;
     border-radius: 2rem;
@@ -340,6 +364,36 @@ svg {
     overflow: hidden;
     min-height: 260px;
     box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 600px) {
+    .projects-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 24px; /* Material Tablet Gutter */
+    }
+    
+    .project-card {
+        grid-column: span 8;
+    }
+    
+    .project-card--small {
+        grid-column: span 4; /* Media fila en tablet */
+    }
+}
+
+@media (min-width: 840px) {
+    .projects-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px; /* Material Desktop Gutter */
+    }
+    
+    .project-card--large {
+        grid-column: span 7;
+    }
+    
+    .project-card--small {
+        grid-column: span 5;
+    }
 }
 
 .project-card::before {
@@ -364,12 +418,10 @@ svg {
 }
 
 .project-card--large {
-    grid-column: span 3;
     min-height: clamp(260px, 40vw, 320px); /* Tope en 320px, pero encoge responsivamente */
 }
 
 .project-card--small {
-    grid-column: span 2;
     min-height: 240px;
 }
 
@@ -393,17 +445,12 @@ svg {
 /* Stack */
 .stack-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-}
-
-@media (min-width: 768px) {
-    .stack-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Material Mobile Gutter */
 }
 
 .stack-card {
+    grid-column: span 2; /* 2 por fila en móvil */
     background: var(--color-bg);
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 1.5rem;
@@ -413,6 +460,28 @@ svg {
     padding: 2rem;
     color: var(--color-text);
     box-shadow: var(--shadow-soft);
+}
+
+@media (min-width: 600px) {
+    .stack-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 24px;
+    }
+    
+    .stack-card {
+        grid-column: span 2; /* 4 por fila en tablet */
+    }
+}
+
+@media (min-width: 840px) {
+    .stack-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+    }
+    
+    .stack-card {
+        grid-column: span 3; /* 4 por fila en desktop */
+    }
 }
 
 .stack-label {
@@ -430,13 +499,38 @@ svg {
 
 .contact-grid {
     display: grid;
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     align-items: center;
 }
 
-@media (min-width: 860px) {
+.contact-copy, .contact-card {
+    grid-column: span 4;
+}
+
+@media (min-width: 600px) {
     .contact-grid {
-        grid-template-columns: 1.4fr 0.9fr;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 24px;
+    }
+    
+    .contact-copy, .contact-card {
+        grid-column: span 8;
+    }
+}
+
+@media (min-width: 840px) {
+    .contact-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+    }
+    
+    .contact-copy {
+        grid-column: span 7;
+    }
+    
+    .contact-card {
+        grid-column: span 5;
     }
 }
 
@@ -477,7 +571,7 @@ svg {
 
 
 
-@media (max-width: 860px) {
+@media (max-width: 839px) {
     /* Navbar con fondo permanente para legibilidad sobre SVG */
     .top-nav {
         background-color: rgba(240, 245, 246, 0.85);
@@ -493,7 +587,6 @@ svg {
 
     .hero-grid {
         padding-top: 2rem; /* Reducción drástica del espacio superior */
-        gap: 1.5rem;
     }
 
     .hero-copy {
@@ -507,7 +600,6 @@ svg {
     .hero-actions {
         justify-content: center; /* Centrar los botones de redes sociales */
         width: 100%; /* Recupera el ancho total para que los botones se expandan */
-        gap: 12px; /* Espaciado más reducido y estético para móviles */
     }
 
     .hero-visual {
@@ -517,27 +609,11 @@ svg {
     }
 
     .hero-photo {
-        height: 200px; /* Un poco más pequeña para balancear el diseño al ir arriba */
-        width: 200px;
+        width: 100%;
+        max-width: 200px;
+        aspect-ratio: 1 / 1;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card--large,
-    .project-card--small {
-        grid-column: span 1;
-    }
-
-    .stack-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
     /* Refinamientos extra de responsividad en móviles */
     .project-name {
         font-size: 1.4rem; /* Un poco más pequeño para tarjetas angostas */
