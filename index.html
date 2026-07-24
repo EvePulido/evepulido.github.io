@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio de Evelyn Pulido">
+    <meta name="description" content="Portafolio profesional de Evelyn Pulido · Ingeniera en Software & UX/UI Designer">
     <title>Evelyn Pulido | Portafolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,16 +13,19 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <header class="top-nav">
-            <div class="container">
-                <a href="#" class="logo-link">
-                    <img src="assets/images/logo.svg" alt="Evelyn Pulido Logo" class="logo-img">
-                </a>
-            </div>
-        </header>
-        <section class="hero">
-            <div class="hero-bg"></div>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <header class="top-nav">
+        <div class="container">
+            <a href="#" class="logo-link" aria-label="Evelyn Pulido — Inicio">
+                <img src="assets/images/logo.svg" alt="Evelyn Pulido Logo" class="logo-img">
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" aria-label="Sección de presentación">
+            <div class="hero-bg" aria-hidden="true"></div>
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <h1 class="hero-title">Evelyn Pulido</h1>
@@ -31,7 +34,7 @@
                         Me apasiona crear experiencias digitales accesibles y centradas en las personas. Combino desarrollo de software, diseño UX/UI e inteligencia artificial para construir soluciones intuitivas que resuelven problemas reales.
                     </p>
 
-                    <div class="hero-actions">
+                    <div class="hero-actions" aria-label="Redes sociales principales">
                         <a href="https://www.linkedin.com/in/evepulido/" target="_blank" rel="noopener noreferrer" class="btn btn--accent btn--social" aria-label="Perfil de LinkedIn (abre en una nueva pestaña)">
                             <img src="assets/images/linkedin.svg" alt="" aria-hidden="true">
                             LinkedIn
@@ -45,19 +48,19 @@
                 </div>
 
                 <div class="hero-visual">
-                    <div class="hero-photo"></div>
+                    <div class="hero-photo" role="img" aria-label="Fotografía de perfil de Evelyn Pulido"></div>
                 </div>
             </div>
             <div class="container">
-                <div class="hero-scroll" id="heroScroll">↓ SCROLL</div>
+                <a href="#proyectos" class="hero-scroll" id="heroScroll" aria-label="Desplazarse hacia la sección de proyectos">↓ SCROLL</a>
             </div>
         </section>
 
-        <section id="proyectos" class="projects">
+        <section id="proyectos" class="projects" aria-labelledby="proyectos-heading">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
                     <span class="section-subtitle">SELECCIÓN DE TRABAJO</span>
-                    <h2 class="section-title">Proyectos</h2>
+                    <h2 class="section-title" id="proyectos-heading">Proyectos</h2>
                 </div>
 
                 <div class="projects-grid">
@@ -84,11 +87,11 @@
             </div>
         </section>
 
-        <section id="stack" class="stack">
+        <section id="stack" class="stack" aria-labelledby="stack-heading">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
                     <span class="section-subtitle">HERRAMIENTAS Y TECNOLOGÍAS</span>
-                    <h2 class="section-title">Stack tecnológico</h2>
+                    <h2 class="section-title" id="stack-heading">Stack tecnológico</h2>
                 </div>
 
                 <div class="stack-grid">
@@ -159,32 +162,50 @@
                 </div>
             </div>
         </section>
-
-        <section class="contact">
-            <div class="container contact-grid">
-                <div class="contact-copy" data-aos="fade-right">
-                    <span class="section-subtitle section-subtitle--light">Contacto</span>
-                    <h2 class="section-title section-title--light">¿Tienes un proyecto en mente o quieres colaborar?</h2>
-                    <a href="mailto:hello.evepulido@gmail.com" class="contact-email" aria-label="Enviar correo electrónico a hello.evepulido@gmail.com">
-                        <span class="contact-email-text">hello.evepulido@gmail.com</span>
-                        <span class="contact-email-badge" aria-hidden="true">
-                            <span class="material-icons">north_east</span>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="contact-card" data-aos="fade-left">
-                    <div>
-                        <h3>Descarga mi CV</h3>
-                        <p>Ingeniera en Software · UX / UI Designer · Disponible en español</p>
-                    </div>
-                    <a href="#" class="btn btn--primary btn--download" aria-label="Descargar currículum vitae">
-                        <span class="material-icons" aria-hidden="true">download</span> Descargar CV
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <footer class="contact">
+        <div class="container contact-grid">
+            <div class="contact-copy" data-aos="fade-right">
+                <span class="section-subtitle section-subtitle--light">Contacto</span>
+                <h2 class="section-title section-title--light">¿Tienes un proyecto en mente o quieres colaborar?</h2>
+                <a href="mailto:hello.evepulido@gmail.com" class="contact-email" aria-label="Enviar correo electrónico a hello.evepulido@gmail.com">
+                    <span class="contact-email-text">hello.evepulido@gmail.com</span>
+                    <span class="contact-email-badge" aria-hidden="true">
+                        <span class="material-icons">north_east</span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="contact-card" data-aos="fade-left">
+                <div>
+                    <h3>Descarga mi CV</h3>
+                    <p>Ingeniera en Software · UX / UI Designer · Disponible en español</p>
+                </div>
+                <a href="#" class="btn btn--primary btn--download" aria-label="Descargar currículum vitae en formato PDF">
+                    <span class="material-icons" aria-hidden="true">download</span> Descargar CV
+                </a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="footer-divider" aria-hidden="true"></div>
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">© <span id="copyrightYear">2026</span> Evelyn Pulido. Todos los derechos reservados.</p>
+                <nav class="footer-socials" aria-label="Redes Sociales Footer">
+                    <a href="https://www.linkedin.com/in/evepulido/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn (abre en una nueva pestaña)">
+                        <img src="assets/images/linkedin.svg" alt="" aria-hidden="true">
+                    </a>
+                    <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub (abre en una nueva pestaña)">
+                        <img src="assets/images/github.svg" alt="" aria-hidden="true">
+                    </a>
+                    <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Kaggle (abre en una nueva pestaña)">
+                        <img src="assets/images/kaggle.svg" alt="" aria-hidden="true">
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>

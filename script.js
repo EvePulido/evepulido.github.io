@@ -90,3 +90,9 @@ if (typeof AOS !== 'undefined') {
         AOS.refresh();
     });
 }
+
+// Actualizar año de copyright automáticamente
+const copyrightYear = document.getElementById('copyrightYear');
+if (copyrightYear) {
+    copyrightYear.textContent = new Date().getFullYear();
+}

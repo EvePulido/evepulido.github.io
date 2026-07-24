@@ -17,8 +17,8 @@
     --color-primary-light: #A7C9E9; /* Azul claro oficial */
 
     /* Acentos */
-    --color-accent: #AA743F; /* Café oficial para botones */
-    --color-accent-hover: #8f6032;
+    --color-accent: #996938; /* Café acento oficial accesible */
+    --color-accent-hover: #7b5228; /* Hover oscuro de alto contraste (6.8:1 WCAG AA) */
 
     /* Elementos inversos (fondos oscuros) */
     --color-text-inverse: #ffffff;
@@ -36,7 +36,7 @@
     --shadow-lg: 0 40px 80px rgba(30, 30, 30, 0.08);
     --shadow-md: 0 24px 56px rgba(30, 30, 30, 0.08);
     --shadow-soft: 0 20px 40px rgba(30, 30, 30, 0.05);
-    --shadow-accent: 0 18px 30px rgba(170, 116, 63, 0.24);
+    --shadow-accent: 0 18px 30px rgba(153, 105, 56, 0.28);
     --shadow-nav: 0 4px 30px rgba(0, 0, 0, 0.05);
 
     /* Transiciones */
@@ -48,6 +48,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+    position: absolute;
+    top: -120px;
+    left: 1rem;
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    z-index: 1000;
+    font-weight: 700;
+    text-decoration: none;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
 }
 
 html {
@@ -296,7 +317,7 @@ svg {
 
 .btn--social:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(170, 116, 63, 0.32);
+    box-shadow: 0 12px 24px rgba(153, 105, 56, 0.32);
 }
 
 .btn--social:hover img {
@@ -513,7 +534,7 @@ svg {
     }
     
     .stack-card {
-        grid-column: span 4;
+        grid-column: span 4; /* 2 por fila en tablet */
     }
 }
 
@@ -524,7 +545,7 @@ svg {
     }
     
     .stack-card {
-        grid-column: span 3;
+        grid-column: span 6; /* 2 por fila en desktop */
     }
 }
 
@@ -590,15 +611,15 @@ svg {
     border-color: var(--color-accent);
 }
 .stack-card--brown .stack-icon-wrapper {
-    background: rgba(170, 116, 63, 0.15);
-    color: #784D23;
+    background: rgba(153, 105, 56, 0.15);
+    color: #7b5228;
 }
 .stack-card--brown:hover {
-    box-shadow: 0 12px 30px rgba(170, 116, 63, 0.18);
-    border-color: #784D23;
+    box-shadow: 0 12px 30px rgba(153, 105, 56, 0.18);
+    border-color: #7b5228;
 }
 .stack-card--brown:hover .stack-icon-wrapper {
-    background: #784D23;
+    background: #7b5228;
     color: var(--color-white);
 }
 
@@ -647,7 +668,7 @@ svg {
 .contact {
     background: var(--color-text);
     color: var(--color-bg);
-    padding: 4rem 0;
+    padding: 4.5rem 0 2.5rem 0;
 }
 
 .contact-grid {
@@ -788,6 +809,84 @@ svg {
 .contact-card p {
     color: var(--color-text-inverse-muted);
     line-height: 1.9;
+}
+
+/* Footer Bottom Bar & Horizontal Divider */
+.footer-bottom {
+    margin-top: 2.75rem;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border-inverse);
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: var(--color-text-inverse-muted);
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-surface-transparent);
+    border: 1px solid var(--color-border-inverse);
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-social-link img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+/* LinkedIn & GitHub icons adapt to bright white on dark footer */
+.footer-social-link[aria-label*="LinkedIn"] img,
+.footer-social-link[aria-label*="GitHub"] img {
+    filter: brightness(0) invert(1);
+}
+
+/* Kaggle icon maintains its vibrant cyan SVG color */
+.footer-social-link[aria-label*="Kaggle"] img {
+    filter: none;
+}
+
+/* Hover & Focus states */
+.footer-social-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.footer-social-link:hover img {
+    transform: scale(1.1);
+}
+
+.footer-social-link:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 3px;
 }
 
 /* Mobile Media Queries */
