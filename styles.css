@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Design Tokens & CSS Variables
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+  /* Color Palette */
+  --color-primary: #B33200;
+  --color-primary-hover: #8C2700;
+  --color-bg: #FFFFFF;
+  --color-text-main: #1E1E1E;
+  --color-text-secondary: #636363;
+  --color-text-muted: #636363;
+  --color-shadow-reserved: #FFEABF; /* Reservado para futuras sombras */
+
+  /* Layout Grid System (12 columnas: margin 80px, gutter 24px) */
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --grid-margin: 80px;
+  --container-max-width: 1440px;
+
+  /* Typography */
+  --font-heading: 'Parkinsans', 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+  
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-nav: 1.05rem;    /* ~17px */
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prefers Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Grid System Specification
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gutter);
+}
+
+/* Grid Column Helpers */
+.col-12 { grid-column: span 12; }
+.col-11 { grid-column: span 11; }
+.col-10 { grid-column: span 10; }
+.col-9  { grid-column: span 9; }
+.col-8  { grid-column: span 8; }
+.col-7  { grid-column: span 7; }
+.col-6  { grid-column: span 6; }
+.col-5  { grid-column: span 5; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+.col-2  { grid-column: span 2; }
+.col-1  { grid-column: span 1; }
+
+/* ==========================================================================
+   Accessibility Utilities (a11y)
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-text-main);
+  color: var(--color-bg);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Teclado Focus Visible */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Main content top spacing to account for fixed header */
+main {
+  margin-top: 170px;
+}
+
+/* ==========================================================================
+   Header & Navigation Component
+   ========================================================================== */
+.site-header {
+  width: 100%;
+  background-color: var(--color-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado transparente y reducido al hacer scroll (Accesible WCAG AA) */
+.site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Accesibilidad para usuarios con preferencia de transparencia reducida */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header.scrolled {
+    background-color: #FFFFFF;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+.header-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centrado vertical exacto con respecto al logo */
+  transition: padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header.scrolled .header-container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Brand / Logo */
+.logo-heading {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  line-height: 1;
+  display: inline-flex;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.logo-link:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.logo-img {
+  width: auto;
+  height: 124px;
+  display: block;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height;
+}
+
+.site-header.scrolled .logo-img {
+  height: 58px;
+}
+
+/* Nav Menu */
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-main);
+  text-decoration: none;
+  position: relative;
+  padding: 0.4rem 0.2rem;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Indicador inferior para hover / activo */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after,
+.nav-link[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Hero Section Component
+   ========================================================================== */
+.hero-section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Subtítulo: Poppins, #5E5E5E */
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* Título Principal: Parkinsans, #1E1E1E */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-main);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  max-width: 1100px;
+}
+
+/* Scroll margin offset para compensar el header fijo al navegar */
+section[id],
+.featured-work-section {
+  scroll-margin-top: 110px;
+}
+
+/* ==========================================================================
+   Scroll Indicator Component
+   ========================================================================== */
+.scroll-indicator {
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-indicator.faded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+.scroll-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-fast);
+}
+
+.scroll-text {
+  font-family: var(--font-body); /* Poppins */
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary); /* #5E5E5E */
+}
+
+/* Animación sutil y breve de arriba hacia abajo que se detiene suavemente */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-link {
+    animation: scrollBounce 1.2s cubic-bezier(0.45, 0, 0.15, 1) 3; /* Se ejecuta 3 veces suavemente (~3.6s total) y se detiene */
+  }
+}
+
+/* ==========================================================================
+   Featured Work Section Component
+   ========================================================================== */
+.featured-work-section {
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+}
+
+.section-title {
+  font-family: var(--font-heading); /* Parkinsans */
+  font-size: 2.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary); /* #B33200 */
+  letter-spacing: -0.025em;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid de Proyectos (2 filas x 2 columnas: Fila 1: 7/5, Fila 2: 5/7) */
+.projects-grid {
+  row-gap: var(--grid-gutter);
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background-color: #F8F8F8;
+  box-shadow: 0 8px 24px 0px rgba(255, 234, 191, 0.45); /* Sombra ultra ligera en amarillo #FFEABF */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: 0 12px 32px 1px rgba(255, 234, 191, 0.65);
+}
+
+.project-img-wrapper {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 24px;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Overlay cubriendo la imagen con el color principal al 90% opacidad */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(179, 50, 0, 0.90); /* #B33200 al 90% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem;
+  border-radius: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título del proyecto (Poppins, Blanco #FFFFFF) */
+.project-title {
+  font-family: var(--font-body); /* Poppins */
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+/* Área del proyecto (Poppins, Blanco #FFFFFF) */
+.project-area {
+  font-family: var(--font-body); /* Poppins */
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-medium);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Interacción Hover y Focus (Solamente desvanecido de la capa de color) */
+.project-card:hover .project-overlay,
+.project-card:focus .project-overlay,
+.project-card:focus-visible .project-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 6px;
+  border-radius: 24px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --grid-margin: 40px;
+    --grid-gutter: 20px;
+  }
+
+  .logo-img {
+    height: 96px;
+  }
+
+  .hero-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-img-wrapper {
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --grid-margin: 20px;
+    --grid-gutter: 16px;
+  }
+
+  .header-container {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .logo-img {
+    height: 72px;
+  }
+
+  .nav-list {
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+    line-height: 1.3;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-img-wrapper {
+    height: 260px;
+    border-radius: 18px;
+  }
+
+  .project-card,
+  .project-img,
+  .project-overlay {
+    border-radius: 18px;
+  }
+
+  .project-title {
+    font-size: 1.65rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .project-area {
+    font-size: 0.9rem;
+  }
+
+  .grid-12 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: span 4;
+  }
+}
+
+
+
