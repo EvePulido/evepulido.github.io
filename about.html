@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Evelyn Pulido - Software Engineer & UX/UI Designer">
+    <title>About me | Evelyn Pulido</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Accessibility: Direct link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Primary navigation header -->
+    <header class="site-header" id="header">
+        <div class="header-container container">
+            <!-- Main logo as accessible H1 -->
+            <h1 class="logo-heading">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: inline-flex;">
+                    <img src="assets/Logo.svg" alt="Evelyn Pulido" width="169" height="133" class="logo-img">
+                </a>
+            </h1>
+
+            <!-- Accessible navigation landmarks -->
+            <nav class="navbar" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active" aria-current="page">About me</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section for About Me -->
+        <section class="hero-section container" id="about-hero">
+            <div class="grid-12">
+                <div class="hero-content col-11">
+                    <p class="hero-subtitle">Software Engineer &amp; UX/UI Designer</p>
+                    <h1 class="hero-title">Designing experiences that listen to people, bridge technology, and craft real-world impact.</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story and Philosophy Section -->
+        <section class="tools-section container" id="about-details" aria-labelledby="about-details-title">
+            <h2 class="sr-only" id="about-details-title">About Evelyn Pulido</h2>
+
+            <div class="grid-12" style="row-gap: 2rem;">
+                <!-- Main Biography -->
+                <div class="tool-card col-7">
+                    <div class="tool-card-header">
+                        <i data-lucide="user" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">My Approach</h3>
+                    </div>
+                    <p style="font-family: var(--font-body); color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;">
+                        I am a Software Engineer and UX/UI Designer passionate about creating accessible, intuitive, and visually memorable digital products. My work combines the logical thinking of development with the empathy of user-centered design.
+                    </p>
+                    <p style="font-family: var(--font-body); color: var(--color-text-secondary); font-size: 1rem; line-height: 1.7;">
+                        I firmly believe that every great digital experience begins by listening to people, iterating solutions through real prototypes, and refining code to ensure performance, accessibility, and inclusion across every screen.
+                    </p>
+                </div>
+
+                <!-- Work Pillars -->
+                <div class="tool-card col-5">
+                    <div class="tool-card-header">
+                        <i data-lucide="sparkles" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">My Pillars</h3>
+                    </div>
+                    <ul class="tool-tags" role="list" style="flex-direction: column; gap: 0.85rem; align-items: flex-start;">
+                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                            <i data-lucide="heart-handshake" class="tool-tag-icon" aria-hidden="true"></i>
+                            <span>Human-Centered Design</span>
+                        </li>
+                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                            <i data-lucide="eye" class="tool-tag-icon" aria-hidden="true"></i>
+                            <span>Accessibility &amp; Inclusion (WCAG AA)</span>
+                        </li>
+                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                            <i data-lucide="code-2" class="tool-tag-icon" aria-hidden="true"></i>
+                            <span>Clean &amp; Scalable Code</span>
+                        </li>
+                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                            <i data-lucide="brain-circuit" class="tool-tag-icon" aria-hidden="true"></i>
+                            <span>Artificial Intelligence Integration</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Footer Section -->
+        <section class="footer-wrapper" id="contact" aria-labelledby="contact-title">
+            <!-- Background Gradient Banner (footer.svg) -->
+            <div class="footer-bg-banner" aria-hidden="true">
+                <img src="assets/footer.svg" alt="" class="footer-bg-img" loading="lazy">
+            </div>
+
+            <!-- Floating Contact Card -->
+            <div class="footer-card-container container">
+                <div class="contact-card">
+                    <div class="contact-card-top">
+                        <h2 class="section-title contact-title" id="contact-title">Let’s connect</h2>
+                        <p class="contact-subtitle">Whether you have a UX opportunity, a project in mind, or simply want to talk about design, I’d love to hear from you.</p>
+                        <div class="contact-actions">
+                            <a href="mailto:hello.evepulido@gmail.com" class="contact-email">
+                                hello.evepulido@gmail.com
+                                <i data-lucide="arrow-up-right" class="contact-email-icon" aria-hidden="true"></i>
+                            </a>
+                            <a href="assets/CV_Evelyn_Pulido.pdf" download class="cv-download-btn" aria-label="Download Evelyn Pulido's résumé (PDF)">
+                                <i data-lucide="download" class="cv-btn-icon" aria-hidden="true"></i>
+                                <span>Download résumé</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr class="contact-card-hr">
+
+                    <div class="contact-card-bottom">
+                        <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
+                        <div class="social-links" role="list">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
+                                <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
+                                <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
+                            <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
+                                <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="index.js"></script>
+</body>
+</html>

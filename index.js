@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * Inicialización de componentes e interactividad del sitio
+ * Inicialización de componentes e interactividad accesible del sitio (W3C Standard)
  */
 document.addEventListener('DOMContentLoaded', () => {
   initLucideIcons();
-  initNavigation();
+  initViewSwitcher();
   initHeaderScroll();
   initScrollFade();
   initScrollClick();
@@ -21,22 +21,109 @@ function initLucideIcons() {
 }
 
 /**
- * Control de estados de la barra de navegación
+ * Control accesible de Vistas SPA (W3C Gold Standard para Navegación Superior)
+ * Utiliza enlaces semánticos <a> con aria-current="page" para máxima compatibilidad con Narrador
  */
-function initNavigation() {
-  const navLinks = document.querySelectorAll('.nav-link');
+function initViewSwitcher() {
+  const navWork = document.getElementById('nav-work');
+  const navAbout = document.getElementById('nav-about');
+  const viewWork = document.getElementById('view-work');
+  const viewAbout = document.getElementById('view-about');
+  const logoLink = document.getElementById('logo-link');
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(l => {
-        l.classList.remove('active');
-        l.removeAttribute('aria-current');
-      });
+  if (!navWork || !navAbout || !viewWork || !viewAbout) return;
 
-      link.classList.add('active');
-      link.setAttribute('aria-current', 'page');
-    });
+  function activateView(target, options = { updateHash: true, focusHeading: true }) {
+    const isAbout = target === 'about';
+
+    // Actualizar estados visuales y de accesibilidad en los enlaces
+    if (isAbout) {
+      navWork.classList.remove('active');
+      navWork.removeAttribute('aria-current');
+
+      navAbout.classList.add('active');
+      navAbout.setAttribute('aria-current', 'page');
+    } else {
+      navAbout.classList.remove('active');
+      navAbout.removeAttribute('aria-current');
+
+      navWork.classList.add('active');
+      navWork.setAttribute('aria-current', 'page');
+    }
+
+    // Ocultar / Mostrar los paneles de vista
+    if (isAbout) {
+      viewWork.setAttribute('hidden', '');
+      viewWork.classList.remove('active');
+
+      viewAbout.removeAttribute('hidden');
+      viewAbout.classList.add('active');
+    } else {
+      viewAbout.setAttribute('hidden', '');
+      viewAbout.classList.remove('active');
+
+      viewWork.removeAttribute('hidden');
+      viewWork.classList.add('active');
+    }
+
+    // Actualizar hash en la URL
+    if (options.updateHash) {
+      const newHash = isAbout ? '#about' : '#work';
+      if (window.location.hash !== newHash) {
+        history.pushState(null, '', newHash);
+      }
+    }
+
+    // Desplazar al inicio suavemente
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Transferencia accesible de foco para lectores de pantalla
+    if (options.focusHeading) {
+      setTimeout(() => {
+        const headingToFocus = isAbout
+          ? document.getElementById('about-heading')
+          : document.getElementById('work-hero-heading');
+
+        if (headingToFocus) {
+          headingToFocus.focus();
+        }
+      }, 150);
+    }
+
+    // Re-inicializar iconos Lucide si es necesario
+    initLucideIcons();
+  }
+
+  // Event Listeners para clics en la navegación
+  navWork.addEventListener('click', (e) => {
+    e.preventDefault();
+    activateView('work');
   });
+
+  navAbout.addEventListener('click', (e) => {
+    e.preventDefault();
+    activateView('about');
+  });
+
+  if (logoLink) {
+    logoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateView('work');
+    });
+  }
+
+  // Sincronización con botones del navegador (Atrás / Adelante) y Hash inicial
+  function syncFromHash() {
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#about') {
+      activateView('about', { updateHash: false, focusHeading: false });
+    } else {
+      activateView('work', { updateHash: false, focusHeading: false });
+    }
+  }
+
+  window.addEventListener('popstate', syncFromHash);
+  syncFromHash();
 }
 
 /**
@@ -90,7 +177,3 @@ function initHeaderScroll() {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 }
-
-
-
-

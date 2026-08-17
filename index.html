@@ -1,126 +1,368 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Evelyn Pulido - Software Engineer & UX/UI Designer">
-    <title>Evelyn Pulido | Software Engineer & UX/UI Designer</title>
-    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <meta name="description" content="Personal portfolio of Evelyn Pulido - Software Engineer & UX/UI Designer">
+    <title>Evelyn Pulido | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Accesibilidad: Enlace directo para navegación por teclado -->
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <!-- Accessibility: Direct link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Barra de navegación principal -->
+    <!-- Primary navigation header -->
     <header class="site-header" id="header">
         <div class="header-container container">
-            <!-- Logo principal como H1 accesible -->
+            <!-- Main logo as accessible H1 -->
             <h1 class="logo-heading">
-                <a href="#hero" class="logo-link" aria-label="Evelyn Pulido - Ir a la página de inicio">
-                    <img src="assets/Logo.svg" alt="" width="169" height="133" class="logo-img">
+                <a href="#work" id="logo-link" aria-label="Evelyn Pulido — Return to home" style="text-decoration: none; color: inherit; display: inline-flex;">
+                    <img src="assets/Logo.svg" alt="Evelyn Pulido" width="169" height="133" class="logo-img">
                 </a>
             </h1>
 
-            <!-- Navegación con landmarks de accesibilidad -->
-            <nav class="navbar" aria-label="Navegación principal">
+            <!-- Accessible navigation landmarks (W3C Standard) -->
+            <nav class="navbar" aria-label="Main navigation">
                 <ul class="nav-list" role="list">
                     <li class="nav-item">
-                        <a href="#work" class="nav-link active" aria-current="page">Work</a>
+                        <a href="#work" class="nav-link active" id="nav-work" aria-current="page">Work</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">About me</a>
+                        <a href="#about" class="nav-link" id="nav-about">About me</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Contenido Principal -->
+    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section container" id="hero">
-            <div class="grid-12">
-                <div class="hero-content col-11">
-                    <p class="hero-subtitle">Software Engineer &amp; UX/UI Designer</p>
-                    <p class="hero-title">Every experience begins by listening to people and improves through designing, testing, and learning with them.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Indicador de Scroll Clickable (Ocultado explícitamente para lectores de pantalla) -->
-        <div class="scroll-indicator container" id="scroll-indicator" aria-hidden="true">
-            <a href="#work" class="scroll-link" tabindex="-1" aria-hidden="true">
-                <i data-lucide="arrow-down" class="scroll-icon" aria-hidden="true"></i>
-                <span class="scroll-text">SCROLL</span>
-            </a>
+        <!-- ===================================================================
+             VIEW 1: WORK (Hero + Featured Work + Technologies & Tools)
+             =================================================================== -->
+        <div id="view-work" class="view-panel active" role="tabpanel" aria-labelledby="nav-work">
+            <!-- Hero Section -->
+            <section class="hero-section container" id="hero">
+                <div class="grid-12">
+                    <div class="hero-content col-11">
+                        <p class="hero-subtitle">Software Engineer &amp; UX/UI Designer</p>
+                        <h2 class="hero-title" id="work-hero-heading" tabindex="-1">Every experience begins by listening to people and improves through designing, testing, and learning with them.</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clickable Scroll Indicator -->
+            <div class="scroll-indicator container" id="scroll-indicator" aria-hidden="true">
+                <a href="#work" class="scroll-link" tabindex="-1" aria-hidden="true">
+                    <i data-lucide="arrow-down" class="scroll-icon" aria-hidden="true"></i>
+                    <span class="scroll-text">SCROLL</span>
+                </a>
+            </div>
+
+            <!-- Featured Work Section -->
+            <section class="featured-work-section container" id="work" aria-labelledby="work-title">
+                <h2 class="section-title" id="work-title">Featured Work</h2>
+
+                <div class="projects-grid grid-12">
+                    <!-- Row 1 - Project 1 (7 Columns) -->
+                    <a href="#" class="project-card col-7" aria-label="MUARH - Art, memory, and pre-Hispanic heritage">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/muarh.jpeg" alt="" class="project-img" loading="lazy">
+                            <div class="project-overlay" aria-hidden="true">
+                                <div class="project-info">
+                                    <h3 class="project-title">MUARH</h3>
+                                    <p class="project-area">Art, Memory &amp; Pre-Hispanic Heritage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Row 1 - Project 2 (5 Columns) -->
+                    <a href="#" class="project-card col-5" aria-label="LearnCode - Education">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode.jpeg" alt="" class="project-img" loading="lazy">
+                            <div class="project-overlay" aria-hidden="true">
+                                <div class="project-info">
+                                    <h3 class="project-title">LearnCode</h3>
+                                    <p class="project-area">Education</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Row 2 - Project 3 (5 Columns) -->
+                    <a href="#" class="project-card col-5" aria-label="LearnCode App - Control Structures">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode.jpeg" alt="" class="project-img" loading="lazy">
+                            <div class="project-overlay" aria-hidden="true">
+                                <div class="project-info">
+                                    <h3 class="project-title">LearnCode App</h3>
+                                    <p class="project-area">Control Structures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Row 2 - Project 4 (7 Columns) -->
+                    <a href="#" class="project-card col-7" aria-label="MUARH Web - Collection and History">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/muarh.jpeg" alt="" class="project-img" loading="lazy">
+                            <div class="project-overlay" aria-hidden="true">
+                                <div class="project-info">
+                                    <h3 class="project-title">MUARH Web</h3>
+                                    <p class="project-area">Collection &amp; History</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Technologies & Tools Section -->
+            <section class="tools-section container" id="tools" aria-labelledby="tools-title">
+                <h2 class="section-title" id="tools-title">Technologies &amp; Tools</h2>
+
+                <div class="tools-grid grid-12">
+                    <!-- 1. Design Card -->
+                    <div class="tool-card col-6">
+                        <div class="tool-card-header">
+                            <i data-lucide="palette" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Design</h3>
+                        </div>
+                        <ul class="tool-tags" role="list">
+                            <li class="tool-tag">
+                                <i data-lucide="layers" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Figma</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="layout" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Canva</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="image" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>GIMP</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="box" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Blender</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="component" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Design Systems</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Frontend Card -->
+                    <div class="tool-card col-6">
+                        <div class="tool-card-header">
+                            <i data-lucide="code" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Frontend</h3>
+                        </div>
+                        <ul class="tool-tags" role="list">
+                            <li class="tool-tag">
+                                <i data-lucide="file-code-2" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>HTML5 / CSS3</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="braces" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>JavaScript (ES6+)</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="atom" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>React</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="layout-grid" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Bootstrap</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="sparkles" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Material Design</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Backend Card -->
+                    <div class="tool-card col-6">
+                        <div class="tool-card-header">
+                            <i data-lucide="server" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Backend</h3>
+                        </div>
+                        <ul class="tool-tags" role="list">
+                            <li class="tool-tag">
+                                <i data-lucide="terminal" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Python</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="hexagon" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Node.js / Express</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="database" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>MySQL</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="network" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>RESTful APIs</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Tools Card -->
+                    <div class="tool-card col-6">
+                        <div class="tool-card-header">
+                            <i data-lucide="wrench" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Tools</h3>
+                        </div>
+                        <ul class="tool-tags" role="list">
+                            <li class="tool-tag">
+                                <i data-lucide="file-code" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>VS Code</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="smartphone" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Android Studio</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="git-branch" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Git &amp; GitHub</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="kanban" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Jira</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="container" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Docker</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="send" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Postman</span>
+                            </li>
+                            <li class="tool-tag">
+                                <i data-lucide="bot" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Google Antigravity &amp; AI Tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Featured Work Section -->
-        <section class="featured-work-section container" id="work" aria-labelledby="work-title">
-            <h2 class="section-title" id="work-title">Featured Work</h2>
+        <!-- ===================================================================
+             VIEW 2: ABOUT ME (Dedicated View)
+             =================================================================== -->
+        <div id="view-about" class="view-panel" role="tabpanel" aria-labelledby="nav-about" hidden>
+            <!-- About Hero Section -->
+            <section class="hero-section container" id="about-hero">
+                <div class="grid-12">
+                    <div class="hero-content col-11">
+                        <p class="hero-subtitle">Software Engineer &amp; UX/UI Designer</p>
+                        <h2 class="hero-title" id="about-heading" tabindex="-1">Designing experiences that listen to people, bridge technology, and craft real-world impact.</h2>
+                    </div>
+                </div>
+            </section>
 
-            <div class="projects-grid grid-12">
-                <!-- Fila 1 - Proyecto 1 (7 Columnas) -->
-                <a href="#" class="project-card col-7" aria-label="MUARH - Arte, memoria y raíz prehispánica">
-                    <div class="project-img-wrapper">
-                        <img src="assets/images/muarh.jpeg" alt="" class="project-img" loading="lazy">
-                        <div class="project-overlay" aria-hidden="true">
-                            <div class="project-info">
-                                <h3 class="project-title">MUARH</h3>
-                                <p class="project-area">Arte, memoria y raíz prehispánica</p>
-                            </div>
+            <!-- Details Section -->
+            <section class="tools-section container" aria-label="About Evelyn Pulido">
+                <div class="grid-12" style="row-gap: 2rem;">
+                    <!-- Main Biography -->
+                    <div class="tool-card col-7">
+                        <div class="tool-card-header">
+                            <i data-lucide="user" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">My Approach</h3>
+                        </div>
+                        <p style="font-family: var(--font-body); color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;">
+                            I am a Software Engineer and UX/UI Designer passionate about creating accessible, intuitive, and visually memorable digital products. My work combines the logical thinking of development with the empathy of user-centered design.
+                        </p>
+                        <p style="font-family: var(--font-body); color: var(--color-text-secondary); font-size: 1rem; line-height: 1.7;">
+                            I firmly believe that every great digital experience begins by listening to people, iterating solutions through real prototypes, and refining code to ensure performance, accessibility, and inclusion across every screen.
+                        </p>
+                    </div>
+
+                    <!-- Work Pillars -->
+                    <div class="tool-card col-5">
+                        <div class="tool-card-header">
+                            <i data-lucide="sparkles" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">My Pillars</h3>
+                        </div>
+                        <ul class="tool-tags" role="list" style="flex-direction: column; gap: 0.85rem; align-items: flex-start;">
+                            <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                                <i data-lucide="heart-handshake" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Human-Centered Design</span>
+                            </li>
+                            <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                                <i data-lucide="eye" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Accessibility &amp; Inclusion (WCAG AA)</span>
+                            </li>
+                            <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                                <i data-lucide="code-2" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Clean &amp; Scalable Code</span>
+                            </li>
+                            <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
+                                <i data-lucide="brain-circuit" class="tool-tag-icon" aria-hidden="true"></i>
+                                <span>Artificial Intelligence Integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ===================================================================
+             SHARED SECTION: Contact & Footer
+             =================================================================== -->
+        <section class="footer-wrapper" id="contact" aria-labelledby="contact-title">
+            <!-- Background Gradient Banner (footer.svg) -->
+            <div class="footer-bg-banner" aria-hidden="true">
+                <img src="assets/footer.svg" alt="" class="footer-bg-img" loading="lazy">
+            </div>
+
+            <!-- Floating Contact Card -->
+            <div class="footer-card-container container">
+                <div class="contact-card">
+                    <div class="contact-card-top">
+                        <h2 class="section-title contact-title" id="contact-title">Let’s connect</h2>
+                        <p class="contact-subtitle">Whether you have a UX opportunity, a project in mind, or simply want to talk about design, I’d love to hear from you.</p>
+                        <div class="contact-actions">
+                            <a href="mailto:hello.evepulido@gmail.com" class="contact-email">
+                                hello.evepulido@gmail.com
+                                <i data-lucide="arrow-up-right" class="contact-email-icon" aria-hidden="true"></i>
+                            </a>
+                            <a href="assets/CV_Evelyn_Pulido.pdf" download class="cv-download-btn" aria-label="Download Evelyn Pulido's résumé (PDF)">
+                                <i data-lucide="download" class="cv-btn-icon" aria-hidden="true"></i>
+                                <span>Download résumé</span>
+                            </a>
                         </div>
                     </div>
-                </a>
 
-                <!-- Fila 1 - Proyecto 2 (5 Columnas) -->
-                <a href="#" class="project-card col-5" aria-label="LearnCode - Educación">
-                    <div class="project-img-wrapper">
-                        <img src="assets/images/learncode.jpeg" alt="" class="project-img" loading="lazy">
-                        <div class="project-overlay" aria-hidden="true">
-                            <div class="project-info">
-                                <h3 class="project-title">LearnCode</h3>
-                                <p class="project-area">Educación</p>
-                            </div>
+                    <hr class="contact-card-hr">
+
+                    <div class="contact-card-bottom">
+                        <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
+                        <div class="social-links" role="list">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
+                                <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
+                                <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
+                            <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
+                                <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                            </a>
                         </div>
                     </div>
-                </a>
-
-                <!-- Fila 2 - Proyecto 3 (5 Columnas) -->
-                <a href="#" class="project-card col-5" aria-label="LearnCode App - Estructuras de Control">
-                    <div class="project-img-wrapper">
-                        <img src="assets/images/learncode.jpeg" alt="" class="project-img" loading="lazy">
-                        <div class="project-overlay" aria-hidden="true">
-                            <div class="project-info">
-                                <h3 class="project-title">LearnCode App</h3>
-                                <p class="project-area">Estructuras de Control</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Fila 2 - Proyecto 4 (7 Columnas) -->
-                <a href="#" class="project-card col-7" aria-label="MUARH Web - Colección e Historia">
-                    <div class="project-img-wrapper">
-                        <img src="assets/images/muarh.jpeg" alt="" class="project-img" loading="lazy">
-                        <div class="project-overlay" aria-hidden="true">
-                            <div class="project-info">
-                                <h3 class="project-title">MUARH Web</h3>
-                                <p class="project-area">Colección e Historia</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-    </footer>
-
-    <!-- Iconos Lucide CDN -->
+    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="index.js"></script>
 </body>
-</html>
+</html>
