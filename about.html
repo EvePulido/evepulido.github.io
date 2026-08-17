@@ -18,7 +18,7 @@
         <div class="header-container container">
             <!-- Main logo as accessible H1 -->
             <h1 class="logo-heading">
-                <a href="index.html" style="text-decoration: none; color: inherit; display: inline-flex;">
+                <a href="index.html" aria-label="Evelyn Pulido — Return to home" style="text-decoration: none; color: inherit; display: inline-flex;">
                     <img src="assets/Logo.svg" alt="Evelyn Pulido" width="169" height="133" class="logo-img">
                 </a>
             </h1>
@@ -39,59 +39,101 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section for About Me -->
-        <section class="hero-section container" id="about-hero">
-            <div class="grid-12">
-                <div class="hero-content col-11">
-                    <p class="hero-subtitle">Software Engineer &amp; UX/UI Designer</p>
-                    <h1 class="hero-title">Designing experiences that listen to people, bridge technology, and craft real-world impact.</h1>
+        <!-- 1. Presentation + Photo Section (Hero with grid-12) -->
+        <section class="about-hero-section container" id="about-hero">
+            <div class="grid-12" style="align-items: center;">
+                <!-- Text on Left (7 Columns) -->
+                <div class="about-hero-content col-7">
+                    <h1 class="hero-title" id="about-heading" tabindex="-1">Hi, I’m Evelyn Pulido</h1>
+                    <p class="about-lead-desc">
+                        A Software Engineering student from Colima, Mexico who discovered a passion for UX design. I leverage my technical background to build feasible, accessible, and human-centered digital solutions that transform real user needs into intuitive experiences.
+                    </p>
+                    <div class="about-social-links" aria-label="Social Profiles">
+                        <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="LinkedIn Profile">
+                            <img src="assets/images/icons/linkedin.svg" alt="" class="about-social-icon">
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="GitHub Profile">
+                            <img src="assets/images/icons/github.svg" alt="" class="about-social-icon">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="Kaggle Profile">
+                            <span>Kaggle</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Photo on Right (5 Columns) -->
+                <div class="about-hero-img-col col-5">
+                    <div class="about-portrait-wrapper">
+                        <img src="assets/images/evelyn_portrait.jpg" alt="Evelyn Pulido — Software Engineering Student & UX Designer" class="about-portrait-img">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Story and Philosophy Section -->
-        <section class="tools-section container" id="about-details" aria-labelledby="about-details-title">
-            <h2 class="sr-only" id="about-details-title">About Evelyn Pulido</h2>
-
-            <div class="grid-12" style="row-gap: 2rem;">
-                <!-- Main Biography -->
-                <div class="tool-card col-7">
-                    <div class="tool-card-header">
-                        <i data-lucide="user" class="tool-icon" aria-hidden="true"></i>
-                        <h3 class="tool-card-title">My Approach</h3>
-                    </div>
-                    <p style="font-family: var(--font-body); color: var(--color-text-main); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;">
-                        I am a Software Engineer and UX/UI Designer passionate about creating accessible, intuitive, and visually memorable digital products. My work combines the logical thinking of development with the empathy of user-centered design.
-                    </p>
-                    <p style="font-family: var(--font-body); color: var(--color-text-secondary); font-size: 1rem; line-height: 1.7;">
-                        I firmly believe that every great digital experience begins by listening to people, iterating solutions through real prototypes, and refining code to ensure performance, accessibility, and inclusion across every screen.
-                    </p>
-                </div>
-
-                <!-- Work Pillars -->
-                <div class="tool-card col-5">
+        <!-- 2. UX Skills Section (grid-12 with 6 skill cards) -->
+        <section class="tools-section container" id="skills" aria-labelledby="skills-title">
+            <h2 class="section-title" id="skills-title">UX Skills</h2>
+            <div class="grid-12">
+                <div class="tool-card col-4">
                     <div class="tool-card-header">
                         <i data-lucide="sparkles" class="tool-icon" aria-hidden="true"></i>
-                        <h3 class="tool-card-title">My Pillars</h3>
+                        <h3 class="tool-card-title">UX Foundations</h3>
                     </div>
-                    <ul class="tool-tags" role="list" style="flex-direction: column; gap: 0.85rem; align-items: flex-start;">
-                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
-                            <i data-lucide="heart-handshake" class="tool-tag-icon" aria-hidden="true"></i>
-                            <span>Human-Centered Design</span>
-                        </li>
-                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
-                            <i data-lucide="eye" class="tool-tag-icon" aria-hidden="true"></i>
-                            <span>Accessibility &amp; Inclusion (WCAG AA)</span>
-                        </li>
-                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
-                            <i data-lucide="code-2" class="tool-tag-icon" aria-hidden="true"></i>
-                            <span>Clean &amp; Scalable Code</span>
-                        </li>
-                        <li class="tool-tag" style="width: 100%; border-radius: 12px; padding: 0.75rem 1rem;">
-                            <i data-lucide="brain-circuit" class="tool-tag-icon" aria-hidden="true"></i>
-                            <span>Artificial Intelligence Integration</span>
-                        </li>
-                    </ul>
+                    <p class="ux-skill-desc">User experience principles, design thinking, product lifecycle, and human-centered design strategy.</p>
+                </div>
+                <div class="tool-card col-4">
+                    <div class="tool-card-header">
+                        <i data-lucide="heart-handshake" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">Empathy &amp; Ideation</h3>
+                    </div>
+                    <p class="ux-skill-desc">Empathy mapping, user personas, problem statement definition, and structured ideation.</p>
+                </div>
+                <div class="tool-card col-4">
+                    <div class="tool-card-header">
+                        <i data-lucide="layout" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">Wireframing &amp; Low-Fi</h3>
+                    </div>
+                    <p class="ux-skill-desc">Information architecture, paper wireframes, low-fidelity digital prototypes, and user flows.</p>
+                </div>
+                <div class="tool-card col-4">
+                    <div class="tool-card-header">
+                        <i data-lucide="search" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">UX Research &amp; Testing</h3>
+                    </div>
+                    <p class="ux-skill-desc">Usability studies, early concept testing, qualitative research, and insight synthesis.</p>
+                </div>
+                <div class="tool-card col-4">
+                    <div class="tool-card-header">
+                        <i data-lucide="layers" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">Hi-Fi Designs &amp; Figma</h3>
+                    </div>
+                    <p class="ux-skill-desc">High-fidelity visual design, interactive prototypes in Figma, and design system components.</p>
+                </div>
+                <div class="tool-card col-4">
+                    <div class="tool-card-header">
+                        <i data-lucide="code-2" class="tool-icon" aria-hidden="true"></i>
+                        <h3 class="tool-card-title">Dynamic Web UI</h3>
+                    </div>
+                    <p class="ux-skill-desc">Building responsive, dynamic, and accessible frontend interfaces for web applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Education Section (grid-12) -->
+        <section class="tools-section container" id="education" aria-labelledby="education-title">
+            <h2 class="section-title" id="education-title">Education</h2>
+            <div class="grid-12">
+                <div class="tool-card col-12">
+                    <div class="education-header">
+                        <div>
+                            <h3 class="education-degree">B.S. in Software Engineering</h3>
+                            <p class="education-institution">Universidad de Colima — Colima, Mexico</p>
+                        </div>
+                        <span class="education-status-badge">In Progress (2023 – 2027)</span>
+                    </div>
+                    <p class="education-desc">Focusing on agile software development, web &amp; mobile applications, systems architecture, and data networks at Facultad de Telemática.</p>
                 </div>
             </div>
         </section>
@@ -107,11 +149,16 @@
             <div class="footer-card-container container">
                 <div class="contact-card">
                     <div class="contact-card-top">
-                        <h2 class="section-title contact-title" id="contact-title">Let’s connect</h2>
-                        <p class="contact-subtitle">Whether you have a UX opportunity, a project in mind, or simply want to talk about design, I’d love to hear from you.</p>
-                        <div class="contact-actions">
-                            <a href="mailto:hello.evepulido@gmail.com" class="contact-email">
-                                hello.evepulido@gmail.com
+                        <!-- Left Column: Title & Description aligned left -->
+                        <div class="contact-card-left">
+                            <h2 class="section-title contact-title" id="contact-title">Let’s connect</h2>
+                            <p class="contact-subtitle">Whether you have a UX opportunity, a project in mind, or simply want to talk about design, I’d love to hear from you.</p>
+                        </div>
+
+                        <!-- Right Column: Email & Download Button aligned right -->
+                        <div class="contact-card-right">
+                            <a href="mailto:hello.evepulido@gmail.com" class="contact-email" aria-label="Send email to hello.evepulido@gmail.com">
+                                <span>hello.evepulido@gmail.com</span>
                                 <i data-lucide="arrow-up-right" class="contact-email-icon" aria-hidden="true"></i>
                             </a>
                             <a href="assets/CV_Evelyn_Pulido.pdf" download class="cv-download-btn" aria-label="Download Evelyn Pulido's résumé (PDF)">
@@ -126,13 +173,13 @@
                     <div class="contact-card-bottom">
                         <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
                         <div class="social-links" role="list">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
+                            <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
                                 <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
+                            <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
                                 <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
                             </a>
-                            <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
+                            <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
                                 <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
                             </a>
                         </div>
