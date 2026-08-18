@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal portfolio of Evelyn Pulido - Software Engineer & UX/UI Designer">
     <title>Evelyn Pulido | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
     <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
     <link rel="stylesheet" href="styles.css">
@@ -132,7 +134,7 @@
                             <i data-lucide="palette" class="tool-icon" aria-hidden="true"></i>
                             <h3 class="tool-card-title">Design</h3>
                         </div>
-                        <ul class="tool-tags" role="list">
+                        <ul class="tool-tags">
                             <li class="tool-tag">
                                 <i data-lucide="layers" class="tool-tag-icon" aria-hidden="true"></i>
                                 <span>Figma</span>
@@ -162,7 +164,7 @@
                             <i data-lucide="code" class="tool-icon" aria-hidden="true"></i>
                             <h3 class="tool-card-title">Frontend</h3>
                         </div>
-                        <ul class="tool-tags" role="list">
+                        <ul class="tool-tags">
                             <li class="tool-tag">
                                 <i data-lucide="file-code-2" class="tool-tag-icon" aria-hidden="true"></i>
                                 <span>HTML5 / CSS3</span>
@@ -192,7 +194,7 @@
                             <i data-lucide="server" class="tool-icon" aria-hidden="true"></i>
                             <h3 class="tool-card-title">Backend</h3>
                         </div>
-                        <ul class="tool-tags" role="list">
+                        <ul class="tool-tags">
                             <li class="tool-tag">
                                 <i data-lucide="terminal" class="tool-tag-icon" aria-hidden="true"></i>
                                 <span>Python</span>
@@ -218,7 +220,7 @@
                             <i data-lucide="wrench" class="tool-icon" aria-hidden="true"></i>
                             <h3 class="tool-card-title">Tools</h3>
                         </div>
-                        <ul class="tool-tags" role="list">
+                        <ul class="tool-tags">
                             <li class="tool-tag">
                                 <i data-lucide="file-code" class="tool-tag-icon" aria-hidden="true"></i>
                                 <span>VS Code</span>
@@ -284,7 +286,7 @@
                     <!-- Photo on Right (5 Columns) -->
                     <div class="about-hero-img-col col-5">
                         <div class="about-portrait-wrapper">
-                            <img src="assets/images/evelyn_portrait.jpg" alt="Evelyn Pulido — Software Engineering Student & UX Designer" class="about-portrait-img">
+                            <img src="assets/images/image.png" alt="Evelyn Pulido — Software Engineering Student &amp; UX Designer" class="about-portrait-img" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -393,17 +395,23 @@
 
                     <div class="contact-card-bottom">
                         <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
-                        <div class="social-links" role="list">
-                            <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
-                                <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                            <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
-                                <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                            <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
-                                <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                        </div>
+                        <ul class="social-links">
+                            <li>
+                                <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
+                                    <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
+                                    <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
+                                    <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -411,7 +419,7 @@
     </main>
 
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="index.js"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="index.js" defer></script>
 </body>
 </html>

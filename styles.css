@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Design Tokens & CSS Variables
+   Design Tokens & CSS Variables (Fluid Responsive Core)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
@@ -27,27 +27,24 @@
   --shadow-primary-btn: 0 4px 14px rgba(179, 50, 0, 0.25);
   --shadow-primary-btn-hover: 0 6px 20px rgba(179, 50, 0, 0.35);
 
-  /* Layout Grid System (12 columnas: margin 80px, gutter 24px) */
+  /* Fluid Layout Grid System (Adapts continuously without breakpoint jumps) */
   --grid-columns: 12;
-  --grid-gutter: 24px;
-  --grid-margin: 80px;
+  --grid-gutter: clamp(1rem, 2vw, 1.5rem);        /* 16px -> 24px */
+  --grid-margin: clamp(1.25rem, 5.5vw, 5rem);     /* 20px -> 80px */
   --container-max-width: 1440px;
 
-  /* Typography Scale Tokens */
+  /* Fluid Typography Scale Tokens (Pure Fluid Responsive Scaling via clamp) */
   --font-heading: 'Parkinsans', 'Poppins', system-ui, -apple-system, sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
   
-  --font-size-xs: 0.825rem;          /* ~13px - Badges, captions, scroll text */
-  --font-size-sm: 0.95rem;           /* ~15px - Tags, secondary copy, skill descriptions */
-  --font-size-md: 1.05rem;           /* ~17px - Nav links, lead descriptions, subtitles */
-  --font-size-lg: 1.25rem;           /* ~20px - Email link, degree title, section subtitles */
-  --font-size-xl: 1.5rem;            /* ~24px - Tool card titles */
-  --font-size-2xl: 2.25rem;          /* ~36px - Project titles, tablet section headings */
-  --font-size-3xl: 2.75rem;          /* ~44px - Desktop section headings, contact title */
-  --font-size-hero: 3.25rem;         /* ~52px - Desktop main hero title */
-
-  --font-size-mobile-title: 1.85rem;/* ~30px - Mobile headings & main hero title */
-  --font-size-mobile-project: 1.65rem;/* ~26px - Mobile project titles */
+  --font-size-xs: clamp(0.775rem, 0.725rem + 0.25vw, 0.825rem); /* ~12.4px -> 13.2px */
+  --font-size-sm: clamp(0.875rem, 0.825rem + 0.35vw, 0.95rem);   /* ~14px -> 15.2px */
+  --font-size-md: clamp(0.975rem, 0.925rem + 0.4vw, 1.05rem);    /* ~15.6px -> 16.8px */
+  --font-size-lg: clamp(1.1rem, 1.025rem + 0.6vw, 1.25rem);      /* ~17.6px -> 20px */
+  --font-size-xl: clamp(1.3rem, 1.2rem + 0.8vw, 1.5rem);        /* ~20.8px -> 24px */
+  --font-size-2xl: clamp(1.65rem, 1.45rem + 1.2vw, 2.25rem);    /* ~26.4px -> 36px */
+  --font-size-3xl: clamp(1.85rem, 1.55rem + 1.6vw, 2.75rem);    /* ~29.6px -> 44px */
+  --font-size-hero: clamp(1.95rem, 1.55rem + 2.5vw, 3.25rem);   /* ~31.2px -> 52px */
   
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -77,7 +74,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   color: var(--color-text-main);
   background-color: var(--color-bg);
   line-height: 1.6;
@@ -99,7 +96,7 @@ body {
 }
 
 /* ==========================================================================
-   Grid System Specification
+   Fluid Grid System Specification
    ========================================================================== */
 .container {
   width: 100%;
@@ -176,7 +173,7 @@ body {
 
 /* Main content top spacing to account for fixed header */
 main {
-  margin-top: 170px;
+  margin-top: clamp(110px, 12vw, 170px);
 }
 
 /* ==========================================================================
@@ -210,8 +207,8 @@ main {
 }
 
 .header-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: clamp(1rem, 2.5vw, 2rem);
+  padding-bottom: clamp(0.75rem, 2.5vw, 2rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -244,7 +241,7 @@ main {
 
 .logo-img {
   width: auto;
-  height: 120px;
+  height: clamp(68px, 9vw, 120px);
   display: block;
   transition: height var(--transition-smooth);
   will-change: height;
@@ -273,7 +270,7 @@ main {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
   list-style: none;
 }
 
@@ -322,11 +319,11 @@ main {
 }
 
 /* ==========================================================================
-   Hero Section Component
+   Hero Section Component (Fluid)
    ========================================================================== */
 .hero-section {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .hero-content {
@@ -364,7 +361,7 @@ section[id],
    Scroll Indicator Component
    ========================================================================== */
 .scroll-indicator {
-  padding-top: 3.5rem;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
   padding-bottom: 2rem;
   opacity: 1;
   visibility: visible;
@@ -419,11 +416,11 @@ section[id],
 }
 
 /* ==========================================================================
-   Featured Work Section Component
+   Featured Work Section Component (Fluid)
    ========================================================================== */
 .featured-work-section {
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .section-title {
@@ -432,7 +429,7 @@ section[id],
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   letter-spacing: -0.025em;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .projects-grid {
@@ -442,7 +439,7 @@ section[id],
 .project-card {
   display: block;
   text-decoration: none;
-  border-radius: 24px;
+  border-radius: clamp(18px, 2vw, 24px);
   overflow: hidden;
   position: relative;
   background-color: var(--color-surface-subtle);
@@ -457,10 +454,10 @@ section[id],
 
 .project-img-wrapper {
   width: 100%;
-  height: 420px;
+  height: clamp(260px, 30vw, 420px);
   overflow: hidden;
   position: relative;
-  border-radius: 24px;
+  border-radius: clamp(18px, 2vw, 24px);
 }
 
 .project-img {
@@ -469,7 +466,7 @@ section[id],
   object-fit: cover;
   object-position: center;
   display: block;
-  border-radius: 24px;
+  border-radius: clamp(18px, 2vw, 24px);
 }
 
 .project-overlay {
@@ -480,8 +477,8 @@ section[id],
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2.5rem;
-  border-radius: 24px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: clamp(18px, 2vw, 24px);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-smooth),
@@ -522,11 +519,11 @@ section[id],
 }
 
 /* ==========================================================================
-   Technologies & Tools Section Component
+   Technologies & Tools Section Component (Fluid)
    ========================================================================== */
 .tools-section {
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .tools-grid {
@@ -538,7 +535,7 @@ section[id],
   background-color: var(--color-bg);
   border: 1px solid var(--color-card-border);
   border-radius: 20px;
-  padding: 1.85rem;
+  padding: clamp(1.25rem, 2.5vw, 1.85rem);
   box-shadow: var(--shadow-card-subtle);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
@@ -610,13 +607,13 @@ section[id],
 }
 
 /* ==========================================================================
-   Contact & Footer Component
+   Contact & Footer Component (Fluid Responsive)
    ========================================================================== */
 .footer-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
   margin-top: 0;
   overflow: hidden;
 }
@@ -648,7 +645,7 @@ section[id],
   background-color: var(--color-bg);
   border: 1px solid var(--color-card-border);
   border-radius: 28px;
-  padding: 3.25rem 3.5rem 2.5rem 3.5rem;
+  padding: clamp(1.75rem, 4vw, 3.25rem) clamp(1.5rem, 4vw, 3.5rem) clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
   box-shadow: var(--shadow-contact-card);
 }
 
@@ -656,7 +653,7 @@ section[id],
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(1.5rem, 3vw, 3rem);
   width: 100%;
 }
 
@@ -799,6 +796,16 @@ section[id],
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
 }
 
 .social-btn {
@@ -841,11 +848,11 @@ section[id],
 }
 
 /* ==========================================================================
-   About Me Page Component Styles
+   About Me Page Component Styles (Fluid)
    ========================================================================== */
 .about-hero-section {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .about-hero-grid {
@@ -999,102 +1006,15 @@ section[id],
 }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   Responsive Structural Layout Overrides (For Smaller Screens)
    ========================================================================== */
 @media (max-width: 1024px) {
-  :root {
-    --grid-margin: 40px;
-    --grid-gutter: 20px;
-  }
-
-  .logo-img {
-    height: 92px;
-  }
-
-  .hero-section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .section-title,
-  .contact-title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: 2rem;
-  }
-
   .project-img-wrapper {
-    height: 360px;
+    height: clamp(260px, 35vw, 360px);
   }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --grid-margin: 20px;
-    --grid-gutter: 16px;
-  }
-
-  .header-container {
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
-  }
-
-  .logo-img {
-    height: 68px;
-  }
-
-  .nav-list {
-    gap: 1.75rem;
-  }
-
-  .nav-link {
-    font-size: var(--font-size-sm);
-  }
-
-  .hero-section {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-md);
-    margin-bottom: 0.85rem;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-mobile-title);
-    line-height: 1.3;
-  }
-
-  .section-title,
-  .contact-title {
-    font-size: var(--font-size-mobile-title);
-    margin-bottom: 1.5rem;
-  }
-
-  .project-img-wrapper {
-    height: 260px;
-    border-radius: 18px;
-  }
-
-  .project-card,
-  .project-img,
-  .project-overlay {
-    border-radius: 18px;
-  }
-
-  .project-title {
-    font-size: var(--font-size-mobile-project);
-    margin-bottom: 0.35rem;
-  }
-
-  .project-area {
-    font-size: var(--font-size-sm);
-  }
-
   .grid-12 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1106,16 +1026,10 @@ section[id],
     width: 100%;
   }
 
-  .contact-card {
-    padding: 2rem 1.5rem 1.75rem 1.5rem;
-    border-radius: 20px;
-  }
-
   .contact-card-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    margin-bottom: 2rem;
   }
 
   .contact-card-left {
@@ -1130,14 +1044,12 @@ section[id],
   }
 
   .contact-email {
-    font-size: var(--font-size-lg);
+    margin-right: 0;
     word-break: break-all;
-    margin-bottom: 0;
   }
 
   .cv-download-btn {
     width: 100%;
-    padding: 0.85rem 1.25rem;
   }
 
   .contact-card-bottom {

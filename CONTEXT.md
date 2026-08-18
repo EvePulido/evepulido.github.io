@@ -83,11 +83,8 @@ Este documento contiene el resumen técnico, decisiones de diseño, estándar de
 - [x] **Sección Tools**: Tarjetas de herramientas ordenadas (`Diseño`, `Frontend`, `Backend`, `Herramientas`) integradas en la sección `#tools`.
 - [x] **Favicon Dinámico y Adaptativo**: Configurado `assets/logo-simple.svg` en `index.html` con cambio automático de color (#FFFFFF en modo oscuro del navegador y #1E1E1E en modo claro) mediante `@media (prefers-color-scheme: dark)`.
 - [x] **Footer & Contacto (Diseño image.png)**: Tarjeta flotante blanca (`.contact-card`) with title `Contacto` en la tipografía **Parkinsans** (`#B33200`), subtítulo, email subrayado con flecha interactiva, línea divisoria interior, copyright y botones sociales con fondo pastel `#FDE6FF` y micro-animación de ladeo y escalado (`scale(1.18) rotate(-6deg)`) al hacer hover sobre el fondo de gradiente `assets/footer.svg`.
-- [x] **Enlaces Oficiales a Redes Sociales**:
-  - **LinkedIn**: `https://www.linkedin.com/in/evepulido`
-  - **GitHub**: `https://github.com/EvePulido`
-  - **Kaggle**: `https://www.kaggle.com/evepulido`
-  - Actualizados en todos los botones del hero y footer tanto en [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) como en [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html).
+- [x] **Eliminación de Viñetas de Lista (`list-style: none`)**:
+  - Añadidas las reglas CSS `list-style: none; padding: 0; margin: 0;` a `.social-links` y `.social-links li` en [`styles.css`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/styles.css), removiendo completamente los puntos/viñetas del navegador mientras se mantiene la semántica HTML5 pura para lectores de pantalla.
 - [x] **Rediseño Profesional de About Me & UX Skills**:
   - **Presentación Hero con Botones Redondeados (Pill)**: Título en grande *"Hi, I’m Evelyn Pulido"*, descripción fluida y fila de 3 botones de redes sociales estilo pastilla totalmente redondeados (`border-radius: 100px`) en color primario (`var(--color-primary)` = `#B33200`) con sus iconos en **LinkedIn** y **GitHub**, y el botón de **Kaggle** con texto limpio sin icono para mantener uniformidad cromática.
   - **Tarjetas de UX Skills Limpias**: 6 tarjetas profesionales de habilidades (*UX Foundations*, *Empathy & Ideation*, *Wireframing & Low-Fi*, *UX Research & Testing*, *Hi-Fi Designs & Figma*, *Dynamic Web UI*) descritas con lenguaje profesional enfocado en competencias prácticas.

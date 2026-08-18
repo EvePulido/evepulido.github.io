@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="About Evelyn Pulido - Software Engineer & UX/UI Designer">
     <title>About me | Evelyn Pulido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
     <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
     <link rel="stylesheet" href="styles.css">
@@ -66,7 +68,7 @@
                 <!-- Photo on Right (5 Columns) -->
                 <div class="about-hero-img-col col-5">
                     <div class="about-portrait-wrapper">
-                        <img src="assets/images/evelyn_portrait.jpg" alt="Evelyn Pulido — Software Engineering Student & UX Designer" class="about-portrait-img">
+                        <img src="assets/images/image.png" alt="Evelyn Pulido — Software Engineering Student &amp; UX Designer" class="about-portrait-img" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -172,17 +174,23 @@
 
                     <div class="contact-card-bottom">
                         <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
-                        <div class="social-links" role="list">
-                            <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
-                                <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                            <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
-                                <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                            <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
-                                <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
-                            </a>
-                        </div>
+                        <ul class="social-links">
+                            <li>
+                                <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile">
+                                    <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile">
+                                    <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Kaggle profile">
+                                    <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -190,7 +198,7 @@
     </main>
 
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="index.js"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="index.js" defer></script>
 </body>
 </html>
