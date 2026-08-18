@@ -4,6 +4,33 @@ Este documento contiene el resumen técnico, decisiones de diseño, estándar de
 
 ---
 
+## 📁 Arquitectura & Estructura de Proyecto (Buenas Prácticas W3C)
+
+```text
+portafolio2/
+├── assets/                  # Recursos estáticos centralizados
+│   ├── css/
+│   │   └── styles.css       # Estilos globales y tokens fluídos
+│   ├── js/
+│   │   └── index.js         # Lógica e interactividad JS
+│   ├── docs/
+│   │   └── CV_Evelyn_Pulido.pdf  # Documentos descargables (CV)
+│   ├── images/
+│   │   ├── icons/           # Iconos vectoriales (github, linkedin, kaggle)
+│   │   ├── image.png        # Retrato / Imagen principal
+│   │   ├── learncode.jpeg   # Captura proyecto LearnCode
+│   │   ├── muarh.jpeg       # Captura proyecto MUARH
+│   │   ├── Logo.svg         # Logo principal del header
+│   │   ├── logo-simple.svg  # Favicon SVG adaptativo
+│   │   └── logo.ico         # Favicon tradicional (.ico)
+│   └── footer.svg           # Banner de fondo del footer
+├── index.html               # Entrada principal (Work & SPA View)
+├── about.html               # Página dedicada About Me
+└── CONTEXT.md               # Documentación del proyecto
+```
+
+---
+
 ## 🎨 Sistema de Diseño & Tokens CSS
 
 | Token / Elemento | Valor / Especificación | Uso en el Proyecto |
@@ -28,7 +55,12 @@ Este documento contiene el resumen técnico, decisiones de diseño, estándar de
 
 ---
 
-## 🏛️ Estructura Semántica y Componentes Construidos
+- [x] **Integración de Open Graph & Previsiones Sociales (SEO)**:
+  - Agregadas las meta etiquetas `og:title`, `og:description`, `og:image` y `og:type` en [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) y [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html) para vistas previas profesionales al compartir enlaces en **WhatsApp, LinkedIn, Slack y Twitter**.
+  - Configurado `twitter:card` con `summary_large_image` y portada de imagen asignada a `assets/images/image.png`.
+- [x] **Indexación SEO Estándar (`robots.txt` & `sitemap.xml`)**:
+  - Creado [`robots.txt`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/robots.txt) permitiendo indexación abierta para todos los motores de búsqueda.
+  - Creado [`sitemap.xml`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/sitemap.xml) con jerarquía de URLs e información de prioridad.
 
 ### 1. Barra de Navegación (`site-header`)
 - **Jerarquía Semántica**: El logo principal SVG está encapsulado en el **`<h1>`** de la página (`<h1 class="logo-heading">`).
