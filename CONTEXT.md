@@ -26,6 +26,7 @@ portafolio2/
 │   └── footer.svg           # Banner de fondo del footer
 ├── index.html               # Entrada principal (Work & SPA View)
 ├── about.html               # Página dedicada About Me
+├── muarh.html               # Estudio de caso MUARH (Plantilla estándar de 14 secciones)
 └── CONTEXT.md               # Documentación del proyecto
 ```
 
