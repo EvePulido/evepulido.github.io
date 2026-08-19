@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MUARH Accessibility Case Study — UX Research &amp; Screen Reader Testing by Ian Anthony Pérez González &amp; Evelyn Damarys Pulido Méndez">
+    <title>MUARH | Evelyn Pulido</title>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Evelyn Pulido Portfolio">
+    <meta property="og:title" content="MUARH Accessibility Case Study | Evelyn Pulido">
+    <meta property="og:description"
+        content="Accessibility User Test Report evaluating NVDA &amp; TalkBack screen reader usability for Museo Universitario Alejandro Rangel Hidalgo.">
+    <meta property="og:image" content="https://evepulido.github.io/assets/images/muarh.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MUARH Accessibility Case Study — Evelyn Pulido">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MUARH Accessibility Case Study | Evelyn Pulido">
+    <meta name="twitter:description"
+        content="Accessibility User Test Report evaluating NVDA &amp; TalkBack screen reader usability for Museo Universitario Alejandro Rangel Hidalgo.">
+    <meta name="twitter:image" content="https://evepulido.github.io/assets/images/muarh.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Accessibility: Direct skip link for keyboard & screen reader navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Primary navigation header -->
+    <header class="site-header" id="header">
+        <div class="header-container container">
+            <p class="logo-heading">
+                <a href="index.html" aria-label="Evelyn Pulido — Return to home"
+                    style="text-decoration: none; color: inherit; display: inline-flex;">
+                    <img src="assets/Logo.svg" alt="Evelyn Pulido" width="169" height="133" class="logo-img">
+                </a>
+            </p>
+
+            <nav class="navbar" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li class="nav-item">
+                        <a href="index.html#work" class="nav-link active">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About me</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Strict 14-Section Narrative Flow -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- 01. Project Hero -->
+        <section class="hero-section container" id="case-hero" aria-labelledby="case-heading">
+            <div class="grid-12">
+                <div class="col-12">
+                    <p class="hero-subtitle">Featured Work</p>
+                    <h1 class="hero-title" id="case-heading">Museo Universitario Alejandro Rangel Hidalgo</h1>
+                    <p class="about-lead-desc" style="margin-top: 1rem;">
+                        An accessible and responsive web platform designed to explore the Museo Universitario Alejandro
+                        Rangel Hidalgo’s four exhibition halls, consult visitor information, and book visits online.
+                    </p>
+                    <ul class="tool-tags" style="margin-top: 1.5rem; margin-bottom: 2.5rem;" role="list"
+                        aria-label="Project Role">
+                        <li class="tool-tag"
+                            style="background-color: var(--color-primary); color: var(--color-text-inverse); font-weight: 500;">
+                            <strong>Role:</strong> Frontend Developer and Accessibility Evaluator</li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <div class="project-img-wrapper">
+                        <img src="assets/images/muarh.jpeg" alt="MUARH Project Interface Preview" class="project-img"
+                            width="1200" height="675">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. The Goal of the Project -->
+        <section class="tools-section container" id="goal" aria-labelledby="sec-02">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-02">02. The Goal of the Project</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        The main goal of the project was to design and develop an accessible website for the Museo
+                        Universitario Alejandro Rangel Hidalgo, enabling all visitors, including people with
+                        disabilities, to explore information about its galleries, check admission fees, and book a
+                        visit.
+                    </p>
+                    <p class="about-lead-desc" style="margin-top: 1rem;">
+                        Additionally, the project aimed to evaluate whether the accessibility measures implemented in
+                        accordance with WCAG guidelines were effective in real-world usage scenarios, particularly for
+                        people who use screen readers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. Target Audience -->
+        <section class="tools-section container" id="audience" aria-labelledby="sec-03">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-03">03. Target Audience</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        The website was designed for anyone interested in visiting the museum. Particular attention was
+                        given to blind and low-vision users who navigate websites using a keyboard, screen reader, or
+                        other assistive technologies.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. Key Challenges and Constraints -->
+        <section class="tools-section container" id="challenges" aria-labelledby="sec-04">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-04">04. Key Challenges and Constraints</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        The primary challenge was seamlessly embedding accessibility into both UI design and frontend
+                        architecture, particularly across complex interactive components:
+                    </p>
+                    <ul
+                        style="margin-top: 0.85rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.35rem;">The visit reservation form.</li>
+                        <li style="margin-bottom: 0.35rem;">The interactive date selection picker.</li>
+                        <li style="margin-bottom: 0.35rem;">Form checkboxes and radio buttons.</li>
+                        <li style="margin-bottom: 0.35rem;">Exhibition gallery cards.</li>
+                        <li style="margin-bottom: 0.35rem;">Modal overlay windows.</li>
+                    </ul>
+                    <p class="about-lead-desc" style="margin-top: 1.25rem;">
+                        A critical realization during this process was that technical compliance with WCAG criteria or
+                        high scores in automated scanner audits do not guarantee a completely accessible user
+                        experience.
+                    </p>
+                    <div
+                        style="border-left: 3px solid var(--color-primary); background-color: var(--color-surface-subtle); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; margin-top: 1.5rem;">
+                        <p class="about-lead-desc" style="margin: 0;">
+                            <strong style="color: var(--color-primary);">Evaluation Constraints:</strong> The usability
+                            study was limited to three participants with visual impairments, conducted primarily using
+                            Google Chrome with the NVDA screen reader on desktop. Additionally, one participant
+                            evaluated mobile interaction using TalkBack on an Android device.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. Design Strategy -->
+        <section class="tools-section container" id="strategy" aria-labelledby="sec-05">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-05">05. Design Strategy</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        From initial development, the platform was designed around the four core principles of
+                        <strong>WCAG 2.2</strong>:
+                    </p>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.85rem; margin-bottom: 1.5rem;"
+                        role="list" aria-label="WCAG 2.2 Core Principles">
+                        <span class="tool-tag"
+                            style="background-color: #FFFFFF; color: var(--color-primary); font-weight: 600; border: 1.5px solid var(--color-primary);">1.
+                            Perceivable</span>
+                        <span class="tool-tag"
+                            style="background-color: #FFFFFF; color: var(--color-primary); font-weight: 600; border: 1.5px solid var(--color-primary);">2.
+                            Operable</span>
+                        <span class="tool-tag"
+                            style="background-color: #FFFFFF; color: var(--color-primary); font-weight: 600; border: 1.5px solid var(--color-primary);">3.
+                            Understandable</span>
+                        <span class="tool-tag"
+                            style="background-color: #FFFFFF; color: var(--color-primary); font-weight: 600; border: 1.5px solid var(--color-primary);">4.
+                            Robust</span>
+                    </div>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.75rem;">
+                        Key Implementation Strategies</h3>
+
+                    <ul
+                        style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.85; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.45rem;"><strong>Semantic HTML Structure:</strong> Landmark regions
+                            (header, nav, main, and footer).</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Heading Hierarchy:</strong> Logical document heading
+                            outline and sequence.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Alternative Text:</strong> Descriptive alt
+                            attributes for informative images.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Color Contrast:</strong> WCAG AA/AAA compliant
+                            text-to-background contrast ratios.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Accessible Forms:</strong> Explicit field labels and
+                            helper instructions.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Descriptive Labels:</strong> Buttons and links with
+                            clear, understandable names.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Keyboard Navigation:</strong> Logical tab focus
+                            order and visible focus indicators.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Language Specification:</strong> Document-level
+                            language attribute properly defined.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>ARIA Integration:</strong> Attributes to communicate
+                            dynamic states, names, and updates.</li>
+                        <li style="margin-bottom: 0.45rem;"><strong>Responsive Design:</strong> Fluid adaptation across
+                            desktop and mobile devices.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. Evaluation Conducted -->
+        <section class="tools-section container" id="research" aria-labelledby="sec-06">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-06">06. Evaluation Conducted</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        The accessibility evaluation was structured across three complementary methodology stages:
+                    </p>
+                    <ol
+                        style="margin-top: 0.85rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Manual Inspection:</strong> Comprehensive code review
+                            evaluating document structure, contrast ratios, keyboard tab navigation, and ARIA control
+                            behavior against WCAG 2.1 AA criteria.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Automated Evaluation:</strong> Automated scans using
+                            <strong>Lighthouse</strong> and <strong>Silktide</strong> to identify underlying technical
+                            issues related to HTML structure, color contrast, missing alt attributes, and ARIA labels.
+                        </li>
+                        <li style="margin-bottom: 0.5rem;"><strong>User Testing:</strong> Qualitative usability testing
+                            sessions with 3 participants with visual impairments (2 blind individuals and 1 low-vision
+                            user). Sessions were conducted on laptops running Google Chrome with the NVDA screen reader,
+                            with one participant also evaluating mobile navigation using TalkBack on an Android device.
+                        </li>
+                    </ol>
+
+                    <div
+                        style="border-left: 3px solid var(--color-primary); background-color: var(--color-surface-subtle); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; margin-top: 1.75rem;">
+                        <h3
+                            style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem;">
+                            User Task Scenario</h3>
+                        <p class="about-lead-desc" style="font-style: italic; margin-top: 0;">
+                            "You are planning to visit the museum with a friend next Sunday, May 3rd, as you are both
+                            interested in seeing the pre-Hispanic ceramics gallery. Before leaving home, you decide to
+                            check the website to plan your schedule and calculate the budget for the visit."
+                        </p>
+                        <ol
+                            style="margin-top: 0.65rem; margin-left: 1.5rem; line-height: 1.75; color: var(--color-text-main);">
+                            <li style="margin-bottom: 0.25rem;">Find the admission price to enter the pre-Hispanic
+                                ceramics gallery.</li>
+                            <li>Book the visit to the ceramics gallery for two people for May 3, 2026.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. Test Results and User Feedback -->
+        <section class="tools-section container" id="test-results" aria-labelledby="sec-07">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-07">07. Test Results and User Feedback</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        All three participants successfully completed the assigned task scenario, achieving a <strong
+                            style="color: var(--color-primary);">100% completion rate</strong>. However, several key
+                        accessibility barriers and friction points were identified during testing:
+                    </p>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        Date Selection Picker</h3>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        One participant received no auditory confirmation from the screen reader after picking a date.
+                        The remaining two participants encountered flawed keyboard tab order: pressing 'Tab' skipped the
+                        month and year fields entirely, jumping directly to subsequent inputs.
+                    </p>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        Modal Overlay Windows</h3>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        Two participants interpreted interactive cards that opened modal overlays as static images.
+                        Another participant successfully opened a modal window but was unable to dismiss or close it
+                        using keyboard controls.
+                    </p>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        Additional Interaction Barriers</h3>
+                    <ul
+                        style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.35rem;">Certain form controls failed to announce their
+                            active/checked states to the screen reader.</li>
+                        <li style="margin-bottom: 0.35rem;">Form validation errors were not communicated auditorily to
+                            screen reader users.</li>
+                        <li style="margin-bottom: 0.35rem;">Keyboard focus was not automatically redirected to input
+                            fields containing errors.</li>
+                        <li style="margin-bottom: 0.35rem;">The email address field was occasionally bypassed during
+                            keyboard navigation.</li>
+                        <li style="margin-bottom: 0.35rem;">The numeric input field for selecting visitor count proved
+                            cumbersome to operate.</li>
+                        <li style="margin-bottom: 0.35rem;">The navigation link labeled "Recorridos" (Tours) did not
+                            clearly communicate that it led to admission pricing.</li>
+                    </ul>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        Positive User Feedback</h3>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        On a positive note, participants highlighted the comfortable visual contrast ratios, the
+                        seamless Dark Mode adaptability, and the overall high baseline accessibility of the platform.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. Final Design and Improvements -->
+        <section class="tools-section container" id="final-design" aria-labelledby="sec-08">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-08">08. Final Design and Improvements</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        The final outcome was a responsive and accessible website that allows visitors to explore the
+                        museum’s galleries, find useful information, and book visits online.
+                    </p>
+
+                    <div style="margin-top: 1.25rem; margin-bottom: 2rem;">
+                        <p class="about-lead-desc" style="margin: 0;">
+                            <a href="https://evepulido.github.io/muarh/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--color-primary); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; display: inline-flex; align-items: center; gap: 0.35rem;"
+                                aria-label="Visit the live Museo Universitario Alejandro Rangel Hidalgo (MUARH) website (opens in a new tab)">
+                                <span>Visit the live Museo Universitario Alejandro Rangel Hidalgo (MUARH) website</span>
+                                <i data-lucide="external-link" aria-hidden="true"
+                                    style="width: 18px; height: 18px; stroke-width: 2;"></i>
+                            </a>
+                        </p>
+                    </div>
+
+                    <h3
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                        Prioritized Improvements</h3>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        Based on the user testing findings, we prioritized the following improvements:
+                    </p>
+
+                    <h4
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-text-main); margin-top: 1.25rem; margin-bottom: 0.35rem;">
+                        Keyboard and screen reader accessibility</h4>
+                    <ul
+                        style="margin-top: 0.25rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.35rem;">Correct the keyboard focus order in the date picker.</li>
+                        <li style="margin-bottom: 0.35rem;">Announce selected dates and validation errors to screen
+                            reader users.</li>
+                        <li style="margin-bottom: 0.35rem;">Improve keyboard focus management within modal dialogs.</li>
+                        <li style="margin-bottom: 0.35rem;">Allow users to close modal dialogs with the Esc key.</li>
+                    </ul>
+
+                    <h4
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-text-main); margin-top: 1.25rem; margin-bottom: 0.35rem;">
+                        Navigation and form usability</h4>
+                    <ul
+                        style="margin-top: 0.25rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.35rem;">Use clearer navigation labels, such as changing “Recorridos”
+                            to “Costos.”</li>
+                        <li style="margin-bottom: 0.35rem;">Simplify the control for selecting the number of visitors.
+                        </li>
+                    </ul>
+
+                    <h4
+                        style="font-size: var(--font-size-md); font-weight: 600; color: var(--color-text-main); margin-top: 1.25rem; margin-bottom: 0.35rem;">
+                        Mobile accessibility</h4>
+                    <ul
+                        style="margin-top: 0.25rem; margin-left: 1.5rem; line-height: 1.8; color: var(--color-text-main);">
+                        <li style="margin-bottom: 0.35rem;">Review and increase touch target sizes for people using
+                            TalkBack or VoiceOver.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. Conclusion -->
+        <section class="tools-section container" id="conclusion" aria-labelledby="sec-09">
+            <div class="grid-12">
+                <div class="col-12"
+                    style="border-top: 1px solid var(--color-divider); padding-top: clamp(2rem, 4vw, 3rem);">
+                    <h2 class="section-title" id="sec-09">09. Conclusion</h2>
+                    <p class="about-lead-desc" style="margin-top: 0;">
+                        This project provided invaluable hands-on experience applying web accessibility principles
+                        across both UX design and frontend programming for a real-world digital experience.
+                    </p>
+                    <div
+                        style="border-left: 3px solid var(--color-primary); background-color: var(--color-surface-subtle); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; margin-top: 1.5rem; margin-bottom: 1.25rem;">
+                        <p class="about-lead-desc" style="margin: 0;">
+                            <strong style="color: var(--color-primary);">Core Learning:</strong> Manual code inspections
+                            and automated tools (such as Lighthouse and Silktide) are essential baselines, but they
+                            cannot replace direct testing with real users. Even though all participants achieved a 100%
+                            completion rate, observing their live interactions revealed critical barriers related to
+                            keyboard focus, status messages, validation alerts, and interactive components.
+                        </p>
+                    </div>
+                    <p class="about-lead-desc" style="margin-top: 1rem;">
+                        Ultimately, the evaluation confirmed that accessibility must be approached as a continuous
+                        process of inclusive design, technical implementation, empirical user testing, and ongoing
+                        iteration.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. Navegación final -->
+        <section class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;"
+            aria-label="Case Study Navigation Landmarks">
+            <div class="grid-12">
+                <div class="col-12">
+                    <nav class="case-study-nav" style="border-top: none; padding-top: 0;"
+                        aria-label="Case Study Page Navigation">
+                        <a href="index.html#work" class="cv-download-btn"
+                            style="background-color: var(--color-bg); color: var(--color-text-main); border-color: var(--color-card-border);"
+                            aria-label="Return to Featured Work on home page">
+                            <i data-lucide="arrow-left" aria-hidden="true" style="width: 20px; height: 20px;"></i>
+                            <span>Back to Featured Work</span>
+                        </a>
+                        <a href="about.html" class="cv-download-btn"
+                            aria-label="Learn more about Evelyn Pulido on About me page">
+                            <span>About me</span>
+                            <i data-lucide="arrow-right" aria-hidden="true" style="width: 20px; height: 20px;"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Standardized Accessible Footer -->
+    <footer class="container"
+        style="padding-top: 2.5rem; padding-bottom: 2.5rem; border-top: 1px solid var(--color-divider); margin-top: 2rem;">
+        <div class="contact-card-bottom">
+            <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
+            <ul class="social-links" role="list" aria-label="Social Profiles">
+                <li>
+                    <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn"
+                        aria-label="GitHub profile">
+                        <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="LinkedIn profile">
+                        <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="Kaggle profile">
+                        <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="assets/js/index.js" defer></script>
+</body>
+
+</html>
