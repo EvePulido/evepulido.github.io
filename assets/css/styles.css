@@ -538,10 +538,12 @@ section[id],
   border-radius: 20px;
   padding: clamp(1.25rem, 2.5vw, 1.85rem);
   box-shadow: var(--shadow-card-subtle);
+  height: 100%;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
-.tool-card:hover {
+.tool-card:has(a):hover,
+.tool-card.interactive:hover {
   transform: translateY(-3px);
   border-color: var(--color-primary);
   box-shadow: 0 8px 24px rgba(179, 50, 0, 0.08);
@@ -567,6 +569,22 @@ section[id],
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-main);
   letter-spacing: -0.015em;
+}
+
+.step-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-surface-subtle);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
 }
 
 .tool-tags {
@@ -596,6 +614,25 @@ section[id],
   stroke-width: 2;
   color: var(--color-text-secondary);
   transition: color var(--transition-fast);
+}
+
+.tool-tag-neutral {
+  background-color: var(--color-surface-tag);
+  border: 1px solid var(--color-card-border);
+  color: var(--color-text-main);
+  font-weight: var(--font-weight-medium);
+}
+
+.tool-tag-outline {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  border: 1.5px solid var(--color-primary);
+}
+
+.role-tags-hero {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .tool-card:hover .tool-tag {
@@ -745,6 +782,7 @@ section[id],
   box-shadow: var(--shadow-primary-btn);
   transition: background-color var(--transition-fast),
               border-color var(--transition-fast),
+              color var(--transition-fast),
               transform var(--transition-fast),
               box-shadow var(--transition-fast);
   cursor: pointer;
@@ -762,11 +800,89 @@ section[id],
   outline-offset: 4px;
 }
 
-.cv-btn-icon {
+.cv-btn-icon,
+.cv-download-btn svg,
+.cv-download-btn i,
+.cv-download-btn [data-lucide],
+.cv-download-btn .lucide {
   width: 20px;
   height: 20px;
   stroke-width: 2.2;
-  color: var(--color-text-inverse);
+  color: inherit;
+  stroke: currentColor;
+  fill: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cv-download-btn.btn-sm {
+  min-height: 40px;
+  padding: 0.5rem 1.25rem;
+  font-size: var(--font-size-sm);
+}
+
+.cv-download-btn.btn-sm svg,
+.cv-download-btn.btn-sm i,
+.cv-download-btn.btn-sm [data-lucide],
+.cv-download-btn.btn-sm .lucide {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.case-study-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Secondary Button Variant Component */
+.btn-secondary,
+.cv-download-btn.secondary,
+.cv-download-btn.btn-secondary {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 4px 14px rgba(179, 50, 0, 0.15);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.btn-secondary:hover,
+.cv-download-btn.secondary:hover,
+.cv-download-btn.btn-secondary:hover {
+  background-color: rgba(179, 50, 0, 0.08);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(179, 50, 0, 0.20);
+}
+
+.btn-secondary svg,
+.btn-secondary i,
+.btn-secondary [data-lucide],
+.btn-secondary .lucide,
+.cv-download-btn.secondary svg,
+.cv-download-btn.secondary i,
+.cv-download-btn.btn-secondary svg,
+.cv-download-btn.btn-secondary i {
+  color: var(--color-primary);
+  stroke: currentColor;
+  fill: none;
 }
 
 .contact-card-hr {
@@ -953,7 +1069,7 @@ section[id],
 .ux-skill-desc {
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text-secondary);
 }
 
@@ -1086,6 +1202,173 @@ section[id],
 }
 
 /* ==========================================================================
+   Dot Process Flow Component (Horizontal & Vertical Dot Stepper)
+   ========================================================================== */
+.about-lead-desc + .dot-process-flow {
+  margin-top: 2rem;
+}
+
+.dot-process-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-top: 2rem;
+  margin-bottom: 2.25rem;
+  position: relative;
+}
+
+.dot-process-flow::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--color-divider);
+  z-index: 1;
+}
+
+.dot-step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.dot-header-node {
+  margin-bottom: 1rem;
+}
+
+.dot-node {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-bg);
+  flex-shrink: 0;
+}
+
+.dot-step-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+  margin-bottom: 0.65rem;
+}
+
+.dot-step-desc {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .dot-process-flow {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+  .dot-process-flow::before {
+    top: 11px;
+    bottom: 11px;
+    left: 10px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .dot-step-item {
+    padding-left: 2.75rem;
+  }
+  .dot-header-node {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.process-timeline::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: var(--color-divider);
+  z-index: 1;
+}
+
+.timeline-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-dot-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-bg);
+}
+
+.timeline-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .process-timeline::before {
+    top: 12px;
+    bottom: 12px;
+    left: 11px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .timeline-step {
+    padding-left: 2.5rem;
+  }
+  .timeline-dot-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+/* ==========================================================================
    Case Study Component Styles
    ========================================================================== */
 .case-study-hero {
@@ -1120,6 +1403,86 @@ section[id],
   list-style: none;
 }
 
+.case-study-tags-margin {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.tool-card-list {
+  list-style: disc;
+  padding-left: 1.15rem;
+  margin: 0;
+}
+
+.tool-card-list li {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.tool-card-list li:last-child {
+  margin-bottom: 0;
+}
+
+.section-title + .about-lead-desc {
+  margin-top: 0.5rem;
+}
+
+.case-study-subtitle + .about-lead-desc {
+  margin-top: 0.5rem;
+}
+
+.case-study-subtitle + .strategy-list {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-lead-desc + .strategy-list {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+ul.strategy-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+ol.strategy-list {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+ol.strategy-list li::marker {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-main);
+}
+
+.strategy-list li {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: var(--color-text-main);
+  margin-bottom: 0.65rem;
+}
+
+.strategy-label {
+  color: var(--color-text-main);
+  font-weight: var(--font-weight-semibold);
+}
+
 .case-study-hero-img-wrapper {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -1142,32 +1505,47 @@ section[id],
 .overview-card {
   background-color: var(--color-surface-subtle);
   border: 1px solid var(--color-card-border);
-  border-radius: 20px;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 24px;
+  padding: clamp(1.85rem, 4vw, 3rem);
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+
+.overview-grid > div:nth-child(2) {
+  padding-left: clamp(0.75rem, 2vw, 1.5rem);
+  padding-right: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .overview-grid > div:nth-child(2) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .overview-item-title {
   font-family: var(--font-body);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.65rem;
 }
 
 .overview-item-desc {
   font-family: var(--font-body);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   color: var(--color-text-main);
-  line-height: 1.55;
+  line-height: 1.7;
 }
 
 .case-study-content {
@@ -1223,8 +1601,51 @@ section[id],
   background-color: var(--color-bg);
   border: 1px solid var(--color-card-border);
   border-left: 4px solid var(--color-primary);
-  border-radius: 14px;
-  padding: 1.35rem 1.5rem;
+  border-radius: 16px;
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+}
+
+.scenario-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-card-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 16px;
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+  margin-top: 1.5rem;
+}
+
+.scenario-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.scenario-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.scenario-list {
+  list-style: disc;
+  padding-left: 1.15rem;
+  margin: 0;
+}
+
+.scenario-list li {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin-bottom: 0.35rem;
+}
+
+.scenario-list li:last-child {
+  margin-bottom: 0;
 }
 
 .insight-num {
@@ -1238,7 +1659,7 @@ section[id],
 .insight-text {
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text-main);
 }
 

@@ -26,7 +26,11 @@ portafolio2/
 │   └── footer.svg           # Banner de fondo del footer
 ├── index.html               # Entrada principal (Work & SPA View)
 ├── about.html               # Página dedicada About Me
-├── muarh.html               # Estudio de caso MUARH (Plantilla estándar de 14 secciones)
+├── muarh.html               # Página de proyecto MUARH (Vista en construcción con enlace directo al sitio web en vivo)
+├── muarh-full.html          # Resguardo del estudio de caso completo de MUARH (14 secciones)
+├── coming-soon.html         # Plantilla estándar de página en construcción para proyectos en desarrollo
+├── robots.txt               # Configuración de indexación de buscadores
+├── sitemap.xml              # Mapa del sitio XML
 └── CONTEXT.md               # Documentación del proyecto
 ```
 
@@ -115,7 +119,7 @@ portafolio2/
 - [ ] **Diseño Móvil/Táctil para Tarjetas de Proyectos**: Definir la visualización permanente o alternativa del título y área de los proyectos en dispositivos móviles/táctiles (ya que en móvil no existe el estado *hover* ni navegación por teclado *tab* físico).
 - [x] **Sección Tools**: Tarjetas de herramientas ordenadas (`Diseño`, `Frontend`, `Backend`, `Herramientas`) integradas en la sección `#tools`.
 - [x] **Favicon Dinámico y Adaptativo**: Configurado `assets/logo-simple.svg` en `index.html` con cambio automático de color (#FFFFFF en modo oscuro del navegador y #1E1E1E en modo claro) mediante `@media (prefers-color-scheme: dark)`.
-- [x] **Footer & Contacto (Diseño image.png)**: Tarjeta flotante blanca (`.contact-card`) with title `Contacto` en la tipografía **Parkinsans** (`#B33200`), subtítulo, email subrayado con flecha interactiva, línea divisoria interior, copyright y botones sociales con fondo pastel `#FDE6FF` y micro-animación de ladeo y escalado (`scale(1.18) rotate(-6deg)`) al hacer hover sobre el fondo de gradiente `assets/footer.svg`.
+- [x] **Footer & Contacto (Diseño image.png)**: Tarjeta flotante blanca (`.contact-card`) con título `Contacto` en la tipografía **Parkinsans** (`#B33200`), subtítulo, email subrayado con flecha interactiva, línea divisoria interior, copyright y botones sociales con fondo pastel `#FDE6FF` y micro-animación de ladeo y escalado (`scale(1.18) rotate(-6deg)`) al hacer hover sobre el fondo de gradiente `assets/footer.svg`.
 - [x] **Eliminación de Viñetas de Lista (`list-style: none`)**:
   - Añadidas las reglas CSS `list-style: none; padding: 0; margin: 0;` a `.social-links` y `.social-links li` en [`styles.css`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/styles.css), removiendo completamente los puntos/viñetas del navegador mientras se mantiene la semántica HTML5 pura para lectores de pantalla.
 - [x] **Rediseño Profesional de About Me & UX Skills**:
@@ -126,3 +130,11 @@ portafolio2/
 - [x] **Arquitectura de Vistas Dinámicas SPA Accesible (W3C Gold Standard)**:
   - Implementado el menú con enlaces semánticos `<a>` en [index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) (`<a href="#work">` y `<a href="#about">`) con el atributo oficial `aria-current="page"`.
   - Control de accesibilidad en [index.js](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.js) (`initViewSwitcher`) con transmisión del foco al encabezado principal (`heading.focus()`), sincronización de URL (`#work` / `#about`), soporte completo para historial del navegador (`popstate`) y respuesta del Narrador como *"Work, enlace, página actual"*.
+- [x] **Páginas Estandarizadas de Trabajo en Progreso (`coming-soon.html` & `muarh.html`)**:
+  - Creada [`coming-soon.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html) como plantilla unificada para proyectos en desarrollo.
+  - Respaldado el estudio de caso completo de MUARH de 14 secciones en [`muarh-full.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh-full.html).
+  - Configurada [`muarh.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html) con la plantilla estándar de trabajo en progreso incluyendo enlace al sitio web en vivo (`https://evepulido.github.io/muarh/`).
+- [x] **Corrección de Accesibilidad WCAG (Enlaces Adyacentes Duplicados)**:
+  - Resuelto el aviso *"Adjacent links pointing to the same destination"* separando destinos en navegación (`index.html#work` y `about.html`).
+- [x] **Alineación de Layout y Padding en Footer Simple**:
+  - Corregida la desalineación de bordes laterales preservando el padding horizontal de `.container`.
