@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-12">
                     <div class="project-img-wrapper">
-                        <img src="assets/images/muarh.jpeg" alt="MUARH Project Interface Preview" class="project-img"
+                        <img src="assets/images/muarh.jpeg" alt="" class="project-img"
                             width="1200" height="675">
                     </div>
                 </div>
@@ -140,7 +140,7 @@
 
                     <div class="insight-card">
                         <p class="insight-text">
-                            <strong style="color: var(--color-primary);">Evaluation Constraints:</strong> The usability study was conducted with 3 participants with visual impairments using Chrome with the NVDA screen reader on desktop and TalkBack on Android.
+                            <strong>Evaluation Constraints:</strong> The usability study was conducted with 3 participants with visual impairments using Chrome with the NVDA screen reader on desktop and TalkBack in partial reading mode on Android.
                         </p>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                                 <div class="dot-node" aria-hidden="true"></div>
                             </div>
                             <h3 class="dot-step-title">Manual Inspection</h3>
-                            <p class="dot-step-desc">
+                            <p class="ux-skill-desc">
                                 Comprehensive code review evaluating document structure, contrast ratios, keyboard navigation, and ARIA control behavior against WCAG 2.1 AA.
                             </p>
                         </div>
@@ -235,7 +235,7 @@
                                 <div class="dot-node" aria-hidden="true"></div>
                             </div>
                             <h3 class="dot-step-title">Automated Scans</h3>
-                            <p class="dot-step-desc">
+                            <p class="ux-skill-desc">
                                 Automated evaluation using <span class="strategy-label">Lighthouse</span> and <span class="strategy-label">Silktide</span> to identify underlying technical issues related to HTML structure and contrast.
                             </p>
                         </div>
@@ -246,8 +246,8 @@
                                 <div class="dot-node" aria-hidden="true"></div>
                             </div>
                             <h3 class="dot-step-title">Live User Testing</h3>
-                            <p class="dot-step-desc">
-                                Qualitative usability testing sessions with 3 blind and low-vision participants navigating task scenarios via NVDA (Desktop) and TalkBack (Android).
+                            <p class="ux-skill-desc">
+                                Qualitative usability testing sessions with 3 blind and low-vision participants navigating task scenarios via NVDA (Desktop) and TalkBack in partial reading mode (Android).
                             </p>
                         </div>
                     </div>
@@ -337,35 +337,81 @@
                     <div class="hero-actions-row">
                         <a href="https://evepulido.github.io/muarh/" target="_blank" rel="noopener noreferrer"
                             class="cv-download-btn btn-secondary btn-sm"
-                            aria-label="Visit the live Museo Universitario Alejandro Rangel Hidalgo (MUARH) website (opens in a new tab)">
-                            <span>Visit Live Website</span>
+                            aria-label="Explore the live Museo Universitario Alejandro Rangel Hidalgo (MUARH) website (opens in a new tab)">
+                            <span>Explore Live Website</span>
                             <i data-lucide="external-link" aria-hidden="true"></i>
                         </a>
                     </div>
 
-                    <h3 class="case-study-subtitle">Prioritized Improvements</h3>
+                    <!-- Image Placeholder 1: Main Showcase -->
+                    <div class="project-img-wrapper case-study-tags-margin">
+                        <div class="image-placeholder">
+                            <i data-lucide="image" class="placeholder-icon" aria-hidden="true"></i>
+                            <p class="placeholder-title">Image 1: Final Responsive Website Showcase</p>
+                            <p class="placeholder-desc">Showcase mockup of the final accessible website interface across desktop and mobile screens.</p>
+                        </div>
+                    </div>
+
                     <p class="about-lead-desc">
                         Based on the user testing findings, we prioritized the following improvements:
                     </p>
+                </div>
+            </div>
 
-                    <h4 class="case-study-subtitle">Keyboard and screen reader accessibility</h4>
+            <!-- Improvement Row 1: Keyboard & Screen Reader -->
+            <div class="grid-12 improvement-row">
+                <div class="col-6">
+                    <h3 class="case-study-subtitle">Keyboard and screen reader accessibility</h3>
                     <ul class="strategy-list">
                         <li>Correct the keyboard focus order in the date picker.</li>
                         <li>Announce selected dates and validation errors to screen reader users.</li>
                         <li>Improve keyboard focus management within modal dialogs.</li>
                         <li>Allow users to close modal dialogs with the Esc key.</li>
                     </ul>
+                </div>
+                <div class="col-6">
+                    <div class="image-placeholder">
+                        <i data-lucide="image" class="placeholder-icon" aria-hidden="true"></i>
+                        <p class="placeholder-title">Image 2: Date Picker &amp; Focus UI</p>
+                        <p class="placeholder-desc">High-resolution screenshot demonstrating keyboard focus indicators and auditory ARIA status messages.</p>
+                    </div>
+                </div>
+            </div>
 
-                    <h4 class="case-study-subtitle">Navigation and form usability</h4>
+            <!-- Improvement Row 2: Navigation & Usability -->
+            <div class="grid-12 improvement-row">
+                <div class="col-6">
+                    <h3 class="case-study-subtitle">Navigation and form usability</h3>
                     <ul class="strategy-list">
                         <li>Use clearer navigation labels, such as changing "Recorridos" to "Costos".</li>
                         <li>Simplify the control for selecting the number of visitors.</li>
                     </ul>
+                </div>
+                <div class="col-6">
+                    <div class="image-placeholder">
+                        <i data-lucide="image" class="placeholder-icon" aria-hidden="true"></i>
+                        <p class="placeholder-title">Image 3: Navigation &amp; Form UI</p>
+                        <p class="placeholder-desc">High-resolution screenshot displaying updated navigation labels ("Costos") and simplified visitor count form inputs.</p>
+                    </div>
+                </div>
+            </div>
 
-                    <h4 class="case-study-subtitle">Mobile accessibility</h4>
+            <!-- Improvement Row 3: Mobile Accessibility -->
+            <div class="grid-12 improvement-row">
+                <div class="col-6">
+                    <h3 class="case-study-subtitle">Mobile accessibility</h3>
                     <ul class="strategy-list">
-                        <li>Review and increase touch target sizes for people using TalkBack or VoiceOver.</li>
+                        <li>Increase touch target sizes for TalkBack and VoiceOver users.</li>
+                        <li>Announce active control states ("checked" or "unchecked") when toggled.</li>
+                        <li>Improve touch spacing for smoother mobile swipe navigation.</li>
                     </ul>
+                </div>
+                <div class="col-6">
+                    <div class="image-placeholder">
+                        <i data-lucide="image" class="placeholder-icon" aria-hidden="true"></i>
+                        <p class="placeholder-title">Image 4: Mobile Touch Target UI</p>
+                        <p class="placeholder-desc">High-resolution screenshot showcasing 44x44px touch targets optimized for mobile screen reader gestures.</p>
+                    </div>
                 </div>
             </div>
         </section>
