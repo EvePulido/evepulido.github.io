@@ -28,7 +28,7 @@ function initViewSwitcher() {
   const navWork = document.getElementById('nav-work');
   const navAbout = document.getElementById('nav-about');
   const viewWork = document.getElementById('view-work');
-  const viewAbout = document.getElementById('view-about');
+  const viewAbout = document.getElementById('about') || document.getElementById('view-about');
   const logoLink = document.getElementById('logo-link');
 
   if (!navWork || !navAbout || !viewWork || !viewAbout) return;
