@@ -26,8 +26,7 @@ portafolio2/
 │   └── footer.svg           # Banner de fondo del footer
 ├── index.html               # Entrada principal (Work & SPA View)
 ├── about.html               # Página dedicada About Me
-├── muarh.html               # Página de proyecto MUARH (Vista en construcción con enlace directo al sitio web en vivo)
-├── muarh-full.html          # Resguardo del estudio de caso completo de MUARH (14 secciones)
+├── muarh.html               # Estudio de caso completo de MUARH (14 secciones)
 ├── coming-soon.html         # Plantilla estándar de página en construcción para proyectos en desarrollo
 ├── robots.txt               # Configuración de indexación de buscadores
 ├── sitemap.xml              # Mapa del sitio XML
