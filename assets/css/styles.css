@@ -1458,8 +1458,8 @@ section[id],
   object-position: center;
 }
 
-/* Match the first image (fecha.png) to the exact size/aspect ratio of the second image (admision.png: 802x450) */
-.improvement-row .project-img[src*="fecha.png"] {
+/* Match the first image (fecha.webp) to the exact size/aspect ratio of the second image (admision.webp: 802x450) */
+.improvement-row .project-img[src*="fecha.webp"] {
   aspect-ratio: 802 / 450;
   object-fit: cover;
   object-position: top center;
