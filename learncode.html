@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="LearnCode UX Case Study — Information Architecture, Empirical Research &amp; Usability Evaluation for a Gamified Learning App by Evelyn Pulido.">
+    <title>LearnCode | Evelyn Pulido</title>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Evelyn Pulido Portfolio">
+    <meta property="og:title" content="LearnCode UX Case Study | Evelyn Pulido">
+    <meta property="og:description"
+        content="Empirical UX research and usability evaluation for LearnCode: ethnographic study, card sorting, tree testing, and heuristic review.">
+    <meta property="og:image" content="https://evepulido.github.io/assets/images/learncode/learncode.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LearnCode UX Case Study — Evelyn Pulido">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LearnCode UX Case Study | Evelyn Pulido">
+    <meta name="twitter:description"
+        content="Empirical UX research and usability evaluation for LearnCode: ethnographic study, card sorting, tree testing, and heuristic review.">
+    <meta name="twitter:image" content="https://evepulido.github.io/assets/images/learncode/learncode.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="learncode-page">
+    <!-- Accessibility: Direct skip link for keyboard & screen reader navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Primary navigation header -->
+    <header class="site-header" id="header">
+        <div class="header-container container">
+            <p class="logo-heading">
+                <a href="index.html" aria-label="Evelyn Pulido — Return to home" class="logo-link">
+                    <img src="assets/Logo.svg" alt="" width="169" height="133" class="logo-img">
+                </a>
+            </p>
+
+            <nav class="navbar" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li class="nav-item">
+                        <a href="index.html#work" class="nav-link active">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About me</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Strict 14-Section Narrative Flow -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- 01. Project Hero -->
+        <section class="hero-section container" id="case-hero" aria-labelledby="case-heading">
+            <div class="grid-12">
+                <div class="col-12">
+                    <a href="index.html#work" class="hero-subtitle hero-breadcrumb" aria-label="Back to Featured Work on home page">
+                        <i data-lucide="chevron-left" aria-hidden="true"></i>
+                        <span>Featured Work</span>
+                    </a>
+                    <h1 class="hero-title" id="case-heading">LearnCode</h1>
+                    <p class="about-lead-desc">
+                        An educational application prototype designed to teach programming through courses, community interaction, and gamification elements like rankings and badges.
+                    </p>
+                    <div class="hero-actions-row">
+                        <a href="https://www.figma.com/design/lGJ7fVnrNxIFJWdOImdluM/LearnCode?node-id=201-202&amp;t=T4TLsOb7b9A67dyU-1" target="_blank" rel="noopener noreferrer"
+                            class="cv-download-btn btn-secondary btn-sm"
+                            aria-label="View the LearnCode Figma prototype (opens in a new tab)">
+                            <span>View Figma Prototype</span>
+                            <i data-lucide="external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="project-img-wrapper">
+                        <img src="assets/images/learncode/learncode.webp" alt="LearnCode mobile application interface preview showcasing interactive coding lessons, daily streak tracker, and user profile" class="project-img" width="1200" height="675">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Context & Overview Card -->
+        <section class="container" id="overview" aria-label="Project Overview">
+            <div class="overview-card">
+                <div class="overview-grid">
+                    <!-- 1. Role -->
+                    <div>
+                        <h2 class="overview-item-title">Role</h2>
+                        <p class="overview-item-desc">
+                            UX Researcher &amp; UI Designer
+                        </p>
+                    </div>
+
+                    <!-- 2. Project Goal -->
+                    <div>
+                        <h2 class="overview-item-title">Project Goal</h2>
+                        <p class="overview-item-desc">
+                            Design the information architecture and evaluate the usability of the LearnCode prototype to ensure an intuitive, engaging, and frictionless programming learning experience.
+                        </p>
+                    </div>
+
+                    <!-- 3. Target Audience -->
+                    <div>
+                        <h2 class="overview-item-title">Target Audience</h2>
+                        <p class="overview-item-desc">
+                            Software Engineering students and individuals interested in autonomous learning through gamified online courses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Challenges and Constraints -->
+        <section class="tools-section container" id="challenges">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Key Challenges &amp; Constraints</h2>
+                    <p class="about-lead-desc">
+                        The primary challenge was structuring an engaging, gamified learning experience while identifying usability friction points across core mobile application flows:
+                    </p>
+
+                    <ul class="tool-tags case-study-tags-margin" role="list" aria-label="Key Components Evaluated">
+                        <li class="tool-tag tool-tag-neutral">User registration &amp; authentication</li>
+                        <li class="tool-tag tool-tag-neutral">Interactive conditionals lesson</li>
+                        <li class="tool-tag tool-tag-neutral">Daily learning streak tracker</li>
+                        <li class="tool-tag tool-tag-neutral">Competitive ranking system</li>
+                        <li class="tool-tag tool-tag-neutral">Community feed &amp; post publishing</li>
+                        <li class="tool-tag tool-tag-neutral">Certificate download flow</li>
+                    </ul>
+
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <strong>Evaluation Constraints:</strong> The research was conducted across four sequential stages: an ethnographic user journey evaluation with 10 Software Engineering students, a hybrid card sorting study with 10 participants, an unmoderated tree testing evaluation with 6 students, and a peer heuristic review conducted by 3 independent student evaluators.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Strategy -->
+        <section class="tools-section container" id="strategy">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Design Strategy</h2>
+                    <p class="about-lead-desc">
+                        The research strategy focused on understanding user mental models, optimizing content hierarchy, and eliminating interaction barriers before finalizing designs.
+                    </p>
+
+                    <h3 class="case-study-subtitle">Key Implementation Strategies</h3>
+
+                    <div class="grid-12">
+                        <!-- Pillar 1: User-Centered Architecture -->
+                        <div class="col-4">
+                            <div class="tool-card">
+                                <div class="tool-card-header">
+                                    <i data-lucide="layout" class="tool-icon" aria-hidden="true"></i>
+                                    <h4 class="tool-card-title">Information Architecture</h4>
+                                </div>
+                                <ul class="tool-card-list">
+                                    <li><span class="strategy-label">Mental Model Alignment:</span> Categorizing features via Card Sorting.</li>
+                                    <li><span class="strategy-label">Findability Testing:</span> Validating menu logic through Tree Testing.</li>
+                                    <li><span class="strategy-label">Clear Pathways:</span> Streamlined navigation between courses and profile.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 2: Gamification & Engagement -->
+                        <div class="col-4">
+                            <div class="tool-card">
+                                <div class="tool-card-header">
+                                    <i data-lucide="sparkles" class="tool-icon" aria-hidden="true"></i>
+                                    <h4 class="tool-card-title">Gamification &amp; Feedback</h4>
+                                </div>
+                                <ul class="tool-card-list">
+                                    <li><span class="strategy-label">Learning Streaks:</span> Motivating daily autonomous practice.</li>
+                                    <li><span class="strategy-label">Community Sharing:</span> Reinforcing engagement through peer posts.</li>
+                                    <li><span class="strategy-label">Reward Feedback:</span> Visible badges and certifications.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 3: Usability & Heuristics -->
+                        <div class="col-4">
+                            <div class="tool-card">
+                                <div class="tool-card-header">
+                                    <i data-lucide="check-circle-2" class="tool-icon" aria-hidden="true"></i>
+                                    <h4 class="tool-card-title">Usability Standards</h4>
+                                </div>
+                                <ul class="tool-card-list">
+                                    <li><span class="strategy-label">System Status:</span> Immediate feedback for critical user actions.</li>
+                                    <li><span class="strategy-label">Error Prevention:</span> Safeguarding against accidental data loss.</li>
+                                    <li><span class="strategy-label">Consistency:</span> Global navigation and standardized interactions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluation Conducted -->
+        <section class="tools-section container" id="research">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Evaluation Conducted</h2>
+                    <p class="about-lead-desc">
+                        The UX research and evaluation process was structured across four sequential methodology stages to iteratively refine the prototype:
+                    </p>
+                    <div class="dot-process-flow" role="list" aria-label="Evaluation Methodology Process Flow">
+                        <!-- Step 1 -->
+                        <div class="dot-step-item" role="listitem">
+                            <div class="dot-header-node">
+                                <div class="dot-node" aria-hidden="true"></div>
+                            </div>
+                            <h3 class="dot-step-title">Ethnographic &amp; Usability Study</h3>
+                            <p class="ux-skill-desc">
+                                Initial qualitative and quantitative evaluation of the core user journey (from sign-up to certificate download) with 10 Software Engineering students. This stage helped identify baseline satisfaction and early UI friction points.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="dot-step-item" role="listitem">
+                            <div class="dot-header-node">
+                                <div class="dot-node" aria-hidden="true"></div>
+                            </div>
+                            <h3 class="dot-step-title">Card Sorting</h3>
+                            <p class="ux-skill-desc">
+                                To address navigation challenges identified in the initial study, a hybrid card sorting session was conducted with 10 participants. This revealed users' mental models, allowing us to establish a logical hierarchy based on four main categories: Home, Ranking, Community, and Profile.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="dot-step-item" role="listitem">
+                            <div class="dot-header-node">
+                                <div class="dot-node" aria-hidden="true"></div>
+                            </div>
+                            <h3 class="dot-step-title">Tree Testing</h3>
+                            <p class="ux-skill-desc">
+                                The proposed information architecture was empirically validated with 6 students using task-based scenarios (e.g., finding a certificate or checking daily streaks) to measure findability and structural logic without visual distractions.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="dot-step-item" role="listitem">
+                            <div class="dot-header-node">
+                                <div class="dot-node" aria-hidden="true"></div>
+                            </div>
+                            <h3 class="dot-step-title">Heuristic Evaluation</h3>
+                            <p class="ux-skill-desc">
+                                A peer review conducted by a team of three fellow students using Nielsen's 10 Usability Heuristics to identify and polish subtle interaction barriers and missing error prevention mechanisms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Results and User Feedback -->
+        <section class="tools-section container" id="test-results">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Test Results &amp; User Feedback</h2>
+                    <p class="about-lead-desc">
+                        Across all four evaluation stages, participants demonstrated high engagement, awarding the prototype an overall satisfaction score of <span class="strategy-label">9.3 / 10</span>. However, empirical testing surfaced key structural ambiguities and interaction friction points:
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-12 case-study-tags-margin">
+                <!-- Finding 1: Tree Testing - Daily Streak Ambiguity -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="git-branch" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Tree Testing: Daily Streak Discoverability</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            While finding certificates in the Profile achieved a <span class="strategy-label">100% success rate (6/6)</span>, locating the daily learning streak scored only <span class="strategy-label">4/10</span>. Two participants expected streaks under Ranking, and two others navigated through Ranking before reaching Home, revealing a split mental model between personal consistency and competitive standing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Finding 2: Heuristic Gaps - System Status & Error Prevention -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="alert-circle" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Heuristic Evaluation: System Status &amp; Error Prevention</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            Heuristic evaluation revealed that publishing community posts lacked visual progress feedback during upload (Heuristic 1). Furthermore, the profile view allowed data modifications without a secondary confirmation modal, creating risk for accidental edits (Heuristic 5).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-12">
+                <div class="col-12">
+                    <h3 class="case-study-subtitle">Additional Usability Findings</h3>
+                    <ul class="strategy-list">
+                        <li><strong>Missing Navigation Labels:</strong> In the initial study, bottom navigation icons lacked text labels, causing users to pause and guess panel destinations.</li>
+                        <li><strong>Navigation Menu Disablement:</strong> The global navigation bar was hidden inside the course catalog, forcing users to repeatedly tap back instead of directly switching views.</li>
+                        <li><strong>Authentication Friction:</strong> The registration form lacked real-time email format validation, and the password visibility toggle did not reveal the input text.</li>
+                        <li><strong>False Affordances:</strong> Top-bar score counters were visually interpreted as clickable buttons rather than passive indicators.</li>
+                        <li><strong>Leaderboard Sync:</strong> Registered user aliases were not immediately reflected on the leaderboard after completing tasks.</li>
+                    </ul>
+
+                    <h3 class="case-study-subtitle">Positive User Feedback</h3>
+                    <p class="about-lead-desc">
+                        Participants praised the vibrant visual styling, the motivating gamification structure (badges and streaks), and the clarity of interactive coding exercises, noting that the community feed fostered strong collaborative motivation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Design and Improvements -->
+        <section class="tools-section container" id="final-design">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Final Design &amp; Improvements</h2>
+                    
+                    <p class="about-lead-desc">
+                        Guided by user mental models from Card Sorting and usability validation across Tree Testing and Heuristic Reviews, we refined the LearnCode mobile prototype into an intuitive and structured learning ecosystem.
+                    </p>
+
+                    <div class="hero-actions-row">
+                        <a href="https://www.figma.com/design/lGJ7fVnrNxIFJWdOImdluM/LearnCode?node-id=201-202&amp;t=T4TLsOb7b9A67dyU-1" target="_blank" rel="noopener noreferrer"
+                            class="cv-download-btn btn-secondary btn-sm"
+                            aria-label="Explore the LearnCode Figma Prototype (opens in a new tab)">
+                            <span>Explore Figma Prototype</span>
+                            <i data-lucide="external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <!-- Main Showcase: Tablet Mockup with Home Screen -->
+                    <div class="project-img-wrapper case-study-tags-margin">
+                        <img src="assets/images/learncode/mockup-tablet-learncode.webp" alt="LearnCode high-fidelity tablet mockup showcasing the home screen with courses, daily streak, and bottom navigation" class="project-img" loading="lazy">
+                    </div>
+
+                    <p class="about-lead-desc">
+                        Based on the research findings, design iterations were grouped into three core enhancement pillars:
+                    </p>
+                </div>
+            </div>
+
+            <!-- Improvement Pillar 1: Information Architecture & Navigation -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">1. Information Architecture &amp; Global Navigation</h3>
+                    <ul class="strategy-list">
+                        <li><strong>Dual-Access Gamification:</strong> Placed the daily streak indicator prominently on the Home dashboard while cross-referencing it within Profile, resolving the findability conflict detected in Tree Testing.</li>
+                        <li><strong>Persistent Global Navigation:</strong> Kept the bottom tab bar visible across the course catalog to eliminate dead ends and enable single-tap tab switching.</li>
+                        <li><strong>Standardized 4-Pillar Menu:</strong> Adopted the Card Sorting hierarchy (<span class="strategy-label">Home</span>, <span class="strategy-label">Ranking</span>, <span class="strategy-label">Community</span>, <span class="strategy-label">Profile</span>) with explicit text labels under each icon.</li>
+                    </ul>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-grid">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode/learncode-home.webp"
+                                alt="LearnCode mobile UI showing the Home dashboard with the daily streak indicator and persistent bottom navigation bar"
+                                class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode/learncode-courses.webp"
+                                alt="LearnCode mobile UI showing the course catalog screen with standardized bottom navigation"
+                                class="project-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Improvement Pillar 2: System Status & Error Prevention -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">2. System Status &amp; Error Prevention</h3>
+                    <ul class="strategy-list">
+                        <li><strong>Publishing Status &amp; Feed Feedback:</strong> Added a circular loading spinner with a clear "Publishing..." status indicator during upload, smoothly transitioning to display the newly published post at the top of the community feed.</li>
+                        <li><strong>Destructive Action Safeguards:</strong> Added modal confirmation dialogs when saving or discarding profile edits to prevent accidental data loss.</li>
+                        <li><strong>Immediate Leaderboard Updates:</strong> Synchronized user alias and points to reflect instantly upon lesson completion.</li>
+                    </ul>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-grid">
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode/learncode-loader.webp"
+                                alt="LearnCode mobile UI showing the circular progress loader during community post upload"
+                                class="project-img" loading="lazy">
+                        </div>
+                        <div class="project-img-wrapper">
+                            <img src="assets/images/learncode/learncode-confirm-modal.webp"
+                                alt="LearnCode mobile UI showing the confirmation modal dialog to save or discard profile edits"
+                                class="project-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Improvement Pillar 3: Form Ergonomics & Usability Standards -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">3. Form Usability &amp; Microinteractions</h3>
+                    <ul class="strategy-list">
+                        <li><strong>Registration Validation:</strong> Added inline email format verification before submission.</li>
+                        <li><strong>Interactive Password Reveal:</strong> Enabled dynamic toggle between masked and plain text for credential input.</li>
+                        <li><strong>Clear Visual Affordance:</strong> Styled passive indicator chips distinctly from actionable buttons to prevent misclicks.</li>
+                    </ul>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-wrapper">
+                        <img src="assets/images/learncode/learncode-form-usability.webp"
+                            alt="LearnCode mobile sign-up screen showing real-time email format validation and password input with an interactive visibility toggle"
+                            class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="tools-section container" id="conclusion">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Conclusion</h2>
+                    <p class="about-lead-desc">
+                        This project provided invaluable hands-on experience balancing gamified engagement with clear information architecture in a mobile learning environment.
+                    </p>
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <span class="strategy-label">Core Learning:</span> High overall satisfaction ratings (such as our 9.3/10 baseline) can easily mask critical navigation barriers. While participants praised the vibrant aesthetic and interactive exercises, testing their real journeys revealed that users struggled to locate daily streaks and felt trapped within the course catalog. Combining findability data from Tree Testing with qualitative findings from Card Sorting and Heuristic Evaluation proved that visual polish cannot replace intuitive structure, highlighting the need to design directly around user mental models.
+                        </p>
+                    </div>
+                    <p class="about-lead-desc">
+                        Ultimately, the project demonstrated that building engaging educational software requires looking beyond surface-level praise, transforming subtle user friction into a frictionless experience where learning feels natural and rewarding.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación final -->
+        <section class="container" aria-label="Featured Work Navigation Landmarks">
+            <div class="grid-12">
+                <div class="col-12">
+                    <nav class="case-study-nav" aria-label="Featured Work Page Navigation">
+                        <a href="muarh.html" class="cv-download-btn btn-secondary"
+                            aria-label="View previous project: Museo Universitario Alejandro Rangel Hidalgo (MUARH)">
+                            <i data-lucide="arrow-left" aria-hidden="true"></i>
+                            <span>Previous Project: MUARH</span>
+                        </a>
+                        <a href="about.html" class="cv-download-btn"
+                            aria-label="Learn more about Evelyn Pulido on About me page">
+                            <span>About me</span>
+                            <i data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Standardized Accessible Footer -->
+    <footer class="site-footer container">
+        <div class="contact-card-bottom">
+            <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
+            <ul class="social-links" role="list" aria-label="Social Profiles">
+                <li>
+                    <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn"
+                        aria-label="GitHub profile">
+                        <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="LinkedIn profile">
+                        <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="Kaggle profile">
+                        <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="assets/js/index.js" defer></script>
+</body>
+
+</html>

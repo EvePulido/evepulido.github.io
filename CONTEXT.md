@@ -1,139 +1,157 @@
 # Contexto del Proyecto: Portafolio de Evelyn Pulido
 
-Este documento contiene el resumen técnico, decisiones de diseño, estándar de accesibilidad y estado actual del desarrollo del portafolio personal.
+Este documento centraliza la arquitectura técnica, el sistema de diseño, los estándares de accesibilidad (WCAG) y el estado activo del desarrollo del portafolio personal.
+
+> - **Instrucciones para el Agente**: [GEMINI.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/GEMINI.md) define las reglas operativas, invariantes de código y restricciones técnicas que el asistente de IA sigue de forma automática.
+> - **Historial de Cambios**: [CHANGELOG.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/CHANGELOG.md) contiene el registro cronológico completo de hitos y refactorizaciones.
 
 ---
 
-## 📁 Arquitectura & Estructura de Proyecto (Buenas Prácticas W3C)
+## 📌 Ficha Técnica
+
+- **Propietaria**: Evelyn Pulido
+- **Perfil Profesional**: Software Engineer & UX/UI Designer (Universidad de Colima, 2023–2027)
+- **Filosofía**: *"Every experience begins by listening to people and improves through designing, testing, and learning with them."*
+- **Stack Tecnológico**: HTML5 Semántico, CSS3 Vanilla (tokens y variables fluidas), JavaScript Vanilla modular (sin frameworks pesados), Lucide Icons.
+- **Enfoque Principal**: Accesibilidad Web (W3C / WCAG 2.1 nivel AA/AAA), Diseño Fluido Responsive, UX Research empírico y rendimiento web óptimo.
+
+---
+
+## 📁 Arquitectura & Estructura de Archivos
 
 ```text
 portafolio2/
-├── assets/                  # Recursos estáticos centralizados
+├── assets/                          # Recursos estáticos centralizados
 │   ├── css/
-│   │   └── styles.css       # Estilos globales y tokens fluídos
+│   │   └── styles.css               # Hoja de estilos global y tokens fluidos
 │   ├── js/
-│   │   └── index.js         # Lógica e interactividad JS
+│   │   └── index.js                 # Lógica interactiva y controlador SPA
 │   ├── docs/
-│   │   └── CV_Evelyn_Pulido.pdf  # Documentos descargables (CV)
-│   ├── images/
-│   │   ├── icons/           # Iconos vectoriales (github, linkedin, kaggle)
-│   │   ├── image.png        # Retrato / Imagen principal
-│   │   ├── learncode.jpeg   # Captura proyecto LearnCode
-│   │   ├── muarh.jpeg       # Captura proyecto MUARH
-│   │   ├── Logo.svg         # Logo principal del header
-│   │   ├── logo-simple.svg  # Favicon SVG adaptativo
-│   │   └── logo.ico         # Favicon tradicional (.ico)
-│   └── footer.svg           # Banner de fondo del footer
-├── index.html               # Entrada principal (Work & SPA View)
-├── about.html               # Página dedicada About Me
-├── muarh.html               # Estudio de caso completo de MUARH (14 secciones)
-├── coming-soon.html         # Plantilla estándar de página en construcción para proyectos en desarrollo
-├── robots.txt               # Configuración de indexación de buscadores
-├── sitemap.xml              # Mapa del sitio XML
-└── CONTEXT.md               # Documentación del proyecto
+│   │   └── CV_Evelyn_Pulido.pdf     # Currículum descargable
+│   ├── images/                      # Medios optimizados en WebP
+│   │   ├── icons/                   # Iconos vectoriales (github, linkedin, kaggle)
+│   │   ├── muarh/                   # Recursos del caso de estudio MUARH
+│   │   │   ├── admision.webp
+│   │   │   ├── boton.webp
+│   │   │   ├── fecha.webp
+│   │   │   ├── menu.webp
+│   │   │   ├── mockup-desktop.webp
+│   │   │   ├── mockup-phone.webp
+│   │   │   ├── mockup-tablet.webp
+│   │   │   └── muarh.webp
+│   │   └── learncode/               # Recursos del caso de estudio LearnCode
+│   │       ├── learncode.webp
+│   │       ├── mockup-tablet-learncode.webp
+│   │       ├── learncode-home.webp
+│   │       ├── learncode-courses.webp
+│   │       ├── learncode-loader.webp
+│   │       ├── learncode-confirm-modal.webp
+│   │       └── learncode-form-usability.webp
+│   ├── Logo.svg                     # Logo principal del encabezado
+│   ├── logo-simple.svg              # Favicon SVG adaptativo a temas
+│   ├── logo.ico                     # Favicon tradicional
+│   ├── og-cover.svg                 # Portada social Open Graph
+│   └── footer.svg                   # Banner de fondo decorativo del footer
+├── index.html                       # Página de inicio (Hero, Featured Work, Tools, Contacto)
+├── about.html                       # Página dedicada "About Me" (Bio, UX Skills, Educación)
+├── muarh.html                       # Caso de estudio: Accesibilidad Web (MUARH)
+├── learncode.html                   # Caso de estudio: UX Research & Usabilidad (LearnCode)
+├── coming-soon.html                 # Plantilla estándar para proyectos en construcción
+├── robots.txt                       # Directivas de indexación para buscadores
+├── sitemap.xml                      # Mapa del sitio XML con prioridades
+├── README.md                        # Presentación principal del repositorio en GitHub
+├── GEMINI.md                        # Reglas operativas e invariantes para el agente IA (Estándar Google)
+├── CHANGELOG.md                     # Historial cronológico de cambios y refactorizaciones
+└── CONTEXT.md                       # Documentación técnica central del proyecto
 ```
 
 ---
 
 ## 🎨 Sistema de Diseño & Tokens CSS
 
-| Token / Elemento | Valor / Especificación | Uso en el Proyecto |
-| :--- | :--- | :--- |
-| **Color Principal** | `#B33200` (`--color-primary`) | Enlace activo, títulos de sección (`Featured Work`), foco y acentos |
-| **Color Texto Principal** | `#1E1E1E` (`--color-text-main`) | Encabezados principales, body y navegación |
-| **Color Texto Secundario** | `#5E5E5E` (`--color-text-secondary`) | Subtítulos del hero, indicador de scroll |
-| **Fondo General** | `#FFFFFF` (`--color-bg`) | Fondo principal de la página y header |
-| **Color Acento Amarillo** | `#FFEABF` (`--color-accent-yellow`) | Fondo al hacer hover en las chips de tecnologías y sombra de tarjetas |
-| **Borde de Tarjetas** | `#CCCCCC` (`--color-card-border`) | Borde fino y definido para tarjetas de tecnologías, contacto y botones |
-| **Tipografía Encabezados Principal**| `'Parkinsans', sans-serif` | Frase del Hero (`.hero-title`) |
-| **Tipografía Cuerpo, Títulos y Tarjetas**| `'Poppins', sans-serif` | Menú, subtítulos, títulos de sección `<h2>`, títulos de tarjetas y overlays |
+| Token | Variable CSS | Valor | Aplicación en el Proyecto |
+| :--- | :--- | :--- | :--- |
+| **Primario** | `--color-primary` | `#B33200` | Títulos de sección, enlaces activos, foco `:focus-visible` y acentos |
+| **Texto Principal** | `--color-text-main` | `#1E1E1E` | Cuerpo de texto, encabezados generales y navegación |
+| **Texto Secundario** | `--color-text-secondary`| `#5E5E5E` | Subtítulos del hero, indicador de scroll y metadatos |
+| **Fondo General** | `--color-bg` | `#FFFFFF` | Lienzo principal, header y tarjetas |
+| **Acento Amarillo** | `--color-accent-yellow` | `#FFEABF` | Fondo en hover de chips de tecnología y sombra de tarjetas |
+| **Borde Tarjetas** | `--color-card-border` | `#CCCCCC` | Contornos sutiles para tarjetas de herramientas y contacto |
+| **Tipografía Hero** | `--font-heading` | `'Parkinsans', sans-serif` | Frase destacada del Hero y títulos grandes de sección |
+| **Tipografía Base** | `--font-body` | `'Poppins', sans-serif` | Menú, párrafos, subtítulos, tarjetas y componentes de interfaz |
 
 ---
 
-## 📐 Especificaciones del Layout Grid
+## 📐 Sistema de Rejilla Fluida (Grid de 12 Columnas)
 
-- **Sistema de Columnas**: 12 columnas fluidas (`.grid-12`).
-- **Margen Exterior (Desktop)**: `80px` (`--grid-margin: 80px`). *Adaptativo a 40px en tablet y 20px en móvil.*
-- **Gutter (Separación de Columnas)**: `24px` (`--grid-gutter: 24px`).
-- **Clases Grid**: `.container`, `.grid-12`, y clases de amplitud `.col-1` a `.col-12`.
+- **Contenedor Principal**: `.container` con ancho máximo fluido `var(--container-max-width)` (1200px).
+- **Márgenes Exteriores**: `--grid-margin` (`80px` en escritorio, `40px` en tablet y `20px` en móvil).
+- **Separación entre Columnas (Gutter)**: `--grid-gutter: 24px` fluido con `clamp(1rem, 2vw, 1.5rem)`.
+- **Clases de Amplitud**: `.col-1` a `.col-12` basadas en `grid-column: span N`.
 
----
-
-- [x] **Integración de Open Graph & Previsiones Sociales (SEO)**:
-  - Agregadas las meta etiquetas `og:title`, `og:description`, `og:image` y `og:type` en [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) y [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html) para vistas previas profesionales al compartir enlaces en **WhatsApp, LinkedIn, Slack y Twitter**.
-  - Configurado `twitter:card` con `summary_large_image` y portada de imagen asignada a `assets/images/image.png`.
-- [x] **Indexación SEO Estándar (`robots.txt` & `sitemap.xml`)**:
-  - Creado [`robots.txt`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/robots.txt) permitiendo indexación abierta para todos los motores de búsqueda.
-  - Creado [`sitemap.xml`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/sitemap.xml) con jerarquía de URLs e información de prioridad.
-
-### 1. Barra de Navegación (`site-header`)
-- **Jerarquía Semántica**: El logo principal SVG está encapsulado en el **`<h1>`** de la página (`<h1 class="logo-heading">`).
-- **Navegación**: Menú accesible `<nav aria-label="Navegación principal">` con la lista de enlaces `Work` y `About me`.
-- **Comportamiento Reducido (Fixed + Scroll)**:
-  - Posición fija (`position: fixed`).
-  - Al hacer scroll (`scrollY > 20px`), el padding se reduce de `2rem` a `0.75rem` y el logo pasa de **`120px` a `54px`** de altura.
-  - Fondo traslúcido accesible: `rgba(255, 255, 255, 0.90)` con `backdrop-filter: blur(14px)`.
-  - Reserva de espacio en `main` (`margin-top: 170px`) para evitar saltos o parpadeos de layout.
-
-### 2. Sección Principal (Hero)
-- **Subtítulo**: *"Software Engineer & UX/UI Designer"* en Poppins `#5E5E5E`.
-- **Título**: *"Every experience begins by listening to people and improves through designing, testing, and learning with them."* en Parkinsans `#1E1E1E`.
-
-### 3. Indicador de Scroll
-- **Visual**: Texto `SCROLL` en Poppins mayúsculas + icono `arrow-down` de Lucide.
-- **Animación**: Rebote vertical sutil de `8px` acotado a 3 ciclos (`@media (prefers-reduced-motion: no-preference)`).
-- **Desvanecimiento**: Se oculta al desplazar la página hacia abajo (`scrollY > 40px`).
-- **Interactividad**: Al hacer clic, desplaza la pantalla suavemente a la sección `#work` (`Featured Work`) compensando la altura de la barra fija con `scroll-margin-top: 110px`.
-- **Accesibilidad**: Totalmente oculto para lectores de pantalla (`aria-hidden="true"`, `tabindex="-1"`).
-
-### 4. Sección Featured Work (`#work`)
-- **Título de Sección**: `<h2>` *"Featured Work"* en Parkinsans color `#B33200`.
-- **Grid de Proyectos (2 Filas x 2 Columnas)**:
-  - **Escritorio / Tablet**:
-    - **Fila 1**: Proyecto 1 (**7 columnas**) + Proyecto 2 (**5 columnas**).
-    - **Fila 2**: Proyecto 3 (**5 columnas**) + Proyecto 4 (**7 columnas**).
-  - **Móvil (<= 768px)**: Apilado uniforme a **1 columna completa** (`grid-column: span 4; width: 100%`) con altura fija igual para todas las tarjetas.
-- **Capa Superpuesta (Overlay en Hover/Focus)**:
-  - Cubre la tarjeta con el color principal al 90% opacidad (`rgba(179, 50, 0, 0.90)`).
-  - Texto interior: Título del proyecto (`<h3>`) y Área (`<p>`), ambos en fuente **Poppins** y color blanco puro **`#FFFFFF`**.
-  - Activación por mouse (*hover*) y por navegación de teclado (*focus* / `:focus-visible`).
-  - Sombra exterior ultra ligera en amarillo `#FFEABF` (`box-shadow: 0 8px 24px 0px rgba(255, 234, 191, 0.45)`).
+### Regla Estándar para Casos de Estudio (`.improvement-row`)
+Tanto en [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html) como en [muarh.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html), las filas de mejoras de la sección *"Final Design & Improvements"* se estructuran de forma idéntica y simétrica:
+- **Columna de Texto**: `.col-7` (7 columnas, garantizando legibilidad y espacio amplio para viñetas).
+- **Columna de Imágenes**: `.col-5` (5 columnas, idéntico al ancho de la tarjeta LearnCode en la página de inicio).
+- **Cuadrícula Doble Móvil**: `.project-img-grid` dentro de `.col-5` para mostrar dos pantallas una al lado de la otra con bordes redondeados (`border-radius: clamp(18px, 2vw, 24px)`).
 
 ---
 
-## ♿ Buenas Prácticas y Accesibilidad (WCAG AA/AAA)
+## 📄 Mapa de Páginas & Proyectos
 
-1. **Enlace Skip-Link**: `<a href="#main-content" class="skip-link">` para navegación rápida con teclado.
-2. **Landmarks Semánticos**: Uso de `<header>`, `<nav>`, `<main>`, `<section>`, y `<footer>`.
-3. **Contrastes de Color**: Todos los textos cumplen y superan el estándar WCAG AA (4.5:1) y AAA (7.8:1 en las tarjetas).
-4. **Respeto a Preferencias del Usuario**:
-   - `@media (prefers-reduced-motion: reduce)` desactiva animaciones.
-   - `@media (prefers-reduced-transparency: reduce)` desactiva efectos de desenfoque traslúcido.
-5. **Navegación por Teclado**: Reglas `:focus-visible` bien definidas con anillos de enfoque visibles.
+### 1. Inicio (`index.html`)
+- **Header Dinámico**: Logo con enlace principal. En scroll (`scrollY > 20px`), el padding se reduce de `2rem` a `0.75rem` y el logo de `120px` a `54px` sobre fondo traslúcido (`blur(14px)`).
+- **Hero**: Frase de identidad profesional y botón de acción.
+- **Scroll Indicator**: Animación acotada respetuosa con `prefers-reduced-motion` y salto suave a `#work`.
+- **Featured Work (`#work`)**:
+  - **Fila 1**: MUARH (`.col-7`) + LearnCode (`.col-5`).
+  - **Fila 2**: Proyectos futuros en desarrollo (`.col-5` + `.col-7`).
+  - Capa overlay al 90% con información del proyecto activable por cursor o foco de teclado.
+- **Tools (`#tools`)**: Tarjetas de diseño, frontend, backend y herramientas con chips redondeadas.
+- **Footer & Contacto**: Tarjeta flotante `.contact-card` sobre banner `footer.svg` con enlaces a correo y redes.
+
+### 2. About Me (`about.html`)
+- **Hero**: Presentación personal con botones redondeados en pastilla (Pill) en color primario.
+- **UX Skills**: 6 tarjetas profesionales de competencias UX.
+- **Education**: Ficha de Ingeniería de Software en la Universidad de Colima (2023–2027).
+
+### 3. Caso de Estudio: MUARH (`muarh.html`)
+- **Tema**: Accesibilidad Web para el Museo Universitario Alejandro Rangel Hidalgo (WCAG 2.1).
+- **Estructura**: Overview, Desafíos, Estrategia de Diseño (flujo de 3 pasos), Resultados y Mejoras Finales (`.col-7` / `.col-5`).
+
+### 4. Caso de Estudio: LearnCode (`learncode.html`)
+- **Tema**: Plataforma educativa móvil con gamificación, UX Research y diseño de interfaz.
+- **Estructura**: Overview, Desafíos, Investigación de 4 Etapas (flujo vertical `.dot-process-flow`), Resultados Empíricos (A1, A2, A3, A4), Prototipo Figma y Mejoras Finales (`.col-7` / `.col-5`).
+
+### 5. Plantilla en Construcción (`coming-soon.html`)
+- Página de trabajo en progreso accesible para proyectos futuros de la rejilla.
 
 ---
 
-## 📋 Próximas Secciones & Tareas Pendientes
+## ♿ Estándares de Accesibilidad & SEO
 
-- [ ] **Diseño Móvil/Táctil para Tarjetas de Proyectos**: Definir la visualización permanente o alternativa del título y área de los proyectos en dispositivos móviles/táctiles (ya que en móvil no existe el estado *hover* ni navegación por teclado *tab* físico).
-- [x] **Sección Tools**: Tarjetas de herramientas ordenadas (`Diseño`, `Frontend`, `Backend`, `Herramientas`) integradas en la sección `#tools`.
-- [x] **Favicon Dinámico y Adaptativo**: Configurado `assets/logo-simple.svg` en `index.html` con cambio automático de color (#FFFFFF en modo oscuro del navegador y #1E1E1E en modo claro) mediante `@media (prefers-color-scheme: dark)`.
-- [x] **Footer & Contacto (Diseño image.png)**: Tarjeta flotante blanca (`.contact-card`) con título `Contacto` en la tipografía **Parkinsans** (`#B33200`), subtítulo, email subrayado con flecha interactiva, línea divisoria interior, copyright y botones sociales con fondo pastel `#FDE6FF` y micro-animación de ladeo y escalado (`scale(1.18) rotate(-6deg)`) al hacer hover sobre el fondo de gradiente `assets/footer.svg`.
-- [x] **Eliminación de Viñetas de Lista (`list-style: none`)**:
-  - Añadidas las reglas CSS `list-style: none; padding: 0; margin: 0;` a `.social-links` y `.social-links li` en [`styles.css`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/styles.css), removiendo completamente los puntos/viñetas del navegador mientras se mantiene la semántica HTML5 pura para lectores de pantalla.
-- [x] **Rediseño Profesional de About Me & UX Skills**:
-  - **Presentación Hero con Botones Redondeados (Pill)**: Título en grande *"Hi, I’m Evelyn Pulido"*, descripción fluida y fila de 3 botones de redes sociales estilo pastilla totalmente redondeados (`border-radius: 100px`) en color primario (`var(--color-primary)` = `#B33200`) con sus iconos en **LinkedIn** y **GitHub**, y el botón de **Kaggle** con texto limpio sin icono para mantener uniformidad cromática.
-  - **Tarjetas de UX Skills Limpias**: 6 tarjetas profesionales de habilidades (*UX Foundations*, *Empathy & Ideation*, *Wireframing & Low-Fi*, *UX Research & Testing*, *Hi-Fi Designs & Figma*, *Dynamic Web UI*) descritas con lenguaje profesional enfocado en competencias prácticas.
-  - **Sección Education**: Tarjeta oficial única destacando la carrera de Ingeniería de Software en la **Facultad de Telemática (Universidad de Colima, 2023 – 2027)** enfocada en desarrollo ágil de software, aplicaciones web y móviles, arquitectura de sistemas y redes de datos (`col-12`).
-- [x] **Internacionalización a Inglés y Accesibilidad WCAG AA**: Documento completo unificado en inglés con `<html lang="en">` en [index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) y [about.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html), corrección de referencias ARIA (`aria-labelledby="nav-work"` y `aria-labelledby="nav-about"`), etiquetas `aria-label` en enlaces de navegación e imágenes decorativas con `alt=""`.
-- [x] **Arquitectura de Vistas Dinámicas SPA Accesible (W3C Gold Standard)**:
-  - Implementado el menú con enlaces semánticos `<a>` en [index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) (`<a href="#work">` y `<a href="#about">`) con el atributo oficial `aria-current="page"`.
-  - Control de accesibilidad en [index.js](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.js) (`initViewSwitcher`) con transmisión del foco al encabezado principal (`heading.focus()`), sincronización de URL (`#work` / `#about`), soporte completo para historial del navegador (`popstate`) y respuesta del Narrador como *"Work, enlace, página actual"*.
-- [x] **Páginas Estandarizadas de Trabajo en Progreso (`coming-soon.html` & `muarh.html`)**:
-  - Creada [`coming-soon.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html) como plantilla unificada para proyectos en desarrollo.
-  - Respaldado el estudio de caso completo de MUARH de 14 secciones en [`muarh-full.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh-full.html).
-  - Configurada [`muarh.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html) con la plantilla estándar de trabajo en progreso incluyendo enlace al sitio web en vivo (`https://evepulido.github.io/muarh/`).
-- [x] **Corrección de Accesibilidad WCAG (Enlaces Adyacentes Duplicados)**:
-  - Resuelto el aviso *"Adjacent links pointing to the same destination"* separando destinos en navegación (`index.html#work` y `about.html`).
-- [x] **Alineación de Layout y Padding en Footer Simple**:
-  - Corregida la desalineación de bordes laterales preservando el padding horizontal de `.container`.
+- **WCAG 2.1 AA / AAA**:
+  - Enlace de salto inicial (*Skip Link*) `#main-content`.
+  - Contrastes superiores a 4.5:1 (AA) en cuerpo y 7.8:1 (AAA) en tarjetas.
+  - Indicadores de enfoque `:focus-visible` prominentes en todos los elementos interactivos.
+  - Soporte de preferencias del sistema: `@media (prefers-reduced-motion)` y `@media (prefers-reduced-transparency)`.
+  - Textos alternativos descriptivos en imágenes de interfaz; `alt=""` en elementos decorativos.
+- **Optimización para Motores de Búsqueda (SEO)**:
+  - Metaetiquetas Open Graph y Twitter Cards (`summary_large_image`) configuradas.
+  - Archivos de rastreo [robots.txt](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/robots.txt) y [sitemap.xml](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/sitemap.xml).
+  - Favicon adaptativo automático según el tema claro/oscuro del navegador.
+
+---
+
+## 📋 Estado Actual & Próximos Pasos (Roadmap)
+
+### Estado Actual:
+- [x] Optimización de imágenes a WebP en todo el sitio (>85% de reducción de peso).
+- [x] Casos de estudio completos para MUARH y LearnCode con coherencia visual simétrica (`.col-7` texto / `.col-5` imágenes).
+- [x] Cuadrícula doble de capturas móviles integrada en el Pilar 1 de LearnCode.
+- [x] Auditoría de textos alternativos (`alt`) y buenas prácticas de accesibilidad completada.
+
+### Próximos Pasos Disponibles:
+- [ ] Incorporar Proyectos 3 y 4 en la segunda fila de `#work` en la página de inicio.
+- [ ] Añadir selector de idioma (inglés / español) si se requiere internacionalización dinámica.
+- [ ] Pruebas finales de validación Lighthouse (Performance, Accessibility, Best Practices, SEO).
