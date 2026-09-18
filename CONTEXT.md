@@ -152,6 +152,7 @@ Tanto en [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/le
 - [x] Auditoría de textos alternativos (`alt`) y buenas prácticas de accesibilidad completada.
 
 ### Próximos Pasos Disponibles:
+- [ ] Implementar Modo Oscuro (Dark Mode) integral en el sistema con soporte para `@media (prefers-color-scheme: dark)` y selector/toggle accesible con persistencia en `localStorage`.
 - [ ] Incorporar Proyectos 3 y 4 en la segunda fila de `#work` en la página de inicio.
 - [ ] Añadir selector de idioma (inglés / español) si se requiere internacionalización dinámica.
 - [ ] Pruebas finales de validación Lighthouse (Performance, Accessibility, Best Practices, SEO).
