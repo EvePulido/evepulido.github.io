@@ -150,6 +150,7 @@ Tanto en [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/le
 - [x] Casos de estudio completos para MUARH y LearnCode con coherencia visual simétrica (`.col-7` texto / `.col-5` imágenes).
 - [x] Cuadrícula doble de capturas móviles integrada en el Pilar 1 de LearnCode.
 - [x] Auditoría de textos alternativos (`alt`) y buenas prácticas de accesibilidad completada.
+- [x] Integración y activación del CV profesional descargable (`CV_Evelyn_Pulido.pdf` / `CV_UXUI_EN.pdf` en `assets/docs/`) en `index.html` y `about.html`.
 
 ### Próximos Pasos Disponibles:
 - [ ] Implementar Modo Oscuro (Dark Mode) integral en el sistema con soporte para `@media (prefers-color-scheme: dark)` y selector/toggle accesible con persistencia en `localStorage`.

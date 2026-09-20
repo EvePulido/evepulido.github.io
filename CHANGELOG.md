@@ -6,7 +6,15 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Casos de Estudio: LearnCode & MUARH
+### 1. Integración y Activación del Currículum Vitae (CV)
+- **Centralización en `assets/docs/`**:
+  - Sustitución del archivo de marcador de posición (`607 bytes`) por el CV profesional actualizado en inglés (`CV_UXUI_EN.pdf` de `66 KB`), estandarizado como `assets/docs/CV_Evelyn_Pulido.pdf` (y conservando `CV_UXUI_EN.pdf` en la misma carpeta).
+  - Eliminación de archivos temporales dispersos en la raíz de `assets/`.
+- **Reactivación de Enlaces de Descarga**:
+  - Habilitado el botón interactivo `.cv-download-btn` en la tarjeta flotante de contacto de [index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html) y en [about.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html).
+  - Configurado con atributo nativo `download`, icono accesible de Lucide (`download`) y texto accesible para lectores de pantalla.
+
+### 2. Casos de Estudio: LearnCode & MUARH
 - **Creación del Caso de Estudio LearnCode (`learncode.html`)**:
   - Estructurado duplicando la arquitectura accesible y diseño visual de MUARH.
   - Redacción profesional de *Project Overview*, *Key Challenges & Constraints*, *Design Strategy* y *Conclusion* fundamentada en cuatro investigaciones empíricas:
