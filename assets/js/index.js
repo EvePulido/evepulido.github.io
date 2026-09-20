@@ -5,6 +5,7 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
   initLucideIcons();
+  initThemeToggle();
   initViewSwitcher();
   initHeaderScroll();
   initScrollFade();
@@ -176,4 +177,67 @@ function initHeaderScroll() {
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
+}
+
+/**
+ * Controlador accesible de Modo Oscuro con soporte para switch deslizable y persistencia
+ */
+function initThemeToggle() {
+  const switchInput = document.getElementById('theme-toggle-checkbox') || document.getElementById('theme-toggle');
+  if (!switchInput) return;
+
+  function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+
+  function syncSwitchState(theme) {
+    const isDark = theme === 'dark';
+    if (switchInput.type === 'checkbox') {
+      switchInput.checked = isDark;
+      switchInput.setAttribute('aria-checked', isDark ? 'true' : 'false');
+    }
+    const labelTitle = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+    switchInput.setAttribute('aria-label', 'Dark mode');
+    const parentLabel = switchInput.closest('.theme-switch');
+    if (parentLabel) {
+      parentLabel.setAttribute('title', labelTitle);
+    }
+  }
+
+  // Sincronizar estado inicial
+  syncSwitchState(getCurrentTheme());
+
+  const eventName = switchInput.type === 'checkbox' ? 'change' : 'click';
+  switchInput.addEventListener(eventName, () => {
+    let next;
+    if (switchInput.type === 'checkbox') {
+      next = switchInput.checked ? 'dark' : 'light';
+    } else {
+      next = getCurrentTheme() === 'dark' ? 'light' : 'dark';
+    }
+
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      // Ignorar si el almacenamiento local está restringido
+    }
+
+    syncSwitchState(next);
+  });
+
+  // Escuchar cambios en la preferencia del sistema operativo si no hay elección manual guardada
+  try {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (e) => {
+      try {
+        if (!localStorage.getItem('theme')) {
+          const systemTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', systemTheme);
+          syncSwitchState(systemTheme);
+        }
+      } catch (err) {}
+    });
+  } catch (err) {}
 }

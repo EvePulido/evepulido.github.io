@@ -20,6 +20,20 @@
     <link rel="icon" type="image/svg+xml" href="assets/logo-simple.svg">
     <link rel="alternate icon" type="image/x-icon" href="assets/logo.ico">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Theme Initialization (Zero FOUC) -->
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 
 <body>
@@ -31,7 +45,8 @@
         <div class="header-container container">
             <h1 class="logo-heading">
                 <a href="index.html" aria-label="Evelyn Pulido — Return to home" class="logo-link">
-                    <img src="assets/Logo.svg" alt="" width="169" height="133" class="logo-img">
+                    <img src="assets/Logo.svg" alt="" width="169" height="133" class="logo-img logo-img-light">
+                    <img src="assets/Logo-dark.svg" alt="" width="169" height="133" class="logo-img logo-img-dark">
                 </a>
             </h1>
 
@@ -44,6 +59,19 @@
                         <a href="about.html" class="nav-link">About me</a>
                     </li>
                 </ul>
+
+                <label class="theme-switch" for="theme-toggle-checkbox">
+                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-checked="false" aria-label="Dark mode">
+                    <span class="theme-switch-slider">
+                        <span class="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">
+                            <i data-lucide="sun"></i>
+                        </span>
+                        <span class="theme-switch-icon theme-switch-icon-moon" aria-hidden="true">
+                            <i data-lucide="moon"></i>
+                        </span>
+                        <span class="theme-switch-thumb" aria-hidden="true"></span>
+                    </span>
+                </label>
             </nav>
         </div>
     </header>

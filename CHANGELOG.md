@@ -6,7 +6,27 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Integración y Activación del Currículum Vitae (CV)
+### 1. Sistema Integral de Modo Oscuro (Dark Mode & Accesibilidad)
+- **Tokens de Diseño WCAG 2.1 AA/AAA**:
+  - Implementación de tokens oscuros bajo `[data-theme="dark"]` y selector `@media (prefers-color-scheme: dark)`:
+    - Fondo profundo `--color-bg: #141414` y superficies elevadas (`--color-surface-subtle: #1C1C1C`, `--color-surface-tag: #252525`, `--color-card-border: #2D2D2D`).
+    - Texto principal de alto contraste `--color-text-main: #F2F2F2` (ratio > 17:1 contra fondo, superando WCAG AAA).
+    - Color primario adaptado a terracotta vibrante `--color-primary: #FF7A45` (ratio > 7:1 contra fondo, superando WCAG AAA).
+    - Creación del archivo vectorial `assets/Logo-dark.svg` con trazados exactamente en `#FF7A45`, renderizado sin distorsión de filtros y alternado limpiamente vía CSS.
+    - Adaptación contextual para iconos sociales: en el footer, GitHub y LinkedIn se muestran en blanco (`filter: brightness(0) invert(1)`), mientras que Kaggle conserva su color original (`#20beff`, `filter: none`). En About Me, los botones naranja usan iconos y texto oscuros (`var(--color-text-dark)`) para contraste óptimo.
+    - Preservación total de las transiciones y animaciones hover originales: elevación `translateY(-3px)` y rotación/escalado de iconos (`scale(1.18) rotate(-6deg)`).
+    - Refactorización completa a variables CSS (0 colores hexadecimales fuera del bloque `:root` de tokens) y 0 estilos en línea en todo el HTML.
+- **Switch Deslizable Accesible W3C APG (`.theme-switch`)**:
+  - Switch de pastilla ergonómico de 74×40px con icono de sol ☀️ a la izquierda e icono de luna 🌙 a la derecha (18px c/u).
+  - Deslizador (*thumb*) circular de 32px que viaja suavemente entre los extremos (34px de recorrido), iluminando el estado activo.
+  - Implementación técnica estándar: `<input type="checkbox" role="switch" aria-checked="..." aria-label="Dark mode">` con técnica `visually-hidden` para total soporte de lectores de pantalla (NVDA, TalkBack, VoiceOver).
+  - Indicador de foco visible `:focus-visible` de 3px con desplazamiento conforme a WCAG 2.4.7 y 2.4.11.
+- **Persistencia & Zero FOUC**:
+  - Guardado de la preferencia en `localStorage.setItem('theme', ...)`.
+  - Script síncrono en `<head>` que previene cualquier parpadeo de tema incorrecto (*Flash of Unstyled Content*).
+  - Sincronización reactiva con cambios del sistema operativo cuando no hay preferencia manual forzada.
+
+### 2. Integración y Activación del Currículum Vitae (CV)
 - **Centralización en `assets/docs/`**:
   - Sustitución del archivo de marcador de posición (`607 bytes`) por el CV profesional actualizado en inglés (`CV_UXUI_EN.pdf` de `66 KB`), estandarizado como `assets/docs/CV_Evelyn_Pulido.pdf` (y conservando `CV_UXUI_EN.pdf` en la misma carpeta).
   - Eliminación de archivos temporales dispersos en la raíz de `assets/`.

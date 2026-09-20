@@ -47,7 +47,8 @@ portafolio2/
 │   │       ├── learncode-loader.webp
 │   │       ├── learncode-confirm-modal.webp
 │   │       └── learncode-form-usability.webp
-│   ├── Logo.svg                     # Logo principal del encabezado
+│   ├── Logo.svg                     # Logo principal del encabezado (modo claro)
+│   ├── Logo-dark.svg                # Logo principal en terracotta #FF7A45 (modo oscuro)
 │   ├── logo-simple.svg              # Favicon SVG adaptativo a temas
 │   ├── logo.ico                     # Favicon tradicional
 │   ├── og-cover.svg                 # Portada social Open Graph
@@ -58,10 +59,10 @@ portafolio2/
 ├── learncode.html                   # Caso de estudio: UX Research & Usabilidad (LearnCode)
 ├── coming-soon.html                 # Plantilla estándar para proyectos en construcción
 ├── robots.txt                       # Directivas de indexación para buscadores
-├── sitemap.xml                      # Mapa del sitio XML con prioridades
-├── README.md                        # Presentación principal del repositorio en GitHub
-├── GEMINI.md                        # Reglas operativas e invariantes para el agente IA (Estándar Google)
-├── CHANGELOG.md                     # Historial cronológico de cambios y refactorizaciones
+├── sitemap.xml                      # Mapa del sitio para indexación SEO
+├── README.md                        # Presentación del repositorio para GitHub
+├── GEMINI.md                        # Reglas operativas del agente
+├── CHANGELOG.md                     # Registro cronológico de cambios
 └── CONTEXT.md                       # Documentación técnica central del proyecto
 ```
 
@@ -69,16 +70,22 @@ portafolio2/
 
 ## 🎨 Sistema de Diseño & Tokens CSS
 
-| Token | Variable CSS | Valor | Aplicación en el Proyecto |
+| Token | Modo Claro | Modo Oscuro | Aplicación en el Proyecto |
 | :--- | :--- | :--- | :--- |
-| **Primario** | `--color-primary` | `#B33200` | Títulos de sección, enlaces activos, foco `:focus-visible` y acentos |
-| **Texto Principal** | `--color-text-main` | `#1E1E1E` | Cuerpo de texto, encabezados generales y navegación |
-| **Texto Secundario** | `--color-text-secondary`| `#5E5E5E` | Subtítulos del hero, indicador de scroll y metadatos |
-| **Fondo General** | `--color-bg` | `#FFFFFF` | Lienzo principal, header y tarjetas |
-| **Acento Amarillo** | `--color-accent-yellow` | `#FFEABF` | Fondo en hover de chips de tecnología y sombra de tarjetas |
-| **Borde Tarjetas** | `--color-card-border` | `#CCCCCC` | Contornos sutiles para tarjetas de herramientas y contacto |
-| **Tipografía Hero** | `--font-heading` | `'Parkinsans', sans-serif` | Frase destacada del Hero y títulos grandes de sección |
-| **Tipografía Base** | `--font-body` | `'Poppins', sans-serif` | Menú, párrafos, subtítulos, tarjetas y componentes de interfaz |
+| `--color-primary` | `#B33200` | `#FF7A45` | Títulos de sección, enlaces activos, foco `:focus-visible` y acentos |
+| `--color-primary-hover` | `#8C2700` | `#FFA07A` | Estados interactivos hover en botones principales |
+| `--color-primary-muted` | `rgba(179,50,0,0.08)` | `rgba(255,122,69,0.16)` | Fondos sutiles interactivos para botones secundarios y sociales |
+| `--color-primary-overlay`| `rgba(179,50,0,0.90)` | `rgba(20,20,20,0.92)` | Capa interactiva de información sobre portadas de proyectos |
+| `--color-text-main` | `#1E1E1E` | `#F2F2F2` | Cuerpo de texto, encabezados generales y navegación |
+| `--color-text-secondary`| `#5E5E5E` | `#A3A3A3` | Subtítulos del hero, indicador de scroll y metadatos |
+| `--color-bg` | `#FFFFFF` | `#141414` | Lienzo principal, header y tarjetas |
+| `--color-surface-subtle`| `#F8F8F8` | `#1C1C1C` | Fondo suave de tarjetas y proyectos |
+| `--color-surface-tag` | `#F5F5F5` | `#252525` | Chips de tecnología y botones sociales |
+| `--color-card-border` | `#CCCCCC` | `#2D2D2D` | Contornos sutiles para tarjetas de herramientas y contacto |
+| `--color-white` | `#FFFFFF` | `#FFFFFF` | Texto de alto contraste sobre capas oscuras / acento |
+| `--color-text-dark` | `#1E1E1E` | `#1E1E1E` | Texto oscuro sobre botones de acento vibrante |
+| `--font-heading` | `'Parkinsans', sans-serif` | `'Parkinsans', sans-serif` | Frase destacada del Hero y títulos grandes de sección |
+| `--font-body` | `'Poppins', sans-serif` | `'Poppins', sans-serif` | Menú, párrafos, subtítulos, tarjetas y componentes de interfaz |
 
 ---
 
@@ -151,9 +158,10 @@ Tanto en [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/le
 - [x] Cuadrícula doble de capturas móviles integrada en el Pilar 1 de LearnCode.
 - [x] Auditoría de textos alternativos (`alt`) y buenas prácticas de accesibilidad completada.
 - [x] Integración y activación del CV profesional descargable (`CV_Evelyn_Pulido.pdf` / `CV_UXUI_EN.pdf` en `assets/docs/`) en `index.html` y `about.html`.
+- [x] Modo Oscuro (Dark Mode) integral con tokens WCAG 2.1 AA/AAA, soporte para `@media (prefers-color-scheme: dark)`, botón de alternancia accesible y persistencia en `localStorage` (Zero FOUC).
 
 ### Próximos Pasos Disponibles:
-- [ ] Implementar Modo Oscuro (Dark Mode) integral en el sistema con soporte para `@media (prefers-color-scheme: dark)` y selector/toggle accesible con persistencia en `localStorage`.
 - [ ] Incorporar Proyectos 3 y 4 en la segunda fila de `#work` en la página de inicio.
 - [ ] Añadir selector de idioma (inglés / español) si se requiere internacionalización dinámica.
+- [ ] Optimización de peso de `assets/footer.svg` (reducción de rasterizado incrustado).
 - [ ] Pruebas finales de validación Lighthouse (Performance, Accessibility, Best Practices, SEO).
