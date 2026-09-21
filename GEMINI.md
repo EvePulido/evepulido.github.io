@@ -52,11 +52,11 @@ portafolio2/
 │   ├── css/styles.css           # Global stylesheet & tokens
 │   ├── js/index.js              # View switcher and accessible DOM logic
 │   ├── docs/CV_Evelyn_Pulido.pdf# Downloadable resume
-│   ├── images/
-│   │   ├── icons/               # Social/external vector icons
-│   │   ├── muarh/               # WebP assets for MUARH case study
-│   │   └── learncode/           # WebP assets for LearnCode case study
-│   ├── Logo.svg, logo-simple.svg, footer.svg
+│   └── images/
+│       ├── Logo.svg, Logo-dark.svg, logo-simple.svg, logo.ico, og-cover.svg, footer.svg
+│       ├── icons/               # Social/external vector icons
+│       ├── muarh/               # WebP assets for MUARH case study
+│       └── learncode/           # WebP assets for LearnCode case study
 ├── index.html                   # Homepage (Hero, Featured Work, Tools, Contact)
 ├── about.html                   # About Me (Bio, UX Skills, Education)
 ├── muarh.html                   # Case Study: MUARH (Web Accessibility)

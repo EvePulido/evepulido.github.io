@@ -6,7 +6,14 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Corrección de Dominio en Metadatos Open Graph y Twitter Cards
+### 1. Reorganización y Centralización de Recursos Gráficos en `assets/images/`
+- **Limpieza de la Raíz de `assets/`**:
+  - Movidos los 6 recursos de identidad de marca (`Logo.svg`, `Logo-dark.svg`, `logo-simple.svg`, `logo.ico`, `og-cover.svg` y `footer.svg`) desde la raíz de `assets/` hacia su ubicación canónica en `assets/images/`.
+  - La raíz de `assets/` queda 100% modular y limpia conteniendo únicamente subdirectorios (`css/`, `js/`, `docs/`, `images/`).
+  - Actualizadas todas las referencias en [index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html), [about.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html), [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), [muarh.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html) y [coming-soon.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html).
+  - Documentación técnica sincronizada en [CONTEXT.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/CONTEXT.md) y [GEMINI.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/GEMINI.md).
+
+### 2. Corrección de Dominio en Metadatos Open Graph y Twitter Cards
 - **Estandarización de Dominio Canónico (`https://evepulido.com/`)**:
   - Actualización de las URLs absolutas en las etiquetas de previsualización social (`og:image` y `twitter:image`) en todas las páginas HTML ([index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html), [about.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html), [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), [muarh.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html), [coming-soon.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html)).
   - Corrección de la discrepancia donde apuntaban al subdominio heredado `https://evepulido.github.io/`, alineándolo con [sitemap.xml](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/sitemap.xml) y [robots.txt](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/robots.txt).

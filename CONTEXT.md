@@ -28,7 +28,13 @@ portafolio2/
 │   │   └── index.js                 # Lógica interactiva y controlador SPA
 │   ├── docs/
 │   │   └── CV_Evelyn_Pulido.pdf     # Currículum descargable
-│   ├── images/                      # Medios optimizados en WebP
+│   ├── images/                      # Medios y recursos gráficos del sitio
+│   │   ├── Logo.svg                 # Logo principal del encabezado (modo claro)
+│   │   ├── Logo-dark.svg            # Logo principal en terracotta #FF7A45 (modo oscuro)
+│   │   ├── logo-simple.svg          # Favicon SVG adaptativo a temas
+│   │   ├── logo.ico                 # Favicon tradicional
+│   │   ├── og-cover.svg             # Portada social Open Graph
+│   │   ├── footer.svg               # Banner de fondo decorativo del footer
 │   │   ├── icons/                   # Iconos vectoriales (github, linkedin, kaggle)
 │   │   ├── muarh/                   # Recursos del caso de estudio MUARH
 │   │   │   ├── admision.webp
@@ -47,12 +53,6 @@ portafolio2/
 │   │       ├── learncode-loader.webp
 │   │       ├── learncode-confirm-modal.webp
 │   │       └── learncode-form-usability.webp
-│   ├── Logo.svg                     # Logo principal del encabezado (modo claro)
-│   ├── Logo-dark.svg                # Logo principal en terracotta #FF7A45 (modo oscuro)
-│   ├── logo-simple.svg              # Favicon SVG adaptativo a temas
-│   ├── logo.ico                     # Favicon tradicional
-│   ├── og-cover.svg                 # Portada social Open Graph
-│   └── footer.svg                   # Banner de fondo decorativo del footer
 ├── index.html                       # Página de inicio (Hero, Featured Work, Tools, Contacto)
 ├── about.html                       # Página dedicada "About Me" (Bio, UX Skills, Educación)
 ├── muarh.html                       # Caso de estudio: Accesibilidad Web (MUARH)
