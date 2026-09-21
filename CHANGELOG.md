@@ -6,7 +6,12 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Sistema Integral de Modo Oscuro (Dark Mode & Accesibilidad)
+### 1. Corrección de Dominio en Metadatos Open Graph y Twitter Cards
+- **Estandarización de Dominio Canónico (`https://evepulido.com/`)**:
+  - Actualización de las URLs absolutas en las etiquetas de previsualización social (`og:image` y `twitter:image`) en todas las páginas HTML ([index.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html), [about.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html), [learncode.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), [muarh.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html), [coming-soon.html](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html)).
+  - Corrección de la discrepancia donde apuntaban al subdominio heredado `https://evepulido.github.io/`, alineándolo con [sitemap.xml](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/sitemap.xml) y [robots.txt](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/robots.txt).
+
+### 2. Sistema Integral de Modo Oscuro (Dark Mode & Accesibilidad)
 - **Tokens de Diseño WCAG 2.1 AA/AAA**:
   - Implementación de tokens oscuros bajo `[data-theme="dark"]` y selector `@media (prefers-color-scheme: dark)`:
     - Fondo profundo `--color-bg: #141414` y superficies elevadas (`--color-surface-subtle: #1C1C1C`, `--color-surface-tag: #252525`, `--color-card-border: #2D2D2D`).
