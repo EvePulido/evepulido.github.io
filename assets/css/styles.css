@@ -334,21 +334,12 @@ main:focus {
   display: block;
 }
 
-[data-theme="dark"] .logo-img-light {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .logo-img-light {
   display: none;
 }
 
-[data-theme="dark"] .logo-img-dark {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .logo-img-dark {
   display: block;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .logo-img-light {
-    display: none;
-  }
-  :root:not([data-theme="light"]) .logo-img-dark {
-    display: block;
-  }
 }
 
 .view-panel {
@@ -1089,11 +1080,8 @@ section[id],
   outline-offset: 4px;
 }
 
-.cv-btn-icon,
-.cv-download-btn svg,
-.cv-download-btn i,
-.cv-download-btn [data-lucide],
-.cv-download-btn .lucide {
+:is(.cv-download-btn, .btn-secondary) :is(svg, [data-lucide], .lucide, i),
+.cv-btn-icon {
   width: 20px;
   height: 20px;
   stroke-width: 2.2;
@@ -1104,16 +1092,7 @@ section[id],
   vertical-align: middle;
 }
 
-.cv-download-btn.btn-sm {
-  min-height: 40px;
-  padding: 0.5rem 1.25rem;
-  font-size: var(--font-size-sm);
-}
-
-.cv-download-btn.btn-sm svg,
-.cv-download-btn.btn-sm i,
-.cv-download-btn.btn-sm [data-lucide],
-.cv-download-btn.btn-sm .lucide {
+:is(.cv-download-btn, .btn-secondary).btn-sm :is(svg, [data-lucide], .lucide, i) {
   width: 18px;
   height: 18px;
 }
@@ -1152,14 +1131,7 @@ section[id],
   box-shadow: 0 6px 18px rgba(179, 50, 0, 0.20);
 }
 
-.btn-secondary svg,
-.btn-secondary i,
-.btn-secondary [data-lucide],
-.btn-secondary .lucide,
-.cv-download-btn.secondary svg,
-.cv-download-btn.secondary i,
-.cv-download-btn.btn-secondary svg,
-.cv-download-btn.btn-secondary i {
+:is(.btn-secondary, .cv-download-btn.secondary, .cv-download-btn.btn-secondary) :is(svg, [data-lucide], .lucide, i) {
   color: var(--color-primary);
   stroke: currentColor;
   fill: none;
@@ -1473,55 +1445,10 @@ section[id],
     align-items: flex-start;
     gap: 0.5rem;
   }
-
-  /* Accessible Permanent Mobile Overlay for Project Cards */
-  .project-overlay {
-    opacity: 1;
-    visibility: visible;
-    background: linear-gradient(
-      to top,
-      rgba(30, 30, 30, 0.95) 0%,
-      rgba(30, 30, 30, 0.85) 18%,
-      rgba(30, 30, 30, 0.68) 35%,
-      rgba(30, 30, 30, 0.48) 50%,
-      rgba(30, 30, 30, 0.28) 64%,
-      rgba(30, 30, 30, 0.12) 78%,
-      rgba(30, 30, 30, 0.03) 89%,
-      rgba(30, 30, 30, 0) 100%
-    );
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: clamp(1.25rem, 4vw, 1.75rem);
-    text-align: left;
-  }
-
-  .project-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-  }
-
-  .project-title {
-    font-size: var(--font-size-lg);
-    color: var(--color-white);
-    margin-bottom: 0.25rem;
-    text-align: left;
-    width: 100%;
-  }
-
-  .project-area {
-    font-size: var(--font-size-xs);
-    color: var(--color-accent-yellow);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.08em;
-    text-align: left;
-    width: 100%;
-  }
 }
 
-@media (hover: none) {
+/* Accessible Permanent Overlay for Project Cards on Mobile & Touch Devices */
+@media (max-width: 768px), (hover: none) {
   .project-overlay {
     opacity: 1;
     visibility: visible;
@@ -2023,138 +1950,72 @@ body,
 
 /* 1. Footer Social Icons & Buttons in Dark Mode */
 /* GitHub and LinkedIn icons turn white in footer */
-[data-theme="dark"] .social-icon:not([src*="kaggle"]) {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .social-icon:not([src*="kaggle"]) {
   filter: brightness(0) invert(1);
 }
 
 /* Kaggle icon preserves its original brand color (#20beff) */
-[data-theme="dark"] .social-icon[src*="kaggle"] {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .social-icon[src*="kaggle"] {
   filter: none;
 }
 
-[data-theme="dark"] .social-btn {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .social-btn {
   background-color: var(--color-surface-tag);
   border-color: var(--color-card-border);
 }
 
-[data-theme="dark"] .social-btn:hover {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .social-btn:hover {
   background-color: var(--color-primary-muted);
   border-color: var(--color-primary);
   transform: translateY(-3px);
 }
 
-[data-theme="dark"] .social-btn:hover .social-icon {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .social-btn:hover .social-icon {
   transform: scale(1.18) rotate(-6deg);
 }
 
 /* 2. About Me Hero Social Pill Buttons in Dark Mode */
 /* Orange button with high-contrast dark text and dark icons */
-[data-theme="dark"] .about-social-btn {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .about-social-btn {
   background-color: var(--color-primary);
   color: var(--color-text-dark);
 }
 
-[data-theme="dark"] .about-social-btn:hover {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .about-social-btn:hover {
   background-color: var(--color-primary-hover);
   color: var(--color-text-dark);
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(255, 122, 69, 0.30);
 }
 
-[data-theme="dark"] .about-social-btn:hover .about-social-icon {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .about-social-btn:hover .about-social-icon {
   transform: scale(1.18) rotate(-6deg);
 }
 
 /* GitHub and LinkedIn icons inside About Me buttons turn black */
-[data-theme="dark"] .about-social-icon:not([src*="kaggle"]) {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .about-social-icon:not([src*="kaggle"]) {
   filter: brightness(0);
 }
 
-[data-theme="dark"] .about-social-icon[src*="kaggle"] {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .about-social-icon[src*="kaggle"] {
   filter: none;
 }
 
 /* 3. Secondary Buttons & Banner in Dark Mode */
-[data-theme="dark"] .btn-secondary:hover,
-[data-theme="dark"] .cv-download-btn.secondary:hover,
-[data-theme="dark"] .cv-download-btn.btn-secondary:hover {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .btn-secondary:hover,
+:is([data-theme="dark"], :root:not([data-theme="light"])) .cv-download-btn.secondary:hover,
+:is([data-theme="dark"], :root:not([data-theme="light"])) .cv-download-btn.btn-secondary:hover {
   background-color: var(--color-primary-muted);
   color: var(--color-primary);
 }
 
-[data-theme="dark"] .footer-bg-banner {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .footer-bg-banner {
   opacity: 0.15;
   filter: invert(1) hue-rotate(180deg) brightness(0.65);
 }
 
 /* 4. Project Area Label in Dark Mode (High Contrast on Card Overlay) */
-[data-theme="dark"] .project-area {
+:is([data-theme="dark"], :root:not([data-theme="light"])) .project-area {
   color: var(--color-primary-hover);
-}
-
-/* Media query fallbacks for users preferring dark mode when JS is not active */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .social-icon:not([src*="kaggle"]) {
-    filter: brightness(0) invert(1);
-  }
-
-  :root:not([data-theme="light"]) .social-icon[src*="kaggle"] {
-    filter: none;
-  }
-
-  :root:not([data-theme="light"]) .social-btn {
-    background-color: var(--color-surface-tag);
-    border-color: var(--color-card-border);
-  }
-
-  :root:not([data-theme="light"]) .social-btn:hover {
-    background-color: var(--color-primary-muted);
-    border-color: var(--color-primary);
-    transform: translateY(-3px);
-  }
-
-  :root:not([data-theme="light"]) .social-btn:hover .social-icon {
-    transform: scale(1.18) rotate(-6deg);
-  }
-
-  :root:not([data-theme="light"]) .about-social-btn {
-    background-color: var(--color-primary);
-    color: var(--color-text-dark);
-  }
-
-  :root:not([data-theme="light"]) .about-social-btn:hover {
-    background-color: var(--color-primary-hover);
-    color: var(--color-text-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(255, 122, 69, 0.30);
-  }
-
-  :root:not([data-theme="light"]) .about-social-btn:hover .about-social-icon {
-    transform: scale(1.18) rotate(-6deg);
-  }
-
-  :root:not([data-theme="light"]) .about-social-icon:not([src*="kaggle"]) {
-    filter: brightness(0);
-  }
-
-  :root:not([data-theme="light"]) .about-social-icon[src*="kaggle"] {
-    filter: none;
-  }
-
-  :root:not([data-theme="light"]) .btn-secondary:hover,
-  :root:not([data-theme="light"]) .cv-download-btn.secondary:hover,
-  :root:not([data-theme="light"]) .cv-download-btn.btn-secondary:hover {
-    background-color: var(--color-primary-muted);
-    color: var(--color-primary);
-  }
-
-  :root:not([data-theme="light"]) .footer-bg-banner {
-    opacity: 0.15;
-    filter: invert(1) hue-rotate(180deg) brightness(0.65);
-  }
-
-  :root:not([data-theme="light"]) .project-area {
-    color: var(--color-primary-hover);
-  }
 }
 

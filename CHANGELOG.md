@@ -6,7 +6,34 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Refinamiento de Accesibilidad y Semántica HTML (WCAG 2.1 AA/AAA)
+### 1. Refactorización (Fase 3): Robustez de JavaScript y Arquitectura Modular (`index.js`)
+- **Despachador Centralizado de Scroll con `requestAnimationFrame`**:
+  - Se unificaron los listeners de scroll (`initHeaderScroll` e `initScrollFade`) en un único controlador optimizado (`ScrollManager`) que previene el *layout thrashing* y sincroniza las transiciones visuales exactamente en el ciclo de repintado del navegador.
+- **Gestión de Foco Determinista y Accesible (Eliminación de `setTimeout`)**:
+  - Se reemplazó el temporizador arbitrario (`setTimeout(..., 150)`) por `window.requestAnimationFrame`, asegurando que el lector de pantalla reciba el foco inmediatamente después de que el navegador aplique los cambios de visibilidad en el DOM.
+- **Renderizado Acotado de Lucide Icons**:
+  - Se optimizó `IconManager` para recibir un elemento raíz opcional (`rootElement`), permitiendo que al alternar vistas únicamente se procesen los nodos de la vista recién activada, sin re-escanear todo el árbol del documento.
+- **Arquitectura de Módulos Cohesivos**:
+  - Reorganización total bajo el patrón de módulos (`IconManager`, `ThemeManager`, `NavigationManager`, `ScrollManager`), mejorando la mantenibilidad, legibilidad y aislamiento de responsabilidades.
+
+### 2. Refactorización (Fase 2): Consolidación y Desduplicación CSS (DRY & CSS Moderno)
+- **Consolidación de Sobrescrituras de Modo Oscuro con `:is()` ([`assets/css/styles.css`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/assets/css/styles.css))**:
+  - Se unificaron más de 70 líneas duplicadas de selectores Dark Mode (`.social-icon`, `.social-btn`, `.about-social-btn`, `.btn-secondary`, `.footer-bg-banner`, `.project-area`) mediante `:is([data-theme="dark"], :root:not([data-theme="light"]))`.
+  - Se consolidaron las reglas de visibilidad de logo (`.logo-img-light` y `.logo-img-dark`) en un único bloque unificado.
+- **Unificación de Media Queries Táctiles y Móviles**:
+  - Se eliminó el bloque completo redundante de `@media (hover: none)` agrupando el overlay permanente de tarjetas de proyectos bajo `@media (max-width: 768px), (hover: none)`, reduciendo 45 líneas repetidas.
+- **Estandarización de Selectores de Iconos en Botones**:
+  - Se simplificaron las cadenas repetitivas de iconos (`svg`, `[data-lucide]`, `.lucide`, `i`) en variantes `.cv-download-btn` y `.btn-secondary` usando pseudoclases `:is()`.
+
+### 2. Refactorización (Fase 1): Accesibilidad Semántica W3C en Vistas SPA y Normalización de Navegación
+- **Eliminación de Conflicto ARIA en View Switcher ([`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html))**:
+  - Se eliminaron los atributos `role="tabpanel"` y `aria-labelledby` de `<div id="view-work">` y `<div id="about">`, resolviendo la incompatibilidad con el patrón de navegación W3C (que utiliza enlaces `<a>` con `aria-current="page"` en vez de `role="tab"` dentro de `role="tablist"`).
+- **Normalización de Estado Activo en Casos de Estudio**:
+  - Se removió `class="active"` del enlace "Work" en [`muarh.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/muarh.html) y [`learncode.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), eliminando falsos positivos visuales y de accesibilidad al navegar dentro de proyectos específicos.
+- **Homologación de Retrato en Vista SPA**:
+  - En [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html), se configuró `alt="Portrait of Evelyn Pulido"` en el retrato de la sección "About Me", homologándolo con `about.html`.
+
+### 2. Refinamiento de Accesibilidad y Semántica HTML (WCAG 2.1 AA/AAA)
 - **Homologación de Atributos `alt` en Mockups**:
   - En [`learncode.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), se homologaron los mockups decorativos de cabecera (`learncode.webp`) y de tableta (`mockup-tablet-learncode.webp`) con `alt=""`, replicando el patrón de `muarh.html` y reservando descripciones semánticas detalladas exclusivamente para capturas de pantallas y flujos de interfaz funcionales.
 - **Jerarquía Única de Encabezados (`<h1>`)**:

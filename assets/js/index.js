@@ -1,43 +1,142 @@
 'use strict';
 
 /**
- * Inicialización de componentes e interactividad accesible del sitio (W3C Standard)
+ * ==============================================================================
+ * Evelyn Pulido Portfolio — Modular JavaScript Architecture (W3C Standards)
+ * ==============================================================================
+ * Módulos:
+ * 1. IconManager       - Renderizado y acotado de Lucide Icons
+ * 2. ThemeManager      - Modo oscuro accesible, persistencia y sincronización OS
+ * 3. NavigationManager - Controlador de Vistas SPA con gestión de foco accesible
+ * 4. ScrollManager     - Despachador de scroll centralizado mediante rAF
+ * ==============================================================================
  */
+
 document.addEventListener('DOMContentLoaded', () => {
-  initLucideIcons();
-  initThemeToggle();
-  initViewSwitcher();
-  initHeaderScroll();
-  initScrollFade();
-  initScrollClick();
+  IconManager.init();
+  ThemeManager.init();
+  NavigationManager.init();
+  ScrollManager.init();
 });
 
 /**
- * Renderizado de iconos Lucide
+ * ------------------------------------------------------------------------------
+ * 1. IconManager: Control y renderizado optimizado de iconos vectoriales
+ * ------------------------------------------------------------------------------
  */
-function initLucideIcons() {
-  if (typeof lucide !== 'undefined' && lucide.createIcons) {
-    lucide.createIcons();
+const IconManager = (() => {
+  function init(rootElement) {
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      if (rootElement) {
+        lucide.createIcons({ root: rootElement });
+      } else {
+        lucide.createIcons();
+      }
+    }
   }
-}
+
+  return { init };
+})();
 
 /**
- * Control accesible de Vistas SPA (W3C Gold Standard para Navegación Superior)
- * Utiliza enlaces semánticos <a> con aria-current="page" para máxima compatibilidad con Narrador
+ * ------------------------------------------------------------------------------
+ * 2. ThemeManager: Modo Oscuro con Switch Accesible (W3C APG) y Cero Desincronización
+ * ------------------------------------------------------------------------------
  */
-function initViewSwitcher() {
+const ThemeManager = (() => {
+  const switchInput = document.getElementById('theme-toggle-checkbox') || document.getElementById('theme-toggle');
+
+  function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+
+  function syncSwitchState(theme) {
+    if (!switchInput) return;
+    const isDark = theme === 'dark';
+
+    if (switchInput.type === 'checkbox') {
+      switchInput.checked = isDark;
+      switchInput.setAttribute('aria-checked', isDark ? 'true' : 'false');
+    }
+
+    const labelTitle = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+    switchInput.setAttribute('aria-label', 'Dark mode');
+
+    const parentLabel = switchInput.closest('.theme-switch');
+    if (parentLabel) {
+      parentLabel.setAttribute('title', labelTitle);
+    }
+  }
+
+  function applyTheme(theme, save = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (save) {
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {
+        // Almacenamiento local restringido (modo incógnito o políticas de privacidad)
+      }
+    }
+    syncSwitchState(theme);
+  }
+
+  function init() {
+    if (!switchInput) return;
+
+    // Sincronizar estado inicial con el tema activo determinado en <head>
+    syncSwitchState(getCurrentTheme());
+
+    // Manejar evento de alternancia
+    const eventName = switchInput.type === 'checkbox' ? 'change' : 'click';
+    switchInput.addEventListener(eventName, () => {
+      let nextTheme;
+      if (switchInput.type === 'checkbox') {
+        nextTheme = switchInput.checked ? 'dark' : 'light';
+      } else {
+        nextTheme = getCurrentTheme() === 'dark' ? 'light' : 'dark';
+      }
+      applyTheme(nextTheme, true);
+    });
+
+    // Escuchar cambios reactivos en la preferencia del sistema operativo cuando no hay preferencia guardada
+    try {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      mediaQuery.addEventListener('change', (e) => {
+        try {
+          if (!localStorage.getItem('theme')) {
+            const systemTheme = e.matches ? 'dark' : 'light';
+            applyTheme(systemTheme, false);
+          }
+        } catch (err) {}
+      });
+    } catch (err) {}
+  }
+
+  return { init, getCurrentTheme };
+})();
+
+/**
+ * ------------------------------------------------------------------------------
+ * 3. NavigationManager: Controlador SPA con Vistas Semánticas y Foco Determinista
+ * ------------------------------------------------------------------------------
+ */
+const NavigationManager = (() => {
   const navWork = document.getElementById('nav-work');
   const navAbout = document.getElementById('nav-about');
   const viewWork = document.getElementById('view-work');
   const viewAbout = document.getElementById('about') || document.getElementById('view-about');
   const logoLink = document.getElementById('logo-link');
 
-  if (!navWork || !navAbout || !viewWork || !viewAbout) return;
+  function isAvailable() {
+    return Boolean(navWork && navAbout && viewWork && viewAbout);
+  }
 
   function activateView(target, options = { updateHash: true, focusHeading: true }) {
+    if (!isAvailable()) return;
     const isAbout = target === 'about';
 
-    // Actualizar estados visuales y de accesibilidad en los enlaces
+    // 1. Actualizar estados visuales y semánticos en enlaces de navegación
     if (isAbout) {
       navWork.classList.remove('active');
       navWork.removeAttribute('aria-current');
@@ -52,7 +151,7 @@ function initViewSwitcher() {
       navWork.setAttribute('aria-current', 'page');
     }
 
-    // Ocultar / Mostrar los paneles de vista
+    // 2. Gestionar visibilidad de paneles con el atributo estándar nativo hidden
     if (isAbout) {
       viewWork.setAttribute('hidden', '');
       viewWork.classList.remove('active');
@@ -67,7 +166,7 @@ function initViewSwitcher() {
       viewWork.classList.add('active');
     }
 
-    // Actualizar hash en la URL
+    // 3. Sincronizar hash en la URL sin recargar
     if (options.updateHash) {
       const newHash = isAbout ? '#about' : '#work';
       if (window.location.hash !== newHash) {
@@ -75,12 +174,12 @@ function initViewSwitcher() {
       }
     }
 
-    // Desplazar al inicio suavemente
+    // 4. Desplazar al inicio suavemente
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Transferencia accesible de foco para lectores de pantalla
+    // 5. Transferencia accesible de foco sin retrasos arbitrarios mediante requestAnimationFrame
     if (options.focusHeading) {
-      setTimeout(() => {
+      window.requestAnimationFrame(() => {
         const headingToFocus = isAbout
           ? document.getElementById('about-heading')
           : document.getElementById('work-hero-heading');
@@ -88,32 +187,13 @@ function initViewSwitcher() {
         if (headingToFocus) {
           headingToFocus.focus();
         }
-      }, 150);
+      });
     }
 
-    // Re-inicializar iconos Lucide si es necesario
-    initLucideIcons();
+    // 6. Actualizar iconos en el panel recién expuesto
+    IconManager.init(isAbout ? viewAbout : viewWork);
   }
 
-  // Event Listeners para clics en la navegación
-  navWork.addEventListener('click', (e) => {
-    e.preventDefault();
-    activateView('work');
-  });
-
-  navAbout.addEventListener('click', (e) => {
-    e.preventDefault();
-    activateView('about');
-  });
-
-  if (logoLink) {
-    logoLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      activateView('work');
-    });
-  }
-
-  // Sincronización con botones del navegador (Atrás / Adelante) y Hash inicial
   function syncFromHash() {
     const hash = window.location.hash.toLowerCase();
     if (hash === '#about') {
@@ -123,121 +203,99 @@ function initViewSwitcher() {
     }
   }
 
-  window.addEventListener('popstate', syncFromHash);
-  syncFromHash();
-}
+  function init() {
+    if (!isAvailable()) return;
 
-/**
- * Desvanecimiento del indicador de scroll al desplazarse hacia abajo
- */
-function initScrollFade() {
-  const scrollIndicator = document.getElementById('scroll-indicator');
-  if (!scrollIndicator) return;
+    navWork.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateView('work');
+    });
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      scrollIndicator.classList.add('faded');
-    } else {
-      scrollIndicator.classList.remove('faded');
+    navAbout.addEventListener('click', (e) => {
+      e.preventDefault();
+      activateView('about');
+    });
+
+    if (logoLink) {
+      logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        activateView('work');
+      });
     }
-  }, { passive: true });
-}
+
+    window.addEventListener('popstate', syncFromHash);
+    syncFromHash();
+  }
+
+  return { init, activateView };
+})();
 
 /**
- * Desplazamiento suave al hacer clic en el indicador de scroll
+ * ------------------------------------------------------------------------------
+ * 4. ScrollManager: Despachador de Scroll Centralizado con requestAnimationFrame
+ * ------------------------------------------------------------------------------
  */
-function initScrollClick() {
+const ScrollManager = (() => {
+  const header = document.getElementById('header');
+  const scrollIndicator = document.getElementById('scroll-indicator');
   const scrollLink = document.querySelector('.scroll-link');
   const targetSection = document.getElementById('work');
 
-  if (!scrollLink || !targetSection) return;
+  function initScrollDispatcher() {
+    if (!header && !scrollIndicator) return;
 
-  scrollLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    targetSection.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-}
+    let ticking = false;
 
-/**
- * Control de scroll y reducción accesible de la barra de navegación
- */
-function initHeaderScroll() {
-  const header = document.getElementById('header');
-  if (!header) return;
+    function updateOnScroll() {
+      const y = window.scrollY;
 
-  const handleScroll = () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-}
-
-/**
- * Controlador accesible de Modo Oscuro con soporte para switch deslizable y persistencia
- */
-function initThemeToggle() {
-  const switchInput = document.getElementById('theme-toggle-checkbox') || document.getElementById('theme-toggle');
-  if (!switchInput) return;
-
-  function getCurrentTheme() {
-    return document.documentElement.getAttribute('data-theme') || 
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
-
-  function syncSwitchState(theme) {
-    const isDark = theme === 'dark';
-    if (switchInput.type === 'checkbox') {
-      switchInput.checked = isDark;
-      switchInput.setAttribute('aria-checked', isDark ? 'true' : 'false');
-    }
-    const labelTitle = isDark ? 'Switch to light theme' : 'Switch to dark theme';
-    switchInput.setAttribute('aria-label', 'Dark mode');
-    const parentLabel = switchInput.closest('.theme-switch');
-    if (parentLabel) {
-      parentLabel.setAttribute('title', labelTitle);
-    }
-  }
-
-  // Sincronizar estado inicial
-  syncSwitchState(getCurrentTheme());
-
-  const eventName = switchInput.type === 'checkbox' ? 'change' : 'click';
-  switchInput.addEventListener(eventName, () => {
-    let next;
-    if (switchInput.type === 'checkbox') {
-      next = switchInput.checked ? 'dark' : 'light';
-    } else {
-      next = getCurrentTheme() === 'dark' ? 'light' : 'dark';
-    }
-
-    document.documentElement.setAttribute('data-theme', next);
-    try {
-      localStorage.setItem('theme', next);
-    } catch (e) {
-      // Ignorar si el almacenamiento local está restringido
-    }
-
-    syncSwitchState(next);
-  });
-
-  // Escuchar cambios en la preferencia del sistema operativo si no hay elección manual guardada
-  try {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', (e) => {
-      try {
-        if (!localStorage.getItem('theme')) {
-          const systemTheme = e.matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', systemTheme);
-          syncSwitchState(systemTheme);
+      // Header translucent transition
+      if (header) {
+        if (y > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
         }
-      } catch (err) {}
+      }
+
+      // Scroll down indicator fade out
+      if (scrollIndicator) {
+        if (y > 40) {
+          scrollIndicator.classList.add('faded');
+        } else {
+          scrollIndicator.classList.remove('faded');
+        }
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateOnScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Estado inicial al cargar
+    updateOnScroll();
+  }
+
+  function initScrollToWork() {
+    if (!scrollLink || !targetSection) return;
+
+    scrollLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      targetSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-  } catch (err) {}
-}
+  }
+
+  function init() {
+    initScrollDispatcher();
+    initScrollToWork();
+  }
+
+  return { init };
+})();
