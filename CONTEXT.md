@@ -35,6 +35,7 @@ portafolio2/
 │   │   ├── logo.ico                 # Favicon tradicional
 │   │   ├── og-cover.svg             # Portada social Open Graph
 │   │   ├── footer.svg               # Banner de fondo decorativo del footer
+│   │   ├── image.webp               # Retrato optimizado de perfil para sección About Me
 │   │   ├── icons/                   # Iconos vectoriales (github, linkedin, kaggle)
 │   │   ├── muarh/                   # Recursos del caso de estudio MUARH
 │   │   │   ├── admision.webp

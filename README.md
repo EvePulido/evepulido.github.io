@@ -48,11 +48,11 @@ portafolio2/
 │   ├── css/styles.css           # Global fluid design tokens & layout
 │   ├── js/index.js              # Accessible DOM & view-switching logic
 │   ├── docs/CV_Evelyn_Pulido.pdf# Downloadable resume
-│   ├── images/
-│   │   ├── icons/               # Vector social icons
-│   │   ├── muarh/               # Optimized WebP assets for MUARH case study
-│   │   └── learncode/           # Optimized WebP assets for LearnCode case study
-│   ├── Logo.svg, logo-simple.svg, footer.svg
+│   └── images/
+│       ├── Logo.svg, Logo-dark.svg, logo-simple.svg, logo.ico, og-cover.svg, footer.svg
+│       ├── icons/               # Vector social icons
+│       ├── muarh/               # Optimized WebP assets for MUARH case study
+│       └── learncode/           # Optimized WebP assets for LearnCode case study
 ├── index.html                   # Homepage (Hero, Featured Work, Tools, Contact)
 ├── about.html                   # About Me (Bio, UX Skills, Education)
 ├── muarh.html                   # Case Study: MUARH (Web Accessibility)
@@ -95,9 +95,9 @@ Then open `http://localhost:8000` in your web browser.
 
 * **Author**: Evelyn Pulido
 * **Education**: Software Engineering — Facultad de Telemática, Universidad de Colima (2023–2027)
-* **LinkedIn**: [linkedin.com/in/evelyn-pulido-mendez](https://www.linkedin.com/in/evelyn-pulido-mendez)
+* **LinkedIn**: [linkedin.com/in/evepulido](https://www.linkedin.com/in/evepulido)
 * **GitHub**: [github.com/EvePulido](https://github.com/EvePulido)
-* **Kaggle**: [kaggle.com/evelynpulido](https://www.kaggle.com/evelynpulido)
+* **Kaggle**: [kaggle.com/evepulido](https://www.kaggle.com/evepulido)
 
 ---
 

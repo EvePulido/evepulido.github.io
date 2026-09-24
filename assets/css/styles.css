@@ -243,6 +243,10 @@ main {
   margin-top: clamp(110px, 12vw, 170px);
 }
 
+main:focus {
+  outline: none;
+}
+
 /* ==========================================================================
    Header & Navigation Component
    ========================================================================== */
@@ -2083,6 +2087,11 @@ body,
   filter: invert(1) hue-rotate(180deg) brightness(0.65);
 }
 
+/* 4. Project Area Label in Dark Mode (High Contrast on Card Overlay) */
+[data-theme="dark"] .project-area {
+  color: var(--color-primary-hover);
+}
+
 /* Media query fallbacks for users preferring dark mode when JS is not active */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .social-icon:not([src*="kaggle"]) {
@@ -2142,6 +2151,10 @@ body,
   :root:not([data-theme="light"]) .footer-bg-banner {
     opacity: 0.15;
     filter: invert(1) hue-rotate(180deg) brightness(0.65);
+  }
+
+  :root:not([data-theme="light"]) .project-area {
+    color: var(--color-primary-hover);
   }
 }
 

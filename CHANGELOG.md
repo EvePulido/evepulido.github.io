@@ -6,7 +6,34 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
-### 1. Reorganización y Centralización de Recursos Gráficos en `assets/images/`
+### 1. Refinamiento de Accesibilidad y Semántica HTML (WCAG 2.1 AA/AAA)
+- **Homologación de Atributos `alt` en Mockups**:
+  - En [`learncode.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/learncode.html), se homologaron los mockups decorativos de cabecera (`learncode.webp`) y de tableta (`mockup-tablet-learncode.webp`) con `alt=""`, replicando el patrón de `muarh.html` y reservando descripciones semánticas detalladas exclusivamente para capturas de pantallas y flujos de interfaz funcionales.
+- **Jerarquía Única de Encabezados (`<h1>`)**:
+  - En [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html) y [`coming-soon.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html), se sustituyó el elemento `<h1 class="logo-heading">` por `<p class="logo-heading">`, garantizando la existencia de un único encabezado principal `<h1>` por página (el título temático de cada vista).
+- **Transferencia Confiable de Foco en Skip Links**:
+  - Se añadió `tabindex="-1"` al contenedor `<main id="main-content">` en [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html), [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html) y [`coming-soon.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html).
+  - En [`assets/css/styles.css`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/assets/css/styles.css), se incorporó la regla `main:focus { outline: none; }` para asegurar que el salto del skip link transfiera el foco al flujo principal sin recuadros visuales sobre el contenedor padre, manteniendo `:focus-visible` intacto para todos los controles interactivos.
+
+### 2. Optimización de Contraste en Modo Oscuro para `.project-area` (WCAG AAA)
+- **Legibilidad Móvil y Táctil (`assets/css/styles.css`)**:
+  - Se identificó que en pantallas táctiles y dispositivos móviles (`@media (hover: none)` y `<=768px`), el selector `.project-area` utilizaba `var(--color-accent-yellow)`. Dado que en modo oscuro este token posee baja opacidad (`rgba(255, 122, 69, 0.22)`), reducía drásticamente la legibilidad del texto sobre el fondo degradado oscuro de las tarjetas de proyectos.
+  - Se definieron reglas explícitas bajo `[data-theme="dark"] .project-area` y `@media (prefers-color-scheme: dark)` asignando `color: var(--color-primary-hover);` (`#FFA07A`).
+  - Esto proporciona un contraste de **8.22:1** sobre el fondo de las tarjetas, superando el requisito de 7:1 para WCAG 2.1 Nivel AAA.
+
+### 3. Integración de Twitter Cards & Metadatos Sociales en `coming-soon.html`
+- **Estandarización SEO y Open Graph**:
+  - Incorporadas las etiquetas `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image` y `twitter:image:alt` en [`coming-soon.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/coming-soon.html).
+  - Homologadas las dimensiones Open Graph (`og:image:width: 1200`, `og:image:height: 630` y `og:image:alt`) sincronizadas con la URL canónica `https://evepulido.com/assets/images/og-cover.svg`.
+
+### 4. Coherencia de Enlaces Sociales & Recurso de Retrato en "About Me"
+- **Homologación de URLs Sociales en `README.md`**:
+  - Se actualizaron los perfiles de LinkedIn (`https://www.linkedin.com/in/evepulido`) y Kaggle (`https://www.kaggle.com/evepulido`) para sincronizarlos con los utilizados en las interfaces HTML.
+  - Sincronizado el árbol de directorios de `README.md` para reflejar con precisión los recursos dentro de `assets/images/`.
+- **Integración de Recurso WebP para Retrato**:
+  - Incorporado el archivo optimizado [`assets/images/image.webp`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/assets/images/image.webp) (WebP a calidad 85, ratio 3.5:4), eliminando el error 404 en [`about.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/about.html) y añadiendo el atributo semántico `alt="Portrait of Evelyn Pulido"`.
+
+### 5. Reorganización y Centralización de Recursos Gráficos en `assets/images/`
 - **Limpieza de la Raíz de `assets/`**:
   - Movidos los 6 recursos de identidad de marca (`Logo.svg`, `Logo-dark.svg`, `logo-simple.svg`, `logo.ico`, `og-cover.svg` y `footer.svg`) desde la raíz de `assets/` hacia su ubicación canónica en `assets/images/`.
   - La raíz de `assets/` queda 100% modular y limpia conteniendo únicamente subdirectorios (`css/`, `js/`, `docs/`, `images/`).
