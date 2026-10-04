@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Lumi UX Case Study — Parental Control App Prototype &amp; Usability Evaluation by Evelyn Pulido.">
+    <title>Lumi | Evelyn Pulido</title>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Evelyn Pulido Portfolio">
+    <meta property="og:title" content="Lumi UX Case Study | Evelyn Pulido">
+    <meta property="og:description"
+        content="Parental control app prototype designed to help parents review screen time, set daily app limits, and plan device-free hours.">
+    <meta property="og:image" content="https://evepulido.com/assets/images/og-cover.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lumi UX Case Study — Evelyn Pulido">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lumi UX Case Study | Evelyn Pulido">
+    <meta name="twitter:description"
+        content="Parental control app prototype designed to help parents review screen time, set daily app limits, and plan device-free hours.">
+    <meta name="twitter:image" content="https://evepulido.com/assets/images/og-cover.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-simple.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/images/logo.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Theme Initialization (Zero FOUC) -->
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body class="lumi-page">
+    <!-- Accessibility: Direct skip link for keyboard & screen reader navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Primary navigation header -->
+    <header class="site-header" id="header">
+        <div class="header-container container">
+            <p class="logo-heading">
+                <a href="index.html" aria-label="Evelyn Pulido — Return to home" class="logo-link">
+                    <img src="assets/images/Logo.svg" alt="" width="169" height="133" class="logo-img logo-img-light">
+                    <img src="assets/images/Logo-dark.svg" alt="" width="169" height="133" class="logo-img logo-img-dark">
+                </a>
+            </p>
+
+            <nav class="navbar" aria-label="Main navigation">
+                <ul class="nav-list" role="list">
+                    <li class="nav-item">
+                        <a href="index.html#work" class="nav-link">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About me</a>
+                    </li>
+                </ul>
+
+                <label class="theme-switch" for="theme-toggle-checkbox">
+                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-checked="false" aria-label="Dark mode">
+                    <span class="theme-switch-slider">
+                        <span class="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">
+                            <i data-lucide="sun"></i>
+                        </span>
+                        <span class="theme-switch-icon theme-switch-icon-moon" aria-hidden="true">
+                            <i data-lucide="moon"></i>
+                        </span>
+                        <span class="theme-switch-thumb" aria-hidden="true"></span>
+                    </span>
+                </label>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Strict 14-Section Narrative Flow -->
+    <main id="main-content" tabindex="-1">
+
+        <!-- 01. Project Hero -->
+        <section class="hero-section container" id="case-hero" aria-labelledby="case-heading">
+            <div class="grid-12">
+                <div class="col-12">
+                    <a href="index.html#work" class="hero-subtitle hero-breadcrumb" aria-label="Back to Case Studies on home page">
+                        <i data-lucide="chevron-left" aria-hidden="true"></i>
+                        <span>Case Studies</span>
+                    </a>
+                    <h1 class="hero-title" id="case-heading">Lumi</h1>
+                    <p class="about-lead-desc">
+                        A parental control app prototype designed to help parents review screen time, set daily app limits, and plan device-free hours. Lumi’s high-fidelity design brings screen-time information, app limits, and schedules into a shared family experience.
+                    </p>
+                    <div class="hero-actions-row">
+                        <a href="https://www.figma.com/design/YM5oMXKe3qaXcolEsZUu6w/Activity-11.-Low-fidelity-prototype--Copy-?node-id=4004-393" target="_blank" rel="noopener noreferrer"
+                            class="cv-download-btn btn-secondary btn-sm"
+                            aria-label="View the Lumi Figma Design (opens in a new tab)">
+                            <span>View Figma Design</span>
+                            <i data-lucide="external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <!-- Image 1: Main Showcase / Cover Mockup -->
+                    <div class="project-img-wrapper">
+                        <!-- Image 1: Hero Showcase Mockup -->
+                        <img src="assets/images/lumi/lumi.webp" alt="Lumi high-fidelity mobile prototype composition showing screen time summary, daily TikTok limit, and schedule settings" class="project-img" width="1200" height="675">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. Project Overview Card -->
+        <section class="container" id="overview" aria-label="Project Overview">
+            <div class="overview-card">
+                <div class="overview-grid">
+                    <!-- 1. Role -->
+                    <div>
+                        <h2 class="overview-item-title">Role</h2>
+                        <p class="overview-item-desc">
+                            UX Researcher &amp; UI Designer
+                        </p>
+                    </div>
+
+                    <!-- 2. Project Goal -->
+                    <div>
+                        <h2 class="overview-item-title">Project Goal</h2>
+                        <p class="overview-item-desc">
+                            Design and evaluate a prototype that helps parents understand their children’s app usage and configure limits and schedules with clear feedback.
+                        </p>
+                    </div>
+
+                    <!-- 3. Target Audience -->
+                    <div>
+                        <h2 class="overview-item-title">Target Audience</h2>
+                        <p class="overview-item-desc">
+                            Parents with young children who want to manage screen use, including those with little or no experience using parental control apps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-12 case-study-tags-margin">
+                <div class="col-12">
+                    <p class="about-lead-desc">
+                        The project began with a hypothetical persona, Laura Martínez: a busy parent seeking a simpler way to manage her children’s digital habits. This persona helped frame initial task scenarios and user stories, which were subsequently refined through usability testing with three parents. Laura Martínez is a hypothetical persona used to frame the initial needs and task scenarios.
+                    </p>
+                    <!-- Image 2: Laura Martínez Persona Card -->
+                    <div class="project-img-wrapper project-img-wrapper--full case-study-tags-margin">
+                        <img src="assets/images/lumi/persona.webp" alt="Persona card for Laura Martínez, 38, a married teacher with two children aged 8 and 14. Her goals include reducing screen time and monitoring app usage; her frustrations include overly complex parental control apps." class="project-img project-img--full" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. Key Challenges and Constraints -->
+        <section class="tools-section container" id="challenges">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Key Challenges &amp; Constraints</h2>
+                    <p class="about-lead-desc">
+                        The main challenge was making different types of restrictions understandable: distinguishing a daily limit (time duration) from a complete block (access prevention), and guiding schedule setup (start time, end time, and active days).
+                    </p>
+
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <strong>Evaluation Constraints:</strong> Usability evaluation focused on three core tasks evaluated in the low-fidelity prototype with three parents. The high-fidelity design was informed by those findings and reviewed for color contrast, button sizing, and heuristic usability principles. A follow-up user test on the high-fidelity prototype remains pending.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. Design Decisions -->
+        <section class="tools-section container" id="strategy">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Design Strategy</h2>
+                </div>
+            </div>
+
+            <div class="grid-12">
+                <!-- Decision 1 -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="eye" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Make screen time easier to find</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            Brought the daily screen-time summary into Home and provided a detailed usage view organized by app and category, clearly distinguishing profiles with usage data from unlinked devices.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decision 2 -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="shield-alert" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Separate limits from blocking</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            Presented "Límite diario" and "Bloquear por completo" as separate choices with explicit short explanations and warning dialogs to direct parents to daily limits if they only want duration controls.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decision 3 -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="clock" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Explain schedules step by step</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            Divided rest schedule setup into two clear steps (selecting start time and selecting end time), explicitly stating when rest periods end the following morning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decision 4 -->
+                <div class="col-6">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="check-circle" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Provide feedback after changes</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            Integrated confirmation states for saved limits, blocked apps, and saved schedules, offering an "Undo" option so parents can reverse intended changes easily.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. Research & Evaluation -->
+        <section class="tools-section container" id="research">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Evaluation Conducted</h2>
+                    <p class="about-lead-desc">
+                        We conducted moderated, in-person usability testing sessions with three parents using the low-fidelity prototype on a mobile device while thinking aloud to observe actions, questions, and difficulties.
+                    </p>
+
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <strong>Research Question:</strong> <em>"How easy is it for parents to configure and monitor their children’s app usage?"</em>
+                        </p>
+                    </div>
+
+                    <!-- Image 3: Tested Wireframes Placeholder -->
+                    <div class="project-img-wrapper case-study-tags-margin">
+                        <!-- Placeholder for Image 3: Evaluated Low-fidelity Wireframes -->
+                        <img src="assets/images/og-cover.svg" alt="Low-fidelity wireframe screens evaluated during usability testing covering screen-time review, restrictions, and schedule setup" class="project-img" loading="lazy">
+                    </div>
+                    <p class="text-subtle case-study-caption">The low-fidelity prototype used in testing covered screen-time review, app restrictions, and schedule configuration.</p>
+
+                    <h3 class="case-study-subtitle">Task Scenario</h3>
+                    <p class="about-lead-desc">
+                        Participants were asked to imagine that their child was spending too much time on TikTok and complete three goals:
+                    </p>
+                    <ol class="strategy-list" aria-label="Evaluated Tasks">
+                        <li>Find how much time the child had spent on TikTok that day.</li>
+                        <li>Set a daily limit of one hour for TikTok.</li>
+                        <li>Configure a general schedule that prevented phone use after 7 p.m.</li>
+                    </ol>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. Test Results and User Feedback (Findings) -->
+        <section class="tools-section container" id="test-results">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Test Results &amp; User Feedback</h2>
+                    <p class="about-lead-desc">
+                        Quantitative results from the low-fidelity usability testing sessions with three parents:
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-12 case-study-tags-margin">
+                <div class="col-4">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="check-circle-2" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Completed Tasks</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            <span class="strategy-label">8 of 9 tasks (88.9%)</span> completed across participants.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="help-circle" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Requests for Help</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            <span class="strategy-label">12 total requests</span> recorded across participants.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="tool-card">
+                        <div class="tool-card-header">
+                            <i data-lucide="alert-triangle" class="tool-icon" aria-hidden="true"></i>
+                            <h3 class="tool-card-title">Recorded Errors</h3>
+                        </div>
+                        <p class="ux-skill-desc">
+                            <span class="strategy-label">19 total errors</span> (unnecessary clicks or wrong routes).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-12">
+                <div class="col-12">
+                    <p class="about-lead-desc">
+                        Two participants completed all three tasks. The remaining participant blocked TikTok entirely instead of setting a one-hour daily limit. While task completion showed goals could be reached, help requests and errors highlighted critical friction points:
+                    </p>
+                    <ul class="strategy-list">
+                        <li><strong>Finding Screen-Time Information:</strong> Participants requested help locating the Screen Time section, prioritizing usage visibility on Home.</li>
+                        <li><strong>Understanding Schedules:</strong> Participants confused start vs. end times and daily vs. weekly settings, generating wrong schedules.</li>
+                        <li><strong>Distinguishing Limit vs. Block:</strong> One participant blocked TikTok entirely instead of applying a duration limit, proving the need for explicit choice explanations.</li>
+                        <li><strong>Moving Between Screens:</strong> Difficulties returning to previous screens guided the implementation of consistent global navigation.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. Design Changes (High-Fidelity Improvements) -->
+        <section class="tools-section container" id="final-design">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Final Design &amp; Improvements</h2>
+                    <p class="about-lead-desc">
+                        Guided by the low-fidelity study observations, I created the high-fidelity design in Figma to address each identified friction point:
+                    </p>
+
+                    <div class="hero-actions-row">
+                        <a href="https://www.figma.com/design/YM5oMXKe3qaXcolEsZUu6w/Activity-11.-Low-fidelity-prototype--Copy-?node-id=4004-393" target="_blank" rel="noopener noreferrer"
+                            class="cv-download-btn btn-secondary btn-sm"
+                            aria-label="Explore the Lumi Figma High-Fidelity Prototype (opens in a new tab)">
+                            <span>Explore Figma Design</span>
+                            <i data-lucide="external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 1: Screen-time visibility and navigation -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">1. Screen-time visibility and navigation</h3>
+                    <p class="about-lead-desc">Home now includes a daily screen-time summary and access to a detailed usage view. The high-fidelity design uses shared navigation components to provide consistent routes.</p>
+                    <ul class="strategy-list">
+                        <li><strong>Related finding:</strong> Participants needed help locating screen-time information and moving between screens.</li>
+                        <li><strong>Design intent:</strong> Make usage information easier to identify and reduce reliance on backtracking.</li>
+                    </ul>
+                    <p class="text-subtle case-study-caption">The revised design brings daily screen time into Home and provides access to usage details.</p>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-wrapper">
+                        <!-- Placeholder for Image 5: Screen-time visibility comparison -->
+                        <img src="assets/images/og-cover.svg" alt="Lumi revised high-fidelity Home screen showing daily screen time summary and usage details button" class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Clear app restriction choices -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">2. Clear app restriction choices</h3>
+                    <p class="about-lead-desc">The restriction sheet separates a daily limit from a complete block. Action labels distinguish "Guardar límite" from "Bloquear TikTok" with undo feedback.</p>
+                    <ul class="strategy-list">
+                        <li><strong>Related finding:</strong> One participant blocked TikTok instead of applying a one-hour limit.</li>
+                        <li><strong>Design intent:</strong> Help parents understand and confirm the restriction they are choosing before committing.</li>
+                    </ul>
+                    <p class="text-subtle case-study-caption">The revised restriction flow separates a daily limit from a complete block and explains each option before confirmation.</p>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-wrapper">
+                        <!-- Placeholder for Image 6: Restriction sheet comparison -->
+                        <img src="assets/images/og-cover.svg" alt="Lumi high-fidelity app restriction sheet separating daily limit from complete block with explicit warning labels" class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Guided schedule configuration -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">3. Guided schedule configuration</h3>
+                    <p class="about-lead-desc">The schedule flow separates start and end times into two steps ("Step 1 of 2", "Step 2 of 2"), explicitly signaling next-day morning endings.</p>
+                    <ul class="strategy-list">
+                        <li><strong>Related finding:</strong> Participants confused schedule times and daily or weekly settings.</li>
+                        <li><strong>Design intent:</strong> Make the meaning of each time selection explicit.</li>
+                    </ul>
+                    <p class="text-subtle case-study-caption">Schedule configuration is divided into start and end steps, with an explicit indication when the rest period ends the following day.</p>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-wrapper">
+                        <!-- Placeholder for Image 7: Guided schedule flow comparison -->
+                        <img src="assets/images/og-cover.svg" alt="Lumi guided schedule configuration screens showing Step 1 start time and Step 2 end time with next-day indicator" class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Additional states and family flows -->
+            <div class="grid-12 improvement-row">
+                <div class="col-7">
+                    <h3 class="case-study-subtitle">4. Additional states and family flows</h3>
+                    <p class="about-lead-desc">Included device linking error states, unlinked empty states, and child-facing screens that explain when app time runs out and offer an extra time request flow.</p>
+                    <ul class="strategy-list">
+                        <li><strong>Design scope note:</strong> These additions extend the high-fidelity design beyond the three tested tasks.</li>
+                    </ul>
+                    <p class="text-subtle case-study-caption">Additional high-fidelity states explain linking errors and allow children to request extra app time. These flows were not part of the initial usability test.</p>
+                </div>
+                <div class="col-5">
+                    <div class="project-img-wrapper">
+                        <!-- Placeholder for Image 8: Additional states composition -->
+                        <img src="assets/images/og-cover.svg" alt="Lumi additional high-fidelity screens showing device linking error modal and child-facing extra time request screen" class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Review Insight Card -->
+            <div class="grid-12 case-study-tags-margin">
+                <div class="col-12">
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <strong>Design Review Note:</strong> During high-fidelity refinement, I reviewed color contrast, button sizing, and applied Nielsen’s usability heuristics to guide feedback and error prevention. The Figma file represents interface states and intended interactions; follow-up user testing is required to assess its quantitative impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. Key Learnings -->
+        <section class="tools-section container" id="conclusion">
+            <div class="grid-12">
+                <div class="col-12">
+                    <h2 class="section-title">Key Learnings</h2>
+                    <p class="about-lead-desc">
+                        The low-fidelity study showed that task completion alone did not explain the user experience. Most tasks were completed, but requests for help and unnecessary navigation steps revealed difficulties with restrictions and schedule configuration.
+                    </p>
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <span class="strategy-label">Core Learning:</span> Those empirical observations directly guided the high-fidelity design: bringing screen time into Home, separating daily limits from complete blocking, and explaining schedules step by step. A follow-up study with users is needed to assess whether the revised flows help parents complete the same tasks with less assistance and fewer errors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Navigation -->
+        <section class="container" aria-label="Case Studies Navigation Landmarks">
+            <div class="grid-12">
+                <div class="col-12">
+                    <nav class="case-study-nav" aria-label="Case Studies Page Navigation">
+                        <a href="learncode.html" class="cv-download-btn btn-secondary"
+                            aria-label="View previous project: LearnCode">
+                            <i data-lucide="arrow-left" aria-hidden="true"></i>
+                            <span>Previous Project: LearnCode</span>
+                        </a>
+                        <a href="about.html" class="cv-download-btn"
+                            aria-label="Learn more about Evelyn Pulido on About me page">
+                            <span>About me</span>
+                            <i data-lucide="arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Standardized Accessible Footer -->
+    <footer class="site-footer container">
+        <div class="contact-card-bottom">
+            <p class="copyright-text">&copy; Evelyn Pulido. All rights reserved.</p>
+            <ul class="social-links" role="list" aria-label="Social Profiles">
+                <li>
+                    <a href="https://github.com/EvePulido" target="_blank" rel="noopener noreferrer" class="social-btn"
+                        aria-label="GitHub profile">
+                        <img src="assets/images/icons/github.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="LinkedIn profile">
+                        <img src="assets/images/icons/linkedin.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/evepulido" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="Kaggle profile">
+                        <img src="assets/images/icons/kaggle.svg" alt="" class="social-icon" width="20" height="20">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="assets/js/index.js" defer></script>
+</body>
+
+</html>

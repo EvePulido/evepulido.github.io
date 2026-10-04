@@ -94,9 +94,9 @@
         <section class="hero-section container" id="case-hero" aria-labelledby="case-heading">
             <div class="grid-12">
                 <div class="col-12">
-                    <a href="index.html#work" class="hero-subtitle hero-breadcrumb" aria-label="Back to Featured Work on home page">
+                    <a href="index.html#work" class="hero-subtitle hero-breadcrumb" aria-label="Back to Case Studies on home page">
                         <i data-lucide="chevron-left" aria-hidden="true"></i>
-                        <span>Featured Work</span>
+                        <span>Case Studies</span>
                     </a>
                     <h1 class="hero-title" id="case-heading">Museo Universitario Alejandro Rangel Hidalgo</h1>
                     <p class="about-lead-desc">
@@ -160,7 +160,7 @@
                 <div class="col-12">
                     <h2 class="section-title">Key Challenges &amp; Constraints</h2>
                     <p class="about-lead-desc">
-                        The primary challenge was seamlessly embedding accessibility into both UI design and frontend
+                        The primary challenge was embedding web accessibility into both UI design and frontend
                         architecture, particularly across complex interactive components:
                     </p>
 
@@ -189,8 +189,8 @@
                 <div class="col-12">
                     <h2 class="section-title">Design Strategy</h2>
                     <p class="about-lead-desc">
-                        From initial development, the platform was designed around the four core principles of <span
-                            class="strategy-label">WCAG 2.2</span>: <span class="strategy-label">Perceivable</span>,
+                        From initial development, I designed and developed the platform around the four core principles of <span
+                            class="strategy-label">WCAG 2.1 Level AA</span>: <span class="strategy-label">Perceivable</span>,
                         <span class="strategy-label">Operable</span>, <span
                             class="strategy-label">Understandable</span>, and <span
                             class="strategy-label">Robust</span>.
@@ -300,7 +300,7 @@
                             </div>
                             <h3 class="dot-step-title">Live User Testing</h3>
                             <p class="ux-skill-desc">
-                                Qualitative usability testing sessions with 3 blind and low-vision participants
+                                We conducted qualitative usability testing sessions with 3 blind and low-vision participants
                                 navigating task scenarios via NVDA (Desktop) and TalkBack in partial reading mode (Android).
                             </p>
                         </div>
@@ -328,9 +328,7 @@
                 <div class="col-12">
                     <h2 class="section-title">Test Results &amp; User Feedback</h2>
                     <p class="about-lead-desc">
-                        All three participants successfully completed the assigned task scenario, achieving a <span
-                            class="strategy-label">100% completion rate</span>. However, several key accessibility
-                        barriers and friction points were identified during testing:
+                        All three participants successfully completed the assigned task scenario (100% completion rate). However, testing nevertheless revealed key accessibility barriers in date selection, modal focus management, and form validation:
                     </p>
                 </div>
             </div>
@@ -383,8 +381,7 @@
 
                     <h3 class="case-study-subtitle">Positive User Feedback</h3>
                     <p class="about-lead-desc">
-                        On a positive note, participants highlighted the comfortable visual contrast ratios, the
-                        seamless Dark Mode adaptability, and the overall high baseline accessibility of the platform.
+                        Participants highlighted the comfortable visual contrast ratios, the Dark Mode adaptability, and the clear typography structure across the platform.
                     </p>
                 </div>
             </div>
@@ -424,7 +421,7 @@
                     </div>
 
                     <p class="about-lead-desc">
-                        Based on the user testing findings, we prioritized the following key interaction improvements across the platform:
+                        Based on the user testing findings, I implemented the following key interaction and code improvements across the platform:
                     </p>
                 </div>
             </div>
@@ -434,10 +431,10 @@
                 <div class="col-7">
                     <h3 class="case-study-subtitle">Keyboard and screen reader accessibility</h3>
                     <ul class="strategy-list">
-                        <li>Correct the keyboard focus order in the date picker.</li>
-                        <li>Announce selected dates and validation errors to screen reader users.</li>
-                        <li>Improve keyboard focus management within modal dialogs.</li>
-                        <li>Allow users to close modal dialogs with the Esc key.</li>
+                        <li>Corrected the keyboard focus order in the date picker component.</li>
+                        <li>Added live screen reader announcements for selected dates and form validation errors.</li>
+                        <li>Improved keyboard focus trap management within modal overlay dialogs.</li>
+                        <li>Enabled closing modal dialogs via the Esc key.</li>
                     </ul>
                 </div>
                 <div class="col-5">
@@ -454,8 +451,8 @@
                 <div class="col-7">
                     <h3 class="case-study-subtitle">Navigation and form usability</h3>
                     <ul class="strategy-list">
-                        <li>Use clearer navigation labels, such as changing "Recorridos" to "Admisión".</li>
-                        <li>Simplify the control for selecting the number of visitors.</li>
+                        <li>Updated navigation labels, changing "Recorridos" to "Admisión" for clarity.</li>
+                        <li>Simplified the input control for selecting the number of visitors.</li>
                     </ul>
                 </div>
                 <div class="col-5">
@@ -472,9 +469,9 @@
                 <div class="col-7">
                     <h3 class="case-study-subtitle">Mobile accessibility</h3>
                     <ul class="strategy-list">
-                        <li>Increase touch target sizes for TalkBack and VoiceOver users.</li>
-                        <li>Announce active control states ("checked" or "unchecked") when toggled.</li>
-                        <li>Improve touch spacing for smoother mobile swipe navigation.</li>
+                        <li>Increased touch target sizes to meet minimum height recommendations for TalkBack and VoiceOver.</li>
+                        <li>Configured controls to announce active states ("checked" or "unchecked") when toggled.</li>
+                        <li>Improved touch spacing to prevent misclicks during mobile swipe navigation.</li>
                     </ul>
                 </div>
                 <div class="col-5">
@@ -492,44 +489,49 @@
                     </div>
                 </div>
             </div>
+
+            <div class="grid-12 case-study-tags-margin">
+                <div class="col-12">
+                    <div class="insight-card">
+                        <p class="insight-text">
+                            <strong>Implementation Status:</strong> The code enhancements listed above have been implemented and deployed on the live MUARH website. A follow-up user testing session is recommended to evaluate their quantitative effect on task efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Conclusion -->
         <section class="tools-section container" id="conclusion">
             <div class="grid-12">
                 <div class="col-12">
-                    <h2 class="section-title">Conclusion</h2>
+                    <h2 class="section-title">Key Learnings</h2>
                     <p class="about-lead-desc">
-                        This project provided invaluable hands-on experience applying web accessibility principles
-                        across both UX design and frontend programming for a real-world digital experience.
+                        Developing and evaluating MUARH demonstrated how web accessibility principles can be integrated into frontend development and verified through live screen reader testing.
                     </p>
                     <div class="insight-card">
                         <p class="insight-text">
                             <span class="strategy-label">Core Learning:</span> Manual code inspections and automated
-                            tools (such as Lighthouse and Silktide) are essential baselines, but they cannot replace
-                            direct testing with real users. Even though all participants achieved a 100% completion
-                            rate, observing their live interactions revealed critical barriers related to keyboard
-                            focus, status messages, validation alerts, and interactive components.
+                            scans (such as Lighthouse and Silktide) establish essential technical baselines, but they cannot replace
+                            direct testing with screen reader users. Although all 3 participants completed the task scenario (100% completion rate), observing their live interactions revealed critical barriers in keyboard focus order, state announcements, and modal controls that led directly to code improvements.
                         </p>
                     </div>
                     <p class="about-lead-desc">
-                        Ultimately, the evaluation confirmed that accessibility must be approached as a continuous
-                        process of inclusive design, technical implementation, empirical user testing, and ongoing
-                        iteration.
+                        The evaluation confirmed that accessibility is a continuous process of technical implementation, empirical testing, and iterative improvement.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Navegación final -->
-        <section class="container" aria-label="Featured Work Navigation Landmarks">
+        <section class="container" aria-label="Case Studies Navigation Landmarks">
             <div class="grid-12">
                 <div class="col-12">
-                    <nav class="case-study-nav" aria-label="Featured Work Page Navigation">
+                    <nav class="case-study-nav" aria-label="Case Studies Page Navigation">
                         <a href="index.html#work" class="cv-download-btn btn-secondary"
-                            aria-label="Return to Featured Work on home page">
+                            aria-label="Return to Case Studies on home page">
                             <i data-lucide="arrow-left" aria-hidden="true"></i>
-                            <span>Back to Featured Work</span>
+                            <span>Back to Case Studies</span>
                         </a>
                         <a href="learncode.html" class="cv-download-btn"
                             aria-label="View next project: LearnCode">

@@ -6,6 +6,28 @@ Este documento recopila de manera cronológica y temática todos los hitos, mejo
 
 ## 🚀 Hitos Recientes
 
+### 0. Estructura de Agentes `.agents/` y Adopción de Nomenclatura "Case Studies"
+- **Creación de Carpeta Centralizada `.agents/`**:
+  - Se implementó la arquitectura estándar para agentes de IA con [.agents/context.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/.agents/context.md), [.agents/claude.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/.agents/claude.md), [.agents/consistencia-redaccion.md](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/.agents/consistencia-redaccion.md) y la carpeta de mejoras por proyecto [.agents/mejoras/](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/.agents/mejoras/).
+- **Aplicación de Mejoras Editoriales y Precisión de Datos en MUARH (`muarh.html`)**:
+  - Estandarización a **WCAG 2.1 nivel AA** en todo el documento (eliminada la inconsistencia con WCAG 2.2).
+  - Redacción en tiempo pasado de las mejoras de código implementadas (*Corrected*, *Added*, *Improved*, *Enabled*, *Updated*, *Increased*) y diferenciación explícita del estado de pruebas con usuarios pendientes.
+  - Contextualización de la tasa de finalización del 100% especificando la muestra ($N=3$) y documentando las barreras de interacción observadas durante las pruebas.
+  - Atribución de voz personal precisa: *"I"* para el diseño, programación frontend e inspección técnica individual por parte de Evelyn, y *"we"* para las sesiones colaborativas de pruebas con usuarios.
+- **Aplicación de Mejoras Editoriales y Métricas en LearnCode (`learncode.html`)**:
+  - Aclaración de la puntuación de 9.3/10 asociándola específicamente al estudio de usabilidad inicial con los 10 estudiantes de Ingeniería de Software.
+  - Aclaración del resultado de *Tree Testing*: 4 de 6 participantes (40% de éxito directo al primer intento) ubicaron las rachas de estudio.
+  - Delimitación del alcance del prototipo interactivo en Figma, especificando interacciones y estados de interfaz simulados.
+  - Atribución de voz personal y de equipo: *"we"* para las 4 etapas de investigación de UX realizadas por el equipo de 4 integrantes, e *"I"* para el diseño e iteraciones visuales de alta fidelidad realizadas por Evelyn en Figma.
+  - Eliminación de adjetivos promocionales (*invaluable*, *frictionless*) en favor de descripciones objetivas de la arquitectura de información.
+- **Publicación del Caso de Estudio Lumi (`lumi.html`)**:
+  - Construcción completa del documento HTML5 semántico para el prototipo de control parental Lumi siguiendo las directrices editoriales y la estructura de 7 secciones estándar.
+  - Inclusión de contenedores de imágenes con pies descriptivos en inglés (*captions*) preparados para la posterior incorporación de assets WebP.
+  - Coherencia de clases de maquetación (`.grid-12`, `.col-7` / `.col-5`, `.improvement-row`, `.overview-card`, `.insight-card`, `.tool-card`) y atribución de voz (*"we"* para pruebas Lofi en pareja, e *"I"* para refinamiento Hifi en Figma).
+- **Optimización de Assets Gráficos para Lumi (`assets/images/lumi/`)**:
+  - Conversión optimizada de `lumi.jpeg` (11.06 MB) a formato **WebP** (`lumi.webp`, 1.22 MB, reducción del 89.0% en el peso sin pérdida de calidad visual).
+  - Vinculación de `assets/images/lumi/lumi.webp` en la portada del Hero de [`lumi.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/lumi.html) y en la tarjeta de proyectos de la página de inicio [`index.html`](file:///C:/Users/evely/OneDrive/Desktop/portafolio2/index.html).
+
 ### 1. Refactorización (Fase 3): Robustez de JavaScript y Arquitectura Modular (`index.js`)
 - **Despachador Centralizado de Scroll con `requestAnimationFrame`**:
   - Se unificaron los listeners de scroll (`initHeaderScroll` e `initScrollFade`) en un único controlador optimizado (`ScrollManager`) que previene el *layout thrashing* y sincroniza las transiciones visuales exactamente en el ciclo de repintado del navegador.

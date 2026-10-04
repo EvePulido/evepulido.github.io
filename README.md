@@ -53,10 +53,11 @@ portafolio2/
 │       ├── icons/               # Vector social icons
 │       ├── muarh/               # Optimized WebP assets for MUARH case study
 │       └── learncode/           # Optimized WebP assets for LearnCode case study
-├── index.html                   # Homepage (Hero, Featured Work, Tools, Contact)
+├── index.html                   # Homepage (Hero, Case Studies, Tools, Contact)
 ├── about.html                   # About Me (Bio, UX Skills, Education)
 ├── muarh.html                   # Case Study: MUARH (Web Accessibility)
 ├── learncode.html               # Case Study: LearnCode (UX Research & Usability)
+├── lumi.html                    # Case Study: Lumi (Parental Control App UX Research)
 ├── coming-soon.html             # Accessible placeholder template for upcoming work
 ├── robots.txt, sitemap.xml      # SEO crawling rules and URL sitemap
 ├── README.md                    # Primary repository overview (this file)

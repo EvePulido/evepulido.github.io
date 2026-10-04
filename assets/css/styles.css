@@ -736,6 +736,26 @@ section[id],
   object-position: center;
   display: block;
   border-radius: clamp(18px, 2vw, 24px);
+  transform: scale(1.08);
+  transition: transform var(--transition-smooth);
+}
+
+.project-card:hover .project-img,
+.project-card:focus-visible .project-img {
+  transform: scale(1.14);
+}
+
+/* Modifier: show image in full without cropping (e.g. persona cards, diagrams) */
+.project-img-wrapper--full {
+  height: auto;
+  overflow: visible;
+}
+
+.project-img--full {
+  height: auto;
+  object-fit: contain;
+  transform: none;
+  transition: none;
 }
 
 .project-overlay {
@@ -1718,7 +1738,7 @@ section[id],
   font-family: var(--font-body);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
+  color: var(--color-text-main);
   margin-top: 1.75rem;
   margin-bottom: 1rem;
 }
