@@ -834,7 +834,7 @@ section[id],
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
-.tool-card:has(a):hover,
+.tool-card:has(a):not(:has(.education-header)):hover,
 .tool-card.interactive:hover {
   transform: translateY(-3px);
   border-color: var(--color-primary);
@@ -1688,11 +1688,6 @@ section[id],
 
 .improvement-row .project-img--crop-bottom {
   object-position: center bottom;
-}
-
-/* Align LearnCode hero image to reveal the phone header ("Condicionales") */
-.learncode-page #case-hero .project-img {
-  object-position: center 20%;
 }
 
 /* Improvement rows (tablet and below): text takes the full row and the images sit beneath it */
