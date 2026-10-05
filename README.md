@@ -6,7 +6,7 @@ Welcome to the official repository of my personal portfolio. This project showca
 
 ---
 
-## 🚀 Featured Case Studies
+## 🚀 Case Studies
 
 ### 1. [Museo Universitario Alejandro Rangel Hidalgo (MUARH)](muarh.html)
 * **Focus**: Web Accessibility (W3C / WCAG 2.1 AA/AAA), Inclusive Design & Front-End Engineering.
@@ -17,6 +17,11 @@ Welcome to the official repository of my personal portfolio. This project showca
 * **Focus**: UX Research, Information Architecture, Gamification & Usability Evaluation.
 * **Overview**: A gamified mobile learning ecosystem designed to teach programming through interactive lessons, community exchange, streak tracking, and verifiable certificates.
 * **Highlights**: Formulated across 4 empirical research methodologies: Ethnographic User Journeys (A1), Hybrid Card Sorting (A2), Tree Testing (A3), and Nielsen's Heuristic Evaluation (A4).
+
+### 3. [Lumi — Parental Control App](lumi.html)
+* **Focus**: UX Research (moderated usability testing with parents) & High-Fidelity UI Design.
+* **Overview**: A parental control app prototype to manage children's screen time, app restrictions and schedules.
+* **Highlights**: Low-fidelity usability sessions with three parents, followed by a high-fidelity Figma design that addresses each observed friction point.
 
 ---
 
@@ -36,7 +41,7 @@ This portfolio is deliberately crafted without heavy third-party UI frameworks (
   - Dynamic translucent navigation header with scroll detection.
 * **Performance & Asset Optimization**:
   - 100% modern WebP raster images (quality 85) achieving over 85% bandwidth reduction.
-  - Scalable vector icons via Lucide Icons.
+  - Scalable vector icons via Lucide Icons (pinned to `1.52.0` via unpkg with SRI `sha384` and `crossorigin="anonymous"`).
 
 ---
 
@@ -47,12 +52,15 @@ portafolio2/
 ├── assets/
 │   ├── css/styles.css           # Global fluid design tokens & layout
 │   ├── js/index.js              # Accessible DOM & view-switching logic
-│   ├── docs/CV_Evelyn_Pulido.pdf# Downloadable resume
+│   ├── docs/                    # Downloadable resumes
+│   │   ├── CV_Evelyn_Pulido.pdf
+│   │   └── CV_UXUI_EN.pdf
 │   └── images/
-│       ├── Logo.svg, Logo-dark.svg, logo-simple.svg, logo.ico, og-cover.svg, footer.svg
+│       ├── Logo.svg, Logo-dark.svg, logo-simple.svg, logo.ico, og-cover.svg, og-cover.png, footer.svg, image.webp
 │       ├── icons/               # Vector social icons
 │       ├── muarh/               # Optimized WebP assets for MUARH case study
-│       └── learncode/           # Optimized WebP assets for LearnCode case study
+│       ├── learncode/           # Optimized WebP assets for LearnCode case study
+│       └── lumi/                # Optimized WebP assets for Lumi case study
 ├── index.html                   # Homepage (Hero, Case Studies, Tools, Contact)
 ├── about.html                   # About Me (Bio, UX Skills, Education)
 ├── muarh.html                   # Case Study: MUARH (Web Accessibility)
@@ -61,18 +69,21 @@ portafolio2/
 ├── coming-soon.html             # Accessible placeholder template for upcoming work
 ├── robots.txt, sitemap.xml      # SEO crawling rules and URL sitemap
 ├── README.md                    # Primary repository overview (this file)
-├── CONTEXT.md                   # In-depth technical architecture documentation
+├── CONTEXT.md                   # Pointer to .agents/context.md
+├── CLAUDE.md                    # Pointer to the .agents/ configuration for AI agents
 ├── CHANGELOG.md                 # Chronological development and refactoring history
-└── GEMINI.md                    # Google Agent pair-programming instructions & invariants
+└── .agents/                     # Agent rules, technical context, editorial guide, per-case-study notes
+    ├── context.md, claude.md, consistencia-redaccion.md
+    └── mejoras/                 # muarh-mejoras.md, learncode-mejoras.md, lumi-case-study.md
 ```
 
 ---
 
 ## 📖 Extended Documentation
 
-* **[CONTEXT.md](CONTEXT.md)**: Detailed technical specifications, CSS token tables, fluid grid math, and active project roadmap.
+* **[.agents/context.md](.agents/context.md)**: Detailed technical specifications, CSS token tables, fluid grid math, and page map (`CONTEXT.md` points here).
 * **[CHANGELOG.md](CHANGELOG.md)**: Full chronological record of development milestones, iterations, and optimizations.
-* **[GEMINI.md](GEMINI.md)**: AI agent instructions following Google Antigravity / Gemini CLI best practices for automated pair programming.
+* **[CLAUDE.md](CLAUDE.md)** / **[.agents/claude.md](.agents/claude.md)**: AI agent instructions and invariants for automated pair programming.
 
 ---
 

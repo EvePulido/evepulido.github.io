@@ -1,8 +1,6 @@
 /* ==========================================================================
    Design Tokens & CSS Variables (Fluid Responsive Core)
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
-
 :root {
   /* Color Palette Tokens */
   --color-primary: #B33200;
@@ -758,6 +756,11 @@ section[id],
   transition: none;
 }
 
+/* Modifier: square corners so edge-to-edge UI screens are not clipped (e.g. wireframe strips) */
+.project-img--square {
+  border-radius: 0;
+}
+
 .project-overlay {
   position: absolute;
   inset: 0;
@@ -858,45 +861,6 @@ section[id],
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-main);
   letter-spacing: -0.015em;
-}
-
-/* Accessible Image Placeholder Component */
-.image-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: var(--color-surface-subtle);
-  border: 2px dashed var(--color-card-border);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  text-align: center;
-  color: var(--color-text-secondary);
-}
-
-.placeholder-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
-}
-
-.placeholder-title {
-  font-family: var(--font-body);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-main);
-  margin-bottom: 0.25rem;
-}
-
-.placeholder-desc {
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin: 0;
 }
 
 .tool-tags {
@@ -1655,20 +1619,11 @@ section[id],
   align-items: center;
 }
 
-.project-img-grid .project-img-wrapper {
-  height: clamp(260px, 28vw, 380px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-img-grid .project-img {
-  max-height: 100%;
-  height: auto;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center;
+/* Paired images stack in one column on small phones */
+@media (max-width: 480px) {
+  .project-img-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-img-grid-3 {
@@ -1697,7 +1652,6 @@ section[id],
 }
 
 @media (max-width: 768px) {
-  .project-img-grid,
   .project-img-grid-3 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1715,17 +1669,25 @@ section[id],
   object-position: center;
 }
 
-/* Match single-image improvements to the standard size/aspect ratio (admision.webp: 802x450) */
-.improvement-row .project-img[src*="fecha.webp"] {
+/* Paired images never upscale beyond their native size */
+.improvement-row .project-img-grid .project-img {
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+/* Crop modifiers: single-image improvements share the standard size/aspect ratio (admision.webp: 802x450) */
+.improvement-row .project-img--crop {
   aspect-ratio: 802 / 450;
   object-fit: cover;
+}
+
+.improvement-row .project-img--crop-top {
   object-position: top center;
 }
 
-.improvement-row .project-img[src*="learncode-form-usability"] {
-  aspect-ratio: 802 / 450;
-  object-fit: cover;
-  object-position: center;
+.improvement-row .project-img--crop-bottom {
+  object-position: center bottom;
 }
 
 /* Align LearnCode hero image to reveal the phone header ("Condicionales") */
@@ -1733,6 +1695,18 @@ section[id],
   object-position: center 20%;
 }
 
+/* Improvement rows (tablet and below): text takes the full row and the images sit beneath it */
+@media (max-width: 1024px) {
+  .improvement-row .col-7,
+  .improvement-row .col-5 {
+    grid-column: 1 / -1;
+  }
+
+  .improvement-row .col-5 > .project-img-wrapper {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+}
 
 .case-study-subtitle {
   font-family: var(--font-body);
@@ -1960,7 +1934,6 @@ body,
 .tool-card,
 .overview-card,
 .insight-card,
-.theme-toggle-btn,
 .tool-tag {
   transition: background-color var(--transition-smooth),
               border-color var(--transition-smooth),

@@ -12,6 +12,9 @@
  * ==============================================================================
  */
 
+// Respeta la preferencia del sistema: sin animación de scroll si el usuario reduce el movimiento
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 document.addEventListener('DOMContentLoaded', () => {
   IconManager.init();
   ThemeManager.init();
@@ -44,7 +47,7 @@ const IconManager = (() => {
  * ------------------------------------------------------------------------------
  */
 const ThemeManager = (() => {
-  const switchInput = document.getElementById('theme-toggle-checkbox') || document.getElementById('theme-toggle');
+  const switchInput = document.getElementById('theme-toggle-checkbox');
 
   function getCurrentTheme() {
     return document.documentElement.getAttribute('data-theme') ||
@@ -55,10 +58,8 @@ const ThemeManager = (() => {
     if (!switchInput) return;
     const isDark = theme === 'dark';
 
-    if (switchInput.type === 'checkbox') {
-      switchInput.checked = isDark;
-      switchInput.setAttribute('aria-checked', isDark ? 'true' : 'false');
-    }
+    // role="switch" sobre un checkbox nativo ya expone el estado: no se duplica con aria-checked
+    switchInput.checked = isDark;
 
     const labelTitle = isDark ? 'Switch to light theme' : 'Switch to dark theme';
     switchInput.setAttribute('aria-label', 'Dark mode');
@@ -88,15 +89,8 @@ const ThemeManager = (() => {
     syncSwitchState(getCurrentTheme());
 
     // Manejar evento de alternancia
-    const eventName = switchInput.type === 'checkbox' ? 'change' : 'click';
-    switchInput.addEventListener(eventName, () => {
-      let nextTheme;
-      if (switchInput.type === 'checkbox') {
-        nextTheme = switchInput.checked ? 'dark' : 'light';
-      } else {
-        nextTheme = getCurrentTheme() === 'dark' ? 'light' : 'dark';
-      }
-      applyTheme(nextTheme, true);
+    switchInput.addEventListener('change', () => {
+      applyTheme(switchInput.checked ? 'dark' : 'light', true);
     });
 
     // Escuchar cambios reactivos en la preferencia del sistema operativo cuando no hay preferencia guardada
@@ -108,9 +102,13 @@ const ThemeManager = (() => {
             const systemTheme = e.matches ? 'dark' : 'light';
             applyTheme(systemTheme, false);
           }
-        } catch (err) {}
+        } catch (err) {
+          // Sin acceso a localStorage: se conserva el tema actual
+        }
       });
-    } catch (err) {}
+    } catch (err) {
+      // matchMedia no disponible: el tema solo cambia desde el switch
+    }
   }
 
   return { init, getCurrentTheme };
@@ -174,8 +172,8 @@ const NavigationManager = (() => {
       }
     }
 
-    // 4. Desplazar al inicio suavemente
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 4. Desplazar al inicio suavemente (también en Atrás/Adelante, al cambiar de vista)
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
 
     // 5. Transferencia accesible de foco sin retrasos arbitrarios mediante requestAnimationFrame
     if (options.focusHeading) {
@@ -287,7 +285,7 @@ const ScrollManager = (() => {
     scrollLink.addEventListener('click', (e) => {
       e.preventDefault();
       targetSection.scrollIntoView({
-        behavior: 'smooth'
+        behavior: prefersReducedMotion() ? 'auto' : 'smooth'
       });
     });
   }

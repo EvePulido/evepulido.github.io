@@ -30,6 +30,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-simple.svg">
     <link rel="alternate icon" type="image/x-icon" href="assets/images/logo.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Theme Initialization (Zero FOUC) -->
@@ -72,7 +73,7 @@
                 </ul>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
-                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-checked="false" aria-label="Dark mode">
+                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
                     <span class="theme-switch-slider">
                         <span class="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">
                             <i data-lucide="sun"></i>
@@ -87,7 +88,7 @@
         </div>
     </header>
 
-    <!-- Main Content: Strict 14-Section Narrative Flow -->
+    <!-- Main Content -->
     <main id="main-content" tabindex="-1">
 
         <!-- 01. Project Hero -->
@@ -113,7 +114,7 @@
                 </div>
                 <div class="col-12">
                     <div class="project-img-wrapper">
-                        <img src="assets/images/learncode/learncode.webp" alt="" class="project-img" width="1200" height="675">
+                        <img src="assets/images/learncode/learncode.webp" alt="" class="project-img" width="1200" height="675" fetchpriority="high">
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@
                 <div class="overview-grid">
                     <!-- 1. Role -->
                     <div>
-                        <h2 class="overview-item-title">Role</h2>
+                        <p class="overview-item-title">Role</p>
                         <p class="overview-item-desc">
                             UX Researcher &amp; UI Designer
                         </p>
@@ -133,7 +134,7 @@
 
                     <!-- 2. Project Goal -->
                     <div>
-                        <h2 class="overview-item-title">Project Goal</h2>
+                        <p class="overview-item-title">Project Goal</p>
                         <p class="overview-item-desc">
                             Design the information architecture and evaluate the usability of the LearnCode prototype so learners can find courses, track daily progress, and access certificates intuitively.
                         </p>
@@ -141,7 +142,7 @@
 
                     <!-- 3. Target Audience -->
                     <div>
-                        <h2 class="overview-item-title">Target Audience</h2>
+                        <p class="overview-item-title">Target Audience</p>
                         <p class="overview-item-desc">
                             Software Engineering students and individuals interested in autonomous learning through gamified online courses.
                         </p>
@@ -374,7 +375,7 @@
 
                     <!-- Main Showcase: Tablet Mockup with Home Screen -->
                     <div class="project-img-wrapper case-study-tags-margin">
-                        <img src="assets/images/learncode/mockup-tablet-learncode.webp" alt="" class="project-img" loading="lazy">
+                        <img src="assets/images/learncode/mockup-tablet-learncode.webp" alt="Tablet on a white desk showing the LearnCode Home screen with enrolled courses, progress bars and a 12-day streak" class="project-img" width="2880" height="1920" loading="lazy">
                     </div>
 
                     <p class="about-lead-desc">
@@ -398,12 +399,12 @@
                         <div class="project-img-wrapper">
                             <img src="assets/images/learncode/learncode-home.webp"
                                 alt="LearnCode mobile UI showing the Home dashboard with the daily streak indicator and persistent bottom navigation bar"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="402" height="874" loading="lazy">
                         </div>
                         <div class="project-img-wrapper">
                             <img src="assets/images/learncode/learncode-courses.webp"
                                 alt="LearnCode mobile UI showing the course catalog screen with standardized bottom navigation"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="402" height="874" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -424,12 +425,12 @@
                         <div class="project-img-wrapper">
                             <img src="assets/images/learncode/learncode-loader.webp"
                                 alt="LearnCode mobile UI showing the circular progress loader during community post upload"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="402" height="874" loading="lazy">
                         </div>
                         <div class="project-img-wrapper">
                             <img src="assets/images/learncode/learncode-confirm-modal.webp"
                                 alt="LearnCode mobile UI showing the confirmation modal dialog to save or discard profile edits"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="402" height="874" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -449,7 +450,7 @@
                     <div class="project-img-wrapper">
                         <img src="assets/images/learncode/learncode-form-usability.webp"
                             alt="LearnCode mobile sign-up screen showing real-time email format validation and password input with an interactive visibility toggle"
-                            class="project-img" loading="lazy">
+                            class="project-img project-img--crop" width="802" height="450" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -535,7 +536,7 @@
     </footer>
 
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@1.52.0/dist/umd/lucide.min.js" integrity="sha384-SSRIJfpvnhji4rCcULgpNXRJjQ9P/odU9OaWxSumsZiokvJ7zAu4PGQVWyWxTG3u" crossorigin="anonymous" defer></script>
     <script src="assets/js/index.js" defer></script>
 </body>
 

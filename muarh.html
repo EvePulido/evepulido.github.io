@@ -30,6 +30,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="assets/images/logo-simple.svg">
     <link rel="alternate icon" type="image/x-icon" href="assets/images/logo.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Theme Initialization (Zero FOUC) -->
@@ -72,7 +73,7 @@
                 </ul>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
-                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-checked="false" aria-label="Dark mode">
+                    <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
                     <span class="theme-switch-slider">
                         <span class="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">
                             <i data-lucide="sun"></i>
@@ -87,7 +88,7 @@
         </div>
     </header>
 
-    <!-- Main Content: Strict 14-Section Narrative Flow -->
+    <!-- Main Content -->
     <main id="main-content" tabindex="-1">
 
         <!-- 01. Project Hero -->
@@ -114,7 +115,7 @@
                 </div>
                 <div class="col-12">
                     <div class="project-img-wrapper">
-                        <img src="assets/images/muarh/muarh.webp" alt="" class="project-img" width="1200" height="675">
+                        <img src="assets/images/muarh/muarh.webp" alt="" class="project-img" width="1200" height="675" fetchpriority="high">
                     </div>
                 </div>
             </div>
@@ -126,7 +127,7 @@
                 <div class="overview-grid">
                     <!-- 1. Role -->
                     <div>
-                        <h2 class="overview-item-title">Role</h2>
+                        <p class="overview-item-title">Role</p>
                         <p class="overview-item-desc">
                             Frontend Developer and Accessibility Evaluator
                         </p>
@@ -134,7 +135,7 @@
 
                     <!-- 2. Project Goal -->
                     <div>
-                        <h2 class="overview-item-title">Project Goal</h2>
+                        <p class="overview-item-title">Project Goal</p>
                         <p class="overview-item-desc">
                             Design and develop an accessible website for MUARH enabling all visitors to explore
                             galleries, check admission fees, and book visits online, while empirically evaluating WCAG
@@ -144,7 +145,7 @@
 
                     <!-- 3. Target Audience -->
                     <div>
-                        <h2 class="overview-item-title">Target Audience</h2>
+                        <p class="overview-item-title">Target Audience</p>
                         <p class="overview-item-desc">
                             Designed for all museum visitors, with particular focus on blind and low-vision users
                             navigating via keyboard, NVDA (Desktop), or TalkBack (Android).
@@ -410,13 +411,13 @@
                     <!-- Image 1: Main Showcase (Desktop, Tablet & Mobile Mockups) -->
                     <div class="project-img-grid-3 case-study-tags-margin">
                         <div class="project-img-wrapper">
-                            <img src="assets/images/muarh/mockup-desktop.webp" alt="" class="project-img" loading="lazy">
+                            <img src="assets/images/muarh/mockup-desktop.webp" alt="MUARH home page on a desktop monitor, with the headline “Arte, memoria y raíz prehispánica” and buttons to explore collections and see admission" class="project-img" width="4000" height="3077" loading="lazy">
                         </div>
                         <div class="project-img-wrapper">
-                            <img src="assets/images/muarh/mockup-tablet.webp" alt="" class="project-img" loading="lazy">
+                            <img src="assets/images/muarh/mockup-tablet.webp" alt="MUARH exhibition halls page on a tablet, with a short introduction and photos of two halls" class="project-img" width="1228" height="1690" loading="lazy">
                         </div>
                         <div class="project-img-wrapper">
-                            <img src="assets/images/muarh/mockup-phone.webp" alt="" class="project-img" loading="lazy">
+                            <img src="assets/images/muarh/mockup-phone.webp" alt="MUARH visit reservation form on a smartphone" class="project-img" width="1976" height="4000" loading="lazy">
                         </div>
                     </div>
 
@@ -441,7 +442,7 @@
                     <div class="project-img-wrapper">
                         <img src="assets/images/muarh/fecha.webp"
                             alt="NVDA Screen Reader Speech Viewer live transcript demonstrating accessible date picker auditory feedback and keyboard focus ring"
-                            class="project-img" loading="lazy">
+                            class="project-img project-img--crop project-img--crop-top" width="664" height="438" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -459,7 +460,7 @@
                     <div class="project-img-wrapper">
                         <img src="assets/images/muarh/admision.webp"
                             alt="MUARH navigation header demonstrating the clear 'Admisi&oacute;n' link label and admission fees section"
-                            class="project-img" loading="lazy">
+                            class="project-img" width="802" height="450" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -479,12 +480,12 @@
                         <div class="project-img-wrapper">
                             <img src="assets/images/muarh/boton.webp"
                                 alt="Mobile UI showing accessible form buttons and checkboxes"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="1220" height="2393" loading="lazy">
                         </div>
                         <div class="project-img-wrapper">
                             <img src="assets/images/muarh/menu.webp"
                                 alt="Mobile UI showing mobile navigation and accessible touch targets"
-                                class="project-img" loading="lazy">
+                                class="project-img" width="1220" height="2392" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -573,7 +574,7 @@
     </footer>
 
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@1.52.0/dist/umd/lucide.min.js" integrity="sha384-SSRIJfpvnhji4rCcULgpNXRJjQ9P/odU9OaWxSumsZiokvJ7zAu4PGQVWyWxTG3u" crossorigin="anonymous" defer></script>
     <script src="assets/js/index.js" defer></script>
 </body>
 
