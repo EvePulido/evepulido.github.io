@@ -9,6 +9,7 @@
  * 2. ThemeManager      - Modo oscuro accesible, persistencia y sincronización OS
  * 3. NavigationManager - Controlador de Vistas SPA con gestión de foco accesible
  * 4. ScrollManager     - Despachador de scroll centralizado mediante rAF
+ * 5. MenuManager       - Menú hamburguesa accesible en móvil (disclosure)
  * ==============================================================================
  */
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
   NavigationManager.init();
   ScrollManager.init();
+  MenuManager.init();
 });
 
 /**
@@ -62,7 +64,6 @@ const ThemeManager = (() => {
     switchInput.checked = isDark;
 
     const labelTitle = isDark ? 'Switch to light theme' : 'Switch to dark theme';
-    switchInput.setAttribute('aria-label', 'Dark mode');
 
     const parentLabel = switchInput.closest('.theme-switch');
     if (parentLabel) {
@@ -111,7 +112,7 @@ const ThemeManager = (() => {
     }
   }
 
-  return { init, getCurrentTheme };
+  return { init };
 })();
 
 /**
@@ -123,7 +124,7 @@ const NavigationManager = (() => {
   const navWork = document.getElementById('nav-work');
   const navAbout = document.getElementById('nav-about');
   const viewWork = document.getElementById('view-work');
-  const viewAbout = document.getElementById('about') || document.getElementById('view-about');
+  const viewAbout = document.getElementById('about');
   const logoLink = document.getElementById('logo-link');
 
   function isAvailable() {
@@ -225,7 +226,7 @@ const NavigationManager = (() => {
     syncFromHash();
   }
 
-  return { init, activateView };
+  return { init };
 })();
 
 /**
@@ -293,6 +294,64 @@ const ScrollManager = (() => {
   function init() {
     initScrollDispatcher();
     initScrollToWork();
+  }
+
+  return { init };
+})();
+
+/**
+ * ------------------------------------------------------------------------------
+ * 5. MenuManager: Menú hamburguesa accesible (patrón disclosure) en móvil
+ * ------------------------------------------------------------------------------
+ */
+const MenuManager = (() => {
+  const header = document.getElementById('header');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('primary-nav');
+  const desktopQuery = window.matchMedia('(min-width: 769px)');
+
+  function isOpen() {
+    return toggle.getAttribute('aria-expanded') === 'true';
+  }
+
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('is-open', open);
+  }
+
+  function init() {
+    if (!header || !toggle || !menu) return;
+
+    // Solo ahora el CSS convierte el nav en menú desplegable: si el script falla, los enlaces siguen visibles
+    document.documentElement.classList.add('js-menu');
+
+    toggle.addEventListener('click', () => setOpen(!isOpen()));
+
+    // Cerrar al elegir un enlace (en index.html la navegación es SPA y no recarga)
+    menu.addEventListener('click', (e) => {
+      if (e.target.closest('.nav-link')) setOpen(false);
+    });
+
+    // Escape cierra y devuelve el foco al botón
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Clic fuera del header o foco que sale del header cierra el menú
+    document.addEventListener('click', (e) => {
+      if (isOpen() && !header.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('focusin', (e) => {
+      if (isOpen() && !header.contains(e.target)) setOpen(false);
+    });
+
+    // Al pasar a escritorio el menú vuelve a la barra horizontal
+    desktopQuery.addEventListener('change', (e) => {
+      if (e.matches) setOpen(false);
+    });
   }
 
   return { init };

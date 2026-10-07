@@ -256,6 +256,7 @@ main:focus {
   left: 0;
   z-index: 100;
   transition: background-color var(--transition-smooth),
+              border-color var(--transition-smooth),
               backdrop-filter var(--transition-smooth),
               box-shadow var(--transition-smooth);
 }
@@ -341,13 +342,11 @@ main:focus {
 }
 
 .view-panel {
-  display: block;
   opacity: 1;
   transition: opacity var(--transition-smooth);
 }
 
 .view-panel[hidden] {
-  display: none !important;
   opacity: 0;
 }
 
@@ -555,6 +554,143 @@ main:focus {
 }
 
 /* ==========================================================================
+   Mobile Menu (hamburger). Only active once MenuManager adds .js-menu to <html>; without JS
+   the regular inline nav stays visible.
+   ========================================================================== */
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar {
+    gap: 0.75rem;
+  }
+
+  .js-menu .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--color-card-border);
+    border-radius: 50%;
+    background-color: var(--color-surface-tag);
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+  }
+
+  .js-menu .nav-toggle:hover {
+    border-color: var(--color-primary);
+  }
+
+  .js-menu .nav-toggle:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  /* Three bars drawn with one span + two pseudo-elements; they morph into an X */
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  .nav-toggle-bars {
+    position: relative;
+  }
+
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .nav-toggle-bars::before {
+    top: -6px;
+  }
+
+  .nav-toggle-bars::after {
+    top: 6px;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars {
+    background-color: transparent;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Dropdown panel under the header (links only; the theme switch stays in the header bar) */
+  .js-menu #primary-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.25rem var(--grid-margin) 0.75rem;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-divider);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-fast),
+                transform var(--transition-fast),
+                visibility 0s linear var(--transition-fast);
+  }
+
+  .js-menu #primary-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .js-menu .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .js-menu .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 0.2rem;
+    font-size: var(--font-size-lg);
+  }
+
+  .js-menu .nav-link::after {
+    left: 0.2rem;
+    bottom: 8px;
+    width: 0%;
+  }
+
+  .js-menu .nav-link:hover::after,
+  .js-menu .nav-link.active::after,
+  .js-menu .nav-link[aria-current="page"]::after {
+    width: 2.5rem;
+  }
+}
+
+/* ==========================================================================
    Hero Section Component (Fluid)
    ========================================================================== */
 .hero-section {
@@ -618,8 +754,7 @@ main:focus {
   max-width: 1100px;
 }
 
-section[id],
-.featured-work-section {
+section[id] {
   scroll-margin-top: 110px;
 }
 
@@ -709,14 +844,8 @@ section[id],
   overflow: hidden;
   position: relative;
   background-color: var(--color-surface-subtle);
-  box-shadow: var(--shadow-project-card);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast);
   cursor: pointer;
-}
-
-.project-card:hover,
-.project-card:focus-visible {
-  box-shadow: var(--shadow-project-card-hover);
 }
 
 .project-img-wrapper {
@@ -741,6 +870,21 @@ section[id],
 .project-card:hover .project-img,
 .project-card:focus-visible .project-img {
   transform: scale(1.14);
+}
+
+/* Modifier: placeholder card for a case study not published yet. On mobile it shrinks to a slim divider band. */
+.project-card--placeholder {
+  cursor: default;
+}
+
+.project-card--placeholder .project-img-wrapper {
+  background: url('../images/footer.svg') center bottom / cover no-repeat;
+}
+
+@media (max-width: 768px) {
+  .project-card--placeholder .project-img-wrapper {
+    height: 72px;
+  }
 }
 
 /* Modifier: show image in full without cropping (e.g. persona cards, diagrams) */
@@ -831,11 +975,12 @@ section[id],
   padding: clamp(1.25rem, 2.5vw, 1.85rem);
   box-shadow: var(--shadow-card-subtle);
   height: 100%;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+              background-color var(--transition-smooth), border-color var(--transition-fast),
+              color var(--transition-smooth);
 }
 
-.tool-card:has(a):not(:has(.education-header)):hover,
-.tool-card.interactive:hover {
+.tool-card:has(a):not(:has(.education-header)):hover {
   transform: translateY(-3px);
   border-color: var(--color-primary);
   box-shadow: 0 8px 24px rgba(179, 50, 0, 0.08);
@@ -881,7 +1026,8 @@ section[id],
   background-color: var(--color-surface-tag);
   padding: 0.45rem 1rem;
   border-radius: 100px;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth),
+              color var(--transition-smooth);
 }
 
 .tool-tag-icon {
@@ -1092,7 +1238,6 @@ section[id],
 
 /* Secondary Button Variant Component */
 .btn-secondary,
-.cv-download-btn.secondary,
 .cv-download-btn.btn-secondary {
   background-color: var(--color-bg);
   color: var(--color-primary);
@@ -1106,7 +1251,6 @@ section[id],
 }
 
 .btn-secondary:hover,
-.cv-download-btn.secondary:hover,
 .cv-download-btn.btn-secondary:hover {
   background-color: var(--color-primary-muted);
   color: var(--color-primary);
@@ -1115,7 +1259,7 @@ section[id],
   box-shadow: 0 6px 18px rgba(179, 50, 0, 0.20);
 }
 
-:is(.btn-secondary, .cv-download-btn.secondary, .cv-download-btn.btn-secondary) :is(svg, [data-lucide], .lucide, i) {
+:is(.btn-secondary, .cv-download-btn.btn-secondary) :is(svg, [data-lucide], .lucide, i) {
   color: var(--color-primary);
   stroke: currentColor;
   fill: none;
@@ -1593,17 +1737,15 @@ section[id],
    Case Study Component Styles
    ========================================================================== */
 
-.case-study-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2.5rem;
-  list-style: none;
-}
-
 .case-study-tags-margin {
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
   margin-bottom: clamp(2.5rem, 4.5vw, 3.75rem);
+}
+
+.case-study-caption {
+  margin-top: 1rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
 }
 
 .improvement-row {
@@ -1924,12 +2066,9 @@ ol.strategy-list li::marker {
 
 /* Smooth Theme Switching Transitions (disabled if prefers-reduced-motion) */
 body,
-.site-header,
 .contact-card,
-.tool-card,
 .overview-card,
-.insight-card,
-.tool-tag {
+.insight-card {
   transition: background-color var(--transition-smooth),
               border-color var(--transition-smooth),
               color var(--transition-smooth);
@@ -1991,7 +2130,6 @@ body,
 
 /* 3. Secondary Buttons & Banner in Dark Mode */
 :is([data-theme="dark"], :root:not([data-theme="light"])) .btn-secondary:hover,
-:is([data-theme="dark"], :root:not([data-theme="light"])) .cv-download-btn.secondary:hover,
 :is([data-theme="dark"], :root:not([data-theme="light"])) .cv-download-btn.btn-secondary:hover {
   background-color: var(--color-primary-muted);
   color: var(--color-primary);

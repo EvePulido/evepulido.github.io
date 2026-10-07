@@ -62,15 +62,17 @@
                 </a>
             </p>
 
-            <nav class="navbar" aria-label="Main navigation">
-                <ul class="nav-list" role="list">
-                    <li class="nav-item">
-                        <a href="index.html#work" class="nav-link">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About me</a>
-                    </li>
-                </ul>
+            <div class="navbar">
+                <nav id="primary-nav" aria-label="Main navigation">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item">
+                            <a href="index.html#work" class="nav-link">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About me</a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
                     <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
@@ -84,7 +86,12 @@
                         <span class="theme-switch-thumb" aria-hidden="true"></span>
                     </span>
                 </label>
-            </nav>
+
+                <!-- Mobile menu toggle (shown only on small screens when JS is available) -->
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 

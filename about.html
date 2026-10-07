@@ -60,15 +60,17 @@
             </p>
 
             <!-- Accessible navigation landmarks -->
-            <nav class="navbar" aria-label="Main navigation">
-                <ul class="nav-list" role="list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link active" aria-current="page">About me</a>
-                    </li>
-                </ul>
+            <div class="navbar">
+                <nav id="primary-nav" aria-label="Main navigation">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link active" aria-current="page">About me</a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
                     <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
@@ -82,7 +84,12 @@
                         <span class="theme-switch-thumb" aria-hidden="true"></span>
                     </span>
                 </label>
-            </nav>
+
+                <!-- Mobile menu toggle (shown only on small screens when JS is available) -->
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -97,7 +104,7 @@
                     <p class="about-lead-desc">
                         A Software Engineering student from Colima, Mexico, with a growing interest in UX design. I bring design and development together to create clear, accessible interfaces, guided by what people need and how they use them.
                     </p>
-                    <div class="about-social-links" aria-label="Social Profiles">
+                    <div class="about-social-links" role="group" aria-label="Social Profiles">
                         <a href="https://www.linkedin.com/in/evepulido" target="_blank" rel="noopener noreferrer" class="about-social-btn" aria-label="LinkedIn profile">
                             <img src="assets/images/icons/linkedin.svg" alt="" class="about-social-icon">
                             <span>LinkedIn</span>
@@ -206,7 +213,7 @@
         </section>
 
         <!-- Contact & Footer Section -->
-        <footer class="footer-wrapper" id="contact" aria-labelledby="contact-title">
+        <section class="footer-wrapper" id="contact" aria-labelledby="contact-title">
             <!-- Background Gradient Banner (footer.svg) -->
             <div class="footer-bg-banner" aria-hidden="true">
                 <img src="assets/images/footer.svg" alt="" class="footer-bg-img" loading="lazy">
@@ -259,7 +266,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
     </main>
 
     <!-- Lucide Icons CDN -->

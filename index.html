@@ -65,15 +65,17 @@
             </h1>
 
             <!-- Accessible navigation landmarks (W3C Standard) -->
-            <nav class="navbar" aria-label="Main navigation">
-                <ul class="nav-list" role="list">
-                    <li class="nav-item">
-                        <a href="#work" class="nav-link active" id="nav-work" aria-current="page">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link" id="nav-about">About me</a>
-                    </li>
-                </ul>
+            <div class="navbar">
+                <nav id="primary-nav" aria-label="Main navigation">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item">
+                            <a href="#work" class="nav-link active" id="nav-work" aria-current="page">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link" id="nav-about">About me</a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
                     <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
@@ -87,7 +89,12 @@
                         <span class="theme-switch-thumb" aria-hidden="true"></span>
                     </span>
                 </label>
-            </nav>
+
+                <!-- Mobile menu toggle (shown only on small screens when JS is available) -->
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -163,6 +170,11 @@
                             </div>
                         </div>
                     </a>
+
+                    <!-- Row 2 - Project 4 (7 Columns) - TEMPORARY footer.svg placeholder to test the layout -->
+                    <div class="project-card project-card--placeholder col-7" aria-hidden="true">
+                        <div class="project-img-wrapper"></div>
+                    </div>
 
                 </div>
             </section>
@@ -420,7 +432,7 @@
         <!-- ===================================================================
              SHARED SECTION: Contact & Footer
              =================================================================== -->
-        <footer class="footer-wrapper" id="contact" aria-labelledby="contact-title">
+        <section class="footer-wrapper" id="contact" aria-labelledby="contact-title">
             <!-- Background Gradient Banner (footer.svg) -->
             <div class="footer-bg-banner" aria-hidden="true">
                 <img src="assets/images/footer.svg" alt="" class="footer-bg-img" loading="lazy">
@@ -482,7 +494,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
     </main>
 
     <!-- Lucide Icons CDN -->

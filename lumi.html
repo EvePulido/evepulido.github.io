@@ -62,15 +62,17 @@
                 </a>
             </p>
 
-            <nav class="navbar" aria-label="Main navigation">
-                <ul class="nav-list" role="list">
-                    <li class="nav-item">
-                        <a href="index.html#work" class="nav-link">Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About me</a>
-                    </li>
-                </ul>
+            <div class="navbar">
+                <nav id="primary-nav" aria-label="Main navigation">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item">
+                            <a href="index.html#work" class="nav-link">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About me</a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <label class="theme-switch" for="theme-toggle-checkbox">
                     <input type="checkbox" id="theme-toggle-checkbox" class="theme-switch-input" role="switch" aria-label="Dark mode">
@@ -84,7 +86,12 @@
                         <span class="theme-switch-thumb" aria-hidden="true"></span>
                     </span>
                 </label>
-            </nav>
+
+                <!-- Mobile menu toggle (shown only on small screens when JS is available) -->
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+                    <span class="nav-toggle-bars" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -375,7 +382,7 @@
                         <li><strong>Related finding:</strong> Participants needed help locating screen-time information and moving between screens.</li>
                         <li><strong>Design intent:</strong> Make usage information easier to identify and reduce reliance on backtracking.</li>
                     </ul>
-                    <p class="text-subtle case-study-caption">The revised design brings daily screen time into Home and provides access to usage details.</p>
+                    <p class="case-study-caption">The revised design brings daily screen time into Home and provides access to usage details.</p>
                 </div>
                 <div class="col-5">
                     <div class="project-img-grid">
@@ -398,7 +405,7 @@
                         <li><strong>Related finding:</strong> One participant blocked TikTok instead of applying a one-hour limit.</li>
                         <li><strong>Design intent:</strong> Help parents understand and confirm the restriction they are choosing before committing.</li>
                     </ul>
-                    <p class="text-subtle case-study-caption">The revised restriction flow separates a daily limit from a complete block and explains each option before confirmation.</p>
+                    <p class="case-study-caption">The revised restriction flow separates a daily limit from a complete block and explains each option before confirmation.</p>
                 </div>
                 <div class="col-5">
                     <div class="project-img-wrapper">
@@ -416,7 +423,7 @@
                         <li><strong>Related finding:</strong> Participants confused schedule times and daily or weekly settings.</li>
                         <li><strong>Design intent:</strong> Make the meaning of each time selection explicit.</li>
                     </ul>
-                    <p class="text-subtle case-study-caption">Schedule configuration is divided into start and end steps, with an explicit indication when the rest period ends the following day.</p>
+                    <p class="case-study-caption">Schedule configuration is divided into start and end steps, with an explicit indication when the rest period ends the following day.</p>
                 </div>
                 <div class="col-5">
                     <div class="project-img-grid">
@@ -438,7 +445,7 @@
                     <ul class="strategy-list">
                         <li><strong>Design scope note:</strong> These additions extend the high-fidelity design beyond the three tested tasks.</li>
                     </ul>
-                    <p class="text-subtle case-study-caption">Additional high-fidelity states explain linking errors and allow children to request extra app time. These flows were not part of the initial usability test.</p>
+                    <p class="case-study-caption">Additional high-fidelity states explain linking errors and allow children to request extra app time. These flows were not part of the initial usability test.</p>
                 </div>
                 <div class="col-5">
                     <div class="project-img-grid">
