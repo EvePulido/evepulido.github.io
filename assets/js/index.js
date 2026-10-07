@@ -10,6 +10,7 @@
  * 3. NavigationManager - Controlador de Vistas SPA con gestión de foco accesible
  * 4. ScrollManager     - Despachador de scroll centralizado mediante rAF
  * 5. MenuManager       - Menú hamburguesa accesible en móvil (disclosure)
+ * 6. RevealManager     - Aparición suave de tarjetas e imágenes al hacer scroll
  * ==============================================================================
  */
 
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   NavigationManager.init();
   ScrollManager.init();
   MenuManager.init();
+  RevealManager.init();
 });
 
 /**
@@ -351,6 +353,58 @@ const MenuManager = (() => {
     // Al pasar a escritorio el menú vuelve a la barra horizontal
     desktopQuery.addEventListener('change', (e) => {
       if (e.matches) setOpen(false);
+    });
+  }
+
+  return { init };
+})();
+
+/**
+ * ------------------------------------------------------------------------------
+ * 6. RevealManager: Aparición única al entrar en pantalla (IntersectionObserver)
+ * ------------------------------------------------------------------------------
+ * Solo anima tarjetas e imágenes (no el hero, ni párrafos). Las clases se añaden
+ * desde JS: sin JS, con prefers-reduced-motion o sin IntersectionObserver el
+ * contenido se muestra directamente. Tras la animación se retira la clase para no
+ * pisar los hover de las tarjetas.
+ */
+const RevealManager = (() => {
+  const SELECTOR = '.project-card, .tool-card, .insight-card, .overview-card, .project-img-wrapper';
+  const REVEAL_FALLBACK_MS = 900;
+
+  function release(el) {
+    el.classList.remove('reveal', 'is-visible');
+  }
+
+  function reveal(el) {
+    el.classList.add('is-visible');
+    el.addEventListener('transitionend', () => release(el), { once: true });
+    // Respaldo por si la transición no llega a dispararse (pestaña en segundo plano)
+    window.setTimeout(() => release(el), REVEAL_FALLBACK_MS);
+  }
+
+  function init() {
+    if (!('IntersectionObserver' in window) || prefersReducedMotion()) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        reveal(entry.target);
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+
+    document.querySelectorAll(SELECTOR).forEach((el) => {
+      // Las imágenes dentro de una tarjeta se animan con la tarjeta, no por separado
+      if (el.matches('.project-img-wrapper') && el.parentElement.closest('.project-card')) return;
+
+      // Lo que ya está visible al cargar (hero, primera imagen) no se oculta: protege el LCP
+      const rect = el.getBoundingClientRect();
+      const rendered = rect.width > 0 && rect.height > 0;
+      if (rendered && rect.top < window.innerHeight) return;
+
+      el.classList.add('reveal');
+      observer.observe(el);
     });
   }
 
