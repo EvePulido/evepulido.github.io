@@ -2158,9 +2158,9 @@ body,
   color: var(--color-primary);
 }
 
-:is([data-theme="dark"], :root:not([data-theme="light"])) .footer-bg-banner {
-  opacity: 0.15;
-  filter: invert(1) hue-rotate(180deg) brightness(0.65);
+:is([data-theme="dark"], :root:not([data-theme="light"])) .footer-bg-banner,
+:is([data-theme="dark"], :root:not([data-theme="light"])) .project-card--placeholder .project-img-wrapper {
+  opacity: 0.7;
 }
 
 /* 4. Project Area Label in Dark Mode (High Contrast on Card Overlay) */
