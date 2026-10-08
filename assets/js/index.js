@@ -383,6 +383,22 @@ const RevealManager = (() => {
     window.setTimeout(() => release(el), REVEAL_FALLBACK_MS);
   }
 
+  // Descarga y decodifica las imágenes por adelantado para que no se pinten por partes
+  // durante la animación. Devuelve una promesa por elemento (con tope de espera).
+  const DECODE_TIMEOUT_MS = 2500;
+  const ready = new WeakMap();
+
+  function preload(el) {
+    const imgs = el.matches('img') ? [el] : Array.from(el.querySelectorAll('img'));
+    const jobs = imgs.map((img) => {
+      img.loading = 'eager';
+      return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+    });
+    const all = Promise.all(jobs);
+    const timeout = new Promise((resolve) => window.setTimeout(resolve, DECODE_TIMEOUT_MS));
+    ready.set(el, Promise.race([all, timeout]));
+  }
+
   function init() {
     if (!('IntersectionObserver' in window) || prefersReducedMotion()) return;
 
@@ -390,7 +406,8 @@ const RevealManager = (() => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         observer.unobserve(entry.target);
-        reveal(entry.target);
+        const target = entry.target;
+        (ready.get(target) || Promise.resolve()).then(() => reveal(target));
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
 
@@ -404,8 +421,13 @@ const RevealManager = (() => {
       if (rendered && rect.top < window.innerHeight) return;
 
       el.classList.add('reveal');
+      preload(el);
       observer.observe(el);
     });
+
+    // El fondo del footer también se decodifica antes de llegar a él
+    const footerImg = document.querySelector('.footer-bg-img');
+    if (footerImg) preload(footerImg);
   }
 
   return { init };
